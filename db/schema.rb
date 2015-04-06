@@ -11,10 +11,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406183043) do
+ActiveRecord::Schema.define(version: 20150406200627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "language_problems", force: :cascade do |t|
+    t.integer  "language_id"
+    t.integer  "problem_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "language_problems", ["language_id"], name: "index_language_problems_on_language_id", using: :btree
+  add_index "language_problems", ["problem_id"], name: "index_language_problems_on_problem_id", using: :btree
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "language_problem_id"
+    t.integer  "user_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "problems", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "difficulty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_progresses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "language_problem_id"
+    t.integer  "status"
+    t.boolean  "favorite"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
