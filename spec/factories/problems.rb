@@ -1,8 +1,9 @@
 FactoryGirl.define do
+
   factory :problem do
-    title "MyString"
-content "MyText"
-difficulty 1
+    title {Faker::Lorem.word}
+    content {Faker::Lorem.paragraph}
+    difficulty {rand(1..10)}
   end
 
 end
