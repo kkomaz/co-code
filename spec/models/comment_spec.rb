@@ -1,5 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Comment validations" do 
+    it "has a valid factory" do
+      expect(create(:comment)).to be_valid
+    end
+
+    it "is invalid without content" do
+      comment = build(:comment, :content => nil)
+      expect(comment).not_to be_valid
+    end
+
+    it "is invalid without a post id" do
+      comment = build(:comment, :post => nil)
+      expect(comment).not_to be_valid
+    end
+
+    it "is invalid without a user id" do
+      comment = build(:comment, :user => nil)
+      expect(comment).not_to be_valid
+    end
+  end
 end

@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :comment do
-    content "MyText"
-post_id 1
-user_id 1
+    content {Faker::Lorem.word}
+    post
+    user
   end
 
 end

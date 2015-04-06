@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :post do
-    title "MyString"
-content "MyText"
-language_problem_id 1
-user_id 1
+    title {Faker::Lorem.word}
+    content {Faker::Lorem.paragraph}
+    language_problem
+    user
   end
 
 end
