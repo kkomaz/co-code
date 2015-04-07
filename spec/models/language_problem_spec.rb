@@ -16,4 +16,22 @@ RSpec.describe LanguageProblem, type: :model do
       expect(language_problem).not_to be_valid
     end
   end
+
+  describe "Language helper method test" do
+    before(:each) do
+      @language = create(:language, :id => 1)
+      @language_problem_1 = create(:language_problem, :language_id => 1, :problem_id => 1)
+      @language_problem_2 = create(:language_problem, :language_id => 1, :problem_id => 2)
+    end
+
+    it "returns the CORRECT language_problem object" do
+      language_problem_finder = LanguageProblem.find_language_problem(@language_problem_1.problem_id)
+      expect(language_problem_finder).to eq(@language_problem_1)
+    end
+
+    it "returns the WRONG language_problem object" do
+      language_problem_finder = LanguageProblem.find_language_problem(@language_problem_1.problem_id)
+      expect(language_problem_finder).not_to eq(@language_problem_2)
+    end
+  end
 end
