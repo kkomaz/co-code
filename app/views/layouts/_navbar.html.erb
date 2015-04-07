@@ -1,0 +1,14 @@
+<% if signed_in? %>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  </nav>
+<% else %>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+    </div>
+  </nav>
+<% end %>

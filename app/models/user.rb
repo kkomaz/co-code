@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def active_languages
+     self.user_progresses.collect { |prog| prog.language_problem.language }
+  end
+
 end
