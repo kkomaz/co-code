@@ -13,6 +13,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'nokogiri'
+gem 'awesome_print', '~> 1.6.1'
 
 group :test, :development do
   gem 'rspec-rails'
