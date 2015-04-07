@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:show]
   resources :languages, :only => [] do
     resources :problems, :only => [:index]
-  end
+  end    
   
   get '/:id/progress' => "user_progresses#show", :as => 'progress'
   post 'user_progresses/create', :as => 'create_user_progress'
@@ -13,5 +13,8 @@ Rails.application.routes.draw do
 
   get ':id' => 'languages#show', as: :language
   get ':language_id/:id' => 'problems#show', as: :language_problem
+
+  get ':language_id/:problem_id/post/:id' => 'posts#show', :as => 'problem/post'
+  get ':language_id/:problem_id/posts' => 'posts#index', :as => 'problem/posts'
 
 end
