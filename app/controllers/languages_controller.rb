@@ -2,7 +2,7 @@ class LanguagesController < ApplicationController
 
   def index
     @language = Language.new
-    @languages = Language.all
+    @languages = current_user.available_user_languages
   end
 
 end

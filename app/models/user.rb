@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     Language.where(:id => lids)
   end
 
-  def not_user_languages
+  def available_user_languages
     lpids = self.user_progresses.joins(:language_problem).where('status = 1 OR status = 2').pluck(:language_problem_id)
     lids = LanguageProblem.where(:id => lpids).pluck(:language_id)
     Language.where.not(:id => lids)

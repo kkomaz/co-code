@@ -1,0 +1,5 @@
+<h1><%= current_user.full_name %></h1>
+
+<%- current_user.user_languages.each do |language| -%>
+  <p><%= language.name %></p>
+<%- end -%>
