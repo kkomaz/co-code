@@ -1,11 +1,11 @@
 <h1>Active Languages</h1>
 <ol>
+   <% @current_languages.each do |language| %>
   <li>
-  <% @current_languages.each do |language| %>
     <%= language.name %>
     <p> Completed Problems: <%= current_user.completed_problems(language).count %></p>
-    <%= link_to "#{language.name} Path", user_progress_path(current_user) %>
-    <% end %>
+    <%= link_to "#{language.name} Path", user_progress_path %>
   </li>
+    <% end %>
 </ol>
 
