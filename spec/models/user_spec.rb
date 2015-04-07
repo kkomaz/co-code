@@ -48,5 +48,21 @@ RSpec.describe User, type: :model do
         expect(user.full_name).to eq("Leonhard Euler")
       end
     end
+
+    describe "#user_languages" do
+      it "returns an array of languages" do
+        user = create(:user, :id => 1)
+        create(:user_progress, :user_id => 1, :status => 1)
+        create(:user_progress, :user_id => 1, :status => 1)
+        expect(user.user_languages.count).to eq(2)
+      end
+
+      xit "returns only languages where the user has active problems" do
+        user = create(:user, :id => 2)
+        create(:user_progress, :user_id => 2, :status => 1)
+        create(:user_progress, :user_id => 2, :status => 0)
+        expect(user.user_languages.count).to eq(1)
+      end
+    end
   end
 end
