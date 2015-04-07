@@ -12,6 +12,7 @@ gem 'pg'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'nokogiri'
 
 group :test, :development do
   gem 'rspec-rails'
