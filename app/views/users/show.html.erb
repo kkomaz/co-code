@@ -1,10 +1,16 @@
 <% if signed_in? %>
   <%= render 'list' %>
-
+  
+<% if current_user.available_user_languages.count > 0 %>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Add a Language
 </button>
+<% else %>
+<button type="button" disabled class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Add a Language
+</button>
+<% end %>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
