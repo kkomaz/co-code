@@ -1,9 +1,9 @@
 class UserProgressesController < ApplicationController
   def create
     # capture language id and get the correct languageproblem id for the first problem
-    @language_problem = LanguageProblem.find_first_problem_of_language(params[:language][:id])
+    @language_problem = LanguageProblem.find_language_problem(params[:language][:id], params[:problem][:id])
     # then create user progress using current user and above lp id
-    @user_progress = UserProgress.build_new_language_track(@language_problem, current_user)
+    @user_progress = UserProgress.build_user_progress(@language_problem, current_user)
     # save
     if @user_progress.save
       #redirect to show
