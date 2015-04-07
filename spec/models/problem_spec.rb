@@ -7,7 +7,7 @@ RSpec.describe Problem, type: :model do
   end
 
   it "is invalid without a title" do
-    problem = build(:problem, :title => nil)
+    problem = build(:problem, :title => nil, :slug => 'slug')
     expect(problem).not_to be_valid
   end
 
