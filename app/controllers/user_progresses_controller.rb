@@ -16,6 +16,7 @@ class UserProgressesController < ApplicationController
 
   def show
     @language = Language.find(params[:id])
+    @current_problem = current_user.current_problem(@language)
   end
 
   def update

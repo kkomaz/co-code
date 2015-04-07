@@ -37,11 +37,9 @@ class User < ActiveRecord::Base
     Language.where.not(:id => lids)
   end
 
-  # Returns the user_progress where status = 1 (i.e. the current problem) for a given language
-  # Do we want to return the language-problem itself????
+  # Returns the current problem (user_progress = 1) for a given language
   def current_problem(language)
-    self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 1)
-    # self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 1)[0].language_problem
+    self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 1)[0].language_problem.problem
   end
 
   # Returns all user_progresses where status = 0 (i.e. viewed but not selected as the current problem for that language)
