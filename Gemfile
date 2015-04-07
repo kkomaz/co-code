@@ -14,6 +14,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'nokogiri'
 gem 'awesome_print', '~> 1.6.1'
+gem 'friendly_id', '~> 5.1.0'
 
 group :test, :development do
   gem 'rspec-rails'
