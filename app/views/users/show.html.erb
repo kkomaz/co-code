@@ -1,6 +1,8 @@
 <% if signed_in? %>
   <%= render @languages %>
+  <%= link_to "Add a Language", languages_path %>
 <% else %>
   <%= link_to "Sign in", new_user_session_path %>
   <%= link_to "Sign up", new_user_registration_path %>
 <% end %>
+
