@@ -24,15 +24,23 @@ class User < ActiveRecord::Base
     end
   end
 
-  # Returns collection of language objects (we use language.name in the view)
+  # Returns collection of language objects (we use language.name in the view) - GIVES back ALL languages (including user_progress = 0)
   def user_languages
     lids = self.language_problems.pluck(:language_id)
     Language.where(:id => lids)
   end
 
+  def problems_viewed_but_not_started(language)
+    self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 0)
+  end
+
+  def problems_in_progress(language)
+    self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 1)
+  end
+
   # MIGHT BE WORKING - TESTING REQUIRED
   def completed_problems(language)
-    self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 2).count
+    self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 2)
   end
 
   # MIGHT BE WORKING - TESTING REQUIRED
