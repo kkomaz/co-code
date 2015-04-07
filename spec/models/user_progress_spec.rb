@@ -41,4 +41,16 @@ RSpec.describe UserProgress, type: :model do
       expect(user_progress).not_to be_valid
     end
   end
+
+  describe "UserProgress methods" do 
+    it "sets user progress status to 1 for problem 1 when new language sign-up" do 
+      user1 = create(:user, :id => 1)
+      language = create(:language, :id => 1,)
+      language_problem_1 = create(:language_problem, :language_id => 1, :problem_id => 1)
+      language_problem_2 = create(:language_problem, :language_id => 1, :problem_id => 2)
+
+      user_progress = UserProgress.build_user_progress(language_problem_1, user1)
+      expect(user_progress.user).to eq(user1)
+    end
+  end
 end
