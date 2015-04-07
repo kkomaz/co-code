@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+problems = ProblemScraper.new.create_import_hash
+Problem.create(problems)
+
+Language.create(:name => "Ruby")
+Language.create(:name => "JavaScript")
+
+Language.all.each do |language|
+  Problem.all.each do |problem|
+    language.language_problems.create(:problem => problem)
+  end
+end
