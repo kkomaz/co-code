@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations"}
 
   resources :users, :only => [:show]
-  resources :languages, :only => [:index] do
+  resources :languages, :only => [] do
     resources :problems, :only => [:index]
   end
-  get 'user_progresses/show', :as => 'user_progress'
+  get '/:id/progress' => "user_progresses#show", :as => 'progress'
   post 'user_progresses/create', :as => 'create_user_progress'
   put 'user_progresses/update', :as => 'update_user_progress'
 
