@@ -24,8 +24,20 @@ class User < ActiveRecord::Base
     end
   end
 
-  def active_languages
-     self.user_progresses.collect { |prog| prog.language_problem.language }
+  # Returns collection of language objects (we use language.name in the view)
+  def user_languages
+    lids = self.language_problems.pluck(:language_id)
+    Language.where(:id => lids)
+  end
+
+  # MIGHT BE WORKING - TESTING REQUIRED
+  def completed_problems(language)
+    self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 2).count
+  end
+
+  # MIGHT BE WORKING - TESTING REQUIRED
+  def find_language_problem_ids(language)
+    self.language_problems.where(:language => language).pluck(:id)
   end
 
 end

@@ -1,3 +1,12 @@
+<h1>Active Languages</h1>
 <ol>
-  <li><p><%= language.name %></p></li>
+  <li>
+  <%= language.name %>
+  <%= current_user.completed_problems(language) %>
+
+  </li>
+</ol>
+
+<ol>
+  <li></li>
 </ol>
