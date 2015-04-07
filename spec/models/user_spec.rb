@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
 
   end
 
-  describe "User instance methods" do 
+  context "User instance methods" do 
     describe "#full_name" do 
       it "returns a full name" do
         user = build(:user, :first_name => "Leonhard", :last_name => "Euler")
@@ -53,16 +53,44 @@ RSpec.describe User, type: :model do
       it "returns an array of languages" do
         user = create(:user, :id => 1)
         create(:user_progress, :user_id => 1, :status => 1)
-        create(:user_progress, :user_id => 1, :status => 1)
-        expect(user.user_languages.count).to eq(2)
+        expect(user.user_languages.first).to be_an_instance_of(Language)
       end
 
-      xit "returns only languages where the user has active problems" do
+      it "returns only languages where the user has a current problem" do
         user = create(:user, :id => 2)
         create(:user_progress, :user_id => 2, :status => 1)
+        create(:user_progress, :user_id => 2, :status => 2)
         create(:user_progress, :user_id => 2, :status => 0)
-        expect(user.user_languages.count).to eq(1)
+        expect(user.user_languages.count).to eq(2)
       end
     end
+
+    describe "#available_user_languages" do
+      it "returns an array of languages" do
+        user = create(:user, :id => 1)
+        language = create(:language)
+        create(:user_progress, :user_id => 1, :status => 1)
+        expect(user.available_user_languages.first).to be_an_instance_of(Language)
+      end
+
+      it "returns only languages where the user does not have a current problem" do
+        user = create(:user, :id => 2)
+        create(:user_progress, :user_id => 2, :status => 1)
+        language = create(:language)
+        expect(user.available_user_languages.first).to eq(language)
+      end
+    end
+
+    describe "#find_language_problem_ids" do
+      it "returns language_problem_ids belonging to a user" do
+        # user = create(:user, :id => 1)
+        
+        # create()
+      end
+
+
+    end
+
+
   end
 end
