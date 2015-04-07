@@ -2,11 +2,7 @@
 <ol>
   <li>
   <%= language.name %>
-  <%= current_user.completed_problems(language) %>
-
+  <p> Completed Problems: <%= current_user.completed_problems(language).count %></p>
   </li>
 </ol>
 
-<ol>
-  <li></li>
-</ol>
