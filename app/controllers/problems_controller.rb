@@ -3,5 +3,8 @@ class ProblemsController < ApplicationController
   end
 
   def show
+    @language_problem = LanguageProblem.find_language_problem(params[:language_id], params[:id])
+    @language = @language_problem.language
+    @problem = @language_problem.problem
   end
 end

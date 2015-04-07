@@ -6,7 +6,9 @@ class LanguageProblem < ActiveRecord::Base
 
   validates :language_id, :problem_id, :presence => true
 
-  def self.find_language_problem(language_id, problem_id = 1)
-    self.where("language_id = ? AND problem_id = ?", language_id, problem_id).first
+  def self.find_language_problem(language, problem)
+    language = Language.find(language)
+    problem = problem ? Problem.find(problem) : Problem.find(1)
+    self.where({:language => language, :problem => problem}).first
   end
 end
