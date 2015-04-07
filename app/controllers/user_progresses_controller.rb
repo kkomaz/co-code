@@ -7,7 +7,7 @@ class UserProgressesController < ApplicationController
     # save
     if @user_progress.save
       #redirect to show
-      redirect_to user_progress_path
+      redirect_to progress_path(@language_problem.language)
     else
       redirect_to :back
     end
@@ -15,7 +15,7 @@ class UserProgressesController < ApplicationController
   end
 
   def show
-    # display 'verb' page
+    @language = Language.find(params[:id])
   end
 
   def update
