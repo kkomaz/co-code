@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
     Language.where(:id => lids)
   end
 
+  def not_user_languages
+    lpids = self.user_progresses.joins(:language_problem).where('status = 1 OR status = 2').pluck(:language_problem_id)
+    lids = LanguageProblem.where(:id => lpids).pluck(:language_id)
+    Language.where.not(:id => lids)
+  end
+
   # Returns the user_progress where status = 1 (i.e. the current problem) for a given language
   # Do we want to return the language-problem itself????
   def current_problem(language)
