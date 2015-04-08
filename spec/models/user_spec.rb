@@ -135,7 +135,21 @@ RSpec.describe User, type: :model do
         expect(user.problems_viewed_but_not_started(language)).to eq([])
       end
     end
-    
 
+    describe "#current_problem" do
+      it "returns the user's current problem for a given language" do
+        user = create(:user, :id => 2)
+        current_problem = create(:user_progress, :user_id => 2, :status => 1)
+        language = current_problem.language_problem.language
+        expect(user.current_problem(language)).to eq(current_problem.language_problem.problem)
+      end      
+
+      it "returns nothing if the given language has no current problems" do
+        user = create(:user, :id => 2)
+        completed_problem = create(:user_progress, :user_id => 2, :status => 0)
+        language = completed_problem.language_problem.language
+        expect(user.current_problem(language)).to eq(nil)
+      end
+    end
   end
 end
