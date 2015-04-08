@@ -11,14 +11,16 @@
  * file per style scope.
  *
  *= require_tree ../../../vendor/assets/stylesheets/.
- *= require_tree .
  *= require_self
+ *= require bootstrap
+ *= require flat-ui 
+
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
-@import "bootstrap";
+
 /* Some Style from the Bootstrap Default Theme */
 body {
   padding-top: 70px;
@@ -34,3 +36,5 @@ body {
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
+
+
