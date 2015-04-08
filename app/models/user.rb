@@ -62,8 +62,19 @@ class User < ActiveRecord::Base
     self.language_problems.where(:language => language).pluck(:id)
   end
 
+  # Finds and returns the next problem for a user's language
   def next_problem(language)
     self.problems_viewed_but_not_started(language).order(:language_problem_id).limit(1)
+  end
+
+  # change user's current problem based on the user_progress status
+  def change_current_problem(user_progress)
+    if user_progress.status == 0
+      self.replace_current_problem(user_progress.language)
+    elsif user_progress.status == 1
+      next_language_problem = self.next_problem(user_progress.language)[0].language_problem
+      UserProgress.progress_for_user(self, next_language_problem).update(:status => 1)
+    end
   end
 
 end

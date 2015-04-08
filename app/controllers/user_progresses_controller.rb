@@ -30,18 +30,9 @@ class UserProgressesController < ApplicationController
     @language_problem = LanguageProblem.find_language_problem(params[:language][:id], params[:id])
     @language = @language_problem.language
     @user_progress = UserProgress.progress_for_user(current_user, @language_problem)
+    current_user.change_current_problem(@user_progress) # => change user's current problem
 
-    current_status = @user_progress.status
-
-    if current_status == 0
-      current_user.replace_current_problem(@language)
-      @user_progress.update(user_progress_params)
-    elsif current_status == 1
-      next_language_problem = current_user.next_problem(@language)[0].language_problem
-      UserProgress.progress_for_user(current_user, next_language_problem).update(:status => 1)
-      @user_progress.update(user_progress_params)
-    end
-
+    @user_progress.update(user_progress_params)
     redirect_to language_problem_path(@language, current_user.current_problem(@language))
 
   end
