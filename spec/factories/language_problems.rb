@@ -3,5 +3,4 @@ FactoryGirl.define do
     language
     problem
   end
-
 end

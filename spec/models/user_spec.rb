@@ -41,8 +41,8 @@ RSpec.describe User, type: :model do
 
   end
 
-  context "instance methods" do 
-    describe "#full_name" do 
+  context "instance methods" do
+    describe "#full_name" do
       it "returns a full name" do
         user = build(:user, :first_name => "Leonhard", :last_name => "Euler")
         expect(user.full_name).to eq("Leonhard Euler")
@@ -103,7 +103,7 @@ RSpec.describe User, type: :model do
         incomplete_problem = create(:user_progress, :user_id => 2, :status => 1)
         language = incomplete_problem.language_problem.language
         expect(user.completed_problems(language)).to eq([])
-      end      
+      end
 
       it "does not return user_progresses for viewed problems" do
         user = create(:user, :id => 2)
@@ -119,14 +119,14 @@ RSpec.describe User, type: :model do
         viewed_problem = create(:user_progress, :user_id => 2, :status => 0)
         language = viewed_problem.language_problem.language
         expect(user.problems_viewed_but_not_started(language)).to eq([viewed_problem])
-      end      
+      end
 
       it "does not return the current problem" do
         user = create(:user, :id => 2)
         current_problem = create(:user_progress, :user_id => 2, :status => 1)
         language = current_problem.language_problem.language
         expect(user.problems_viewed_but_not_started(language)).to eq([])
-      end      
+      end
 
       it "does not return completed problems" do
         user = create(:user, :id => 2)
@@ -142,13 +142,30 @@ RSpec.describe User, type: :model do
         current_problem = create(:user_progress, :user_id => 2, :status => 1)
         language = current_problem.language_problem.language
         expect(user.current_problem(language)).to eq(current_problem.language_problem.problem)
-      end      
+      end
 
       it "returns nothing if the given language has no current problems" do
         user = create(:user, :id => 2)
         completed_problem = create(:user_progress, :user_id => 2, :status => 0)
         language = completed_problem.language_problem.language
         expect(user.current_problem(language)).to eq(nil)
+      end
+    end
+
+    describe '#new_user?' do
+      it 'returns true when a user is a new language user' do
+        user = create(:user)
+        language = create(:language)
+        expect(user.new_user?(language)).to eq(true)
+      end
+      it 'returns false when a user is not a new language user' do
+        user = create(:user)
+        language = create(:language, :name => "Ruby")
+        problem1 = create(:language_problem, :language => language)
+        problem2 = create(:language_problem, :language => language)
+        create(:user_progress, :user => user, :status => 0, :language_problem => problem1)
+        create(:user_progress, :user => user, :status => 1, :language_problem => problem2)
+        expect(user.new_user?(language)).to eq(false)
       end
     end
   end

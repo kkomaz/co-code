@@ -11,4 +11,8 @@ class Problem < ActiveRecord::Base
   def name
     self.title[/Problem \d+/]
   end
+
+  def self.first_problem
+    self.order(:id).limit(1)[0]
+  end
 end

@@ -25,13 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def replace_current_problem(language)
-    if !new_user?(language)
-      self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 1)[0].update(status: 0)
-    end
-  end
-
-  def new_user?(language)
-    current_problem(language) == nil
+    self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 1)[0].update(status: 0)
   end
 
   # Returns collection of language objects where user_progress status is 1(working on problem) or 2(completed problem)
@@ -66,6 +60,10 @@ class User < ActiveRecord::Base
   # Helper method to find lpids for a given language
   def find_language_problem_ids(language)
     self.language_problems.where(:language => language).pluck(:id)
+  end
+
+  def next_problem(language)
+    self.problems_viewed_but_not_started(language).order(:language_problem_id).limit(1)
   end
 
 end

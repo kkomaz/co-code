@@ -5,5 +5,4 @@ FactoryGirl.define do
     status {rand(0..2)}
     favorite {[true,false].sample}
   end
-
 end

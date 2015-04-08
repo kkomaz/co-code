@@ -3,9 +3,7 @@
 
 <%= raw @problem.content %>
 
-<% if current_user.current_problem(@language) != @problem %>
-  <%= button_to "Set As Current Problem", create_user_progress_path, params: { :"language[id]" => @language.id, :id => @problem.id } %>
-<% end %>
+<%= progress_buttons(@language_problem) %>
 
 <br>
 

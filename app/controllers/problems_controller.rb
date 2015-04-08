@@ -8,5 +8,5 @@ class ProblemsController < ApplicationController
     @problem = @language_problem.problem
     @posts = @language_problem.posts.last(5)
   end
-  
+
 end
