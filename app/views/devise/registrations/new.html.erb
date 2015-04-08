@@ -51,13 +51,24 @@
               </div>
 
               <br>
-
-              <div class="actions">
-                <%= f.submit "Sign up" %>
+            <div class="row">
+              <div class="pull-left left-padder">
+                <div class="actions">
+                  <%= f.submit "Sign up" %>
+                </div>
               </div>
             <% end %>
-
-            <%= render "devise/shared/links" %>
+            <div class="pull-left left-padder">
+            <%- if devise_mapping.omniauthable? %>
+              <%- resource_class.omniauth_providers.each do |provider| %>
+                <%= link_to(omniauth_authorize_path(resource_name, provider), :class=>"button small-button green-button") do %>
+                  or sign up with
+                  <span class="fui-facebook"></span>
+                <% end %>
+              <% end -%>
+            <% end %>
+            </div>
+            </div>
           </div>
         </div>
       </div>  
