@@ -24,6 +24,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def replace_current_problem(language)
+    if !new_user?(language)
+      self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 1)[0].update(status: 0)
+    end
+  end
+
+  def new_user?(language)
+    current_problem(language) == nil
+  end
+
   # Returns collection of language objects where user_progress status is 1(working on problem) or 2(completed problem)
   def user_languages
     lpids = self.user_progresses.joins(:language_problem).where('status = 1 OR status = 2').pluck(:language_problem_id)

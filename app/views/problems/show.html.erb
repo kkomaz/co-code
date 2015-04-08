@@ -3,7 +3,14 @@
 
 <%= raw @problem.content %>
 
+<% if current_user.current_problem(@language) != @problem %>
+  <%= button_to "Set As Current Problem", create_user_progress_path, params: { :"language[id]" => @language.id, :id => @problem.id } %>
+<% end %>
+
+<br>
+
 <%= render :partial => 'posts/post_link', :collection => @posts, :as => :post %>
 
 <%= link_to "Show all posts", problem_posts_path(@language.slug, @problem.slug) %>
 <%= link_to "New Post", new_problem_post_path(@language.slug, @problem.slug) %>
+

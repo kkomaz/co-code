@@ -9,8 +9,10 @@ class UserProgress < ActiveRecord::Base
   validates_uniqueness_of :user_id, :scope => :language_problem_id
   validates_uniqueness_of :language_problem_id, :scope => :user_id
 
-  def self.build_user_progress(language_problem, user)
-    UserProgress.new(:user => user, :language_problem => language_problem, :status => 1)
+  def self.find_or_build_user_progress(language_problem, user)
+    user_progress = UserProgress.find_or_create_by(:user => user, :language_problem => language_problem)
+    user_progress.status = 1
+    user_progress
   end
 
 end
