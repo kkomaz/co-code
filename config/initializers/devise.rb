@@ -22,6 +22,10 @@ Devise.setup do |config|
 
   config.sign_out_via = :delete
 
+  config.warden do |manager| 
+   manager.failure_app = CustomAuthenticationFailure 
+  end
+
   config.omniauth :facebook, ENV['facebook_key'], ENV['facebook_secret']
 
 end
