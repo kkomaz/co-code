@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree ../../../vendor/assets/javascripts/.
-//= require flat-ui
-//= require_tree .
+
 

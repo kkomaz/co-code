@@ -1,8 +1,8 @@
 <%= link_to progress_path(language.slug) do %>
-  <div class="language-panel col-md-3 col-sm-6">
-
+  <div class="col-md-3 col-sm-6">
+    <div class="language-panel">
     <%= language.name %>
     <p> Completed Problems: <%= current_user.completed_problems(language).count %></p>
-
+    </div>
   </div>
 <%- end -%>

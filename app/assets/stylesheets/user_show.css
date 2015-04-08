@@ -1,4 +1,6 @@
 div.language-panel {
-  height: 200px;
-  background-color: #BFBFBF;
+  height: 350px;
+  background-color: #BDC3C7;
+  padding: 10px;
+  border-radius: 3px;
 }
