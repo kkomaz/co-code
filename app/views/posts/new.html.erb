@@ -1,2 +1,9 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1> MAKE A POST PARTY *WAVE*</h1>
+
+<%= form_for [@language, @current_problem, @post], :url => problem_posts_path do |f| %>
+<%= f.label :title, "Title" %>
+<%= f.text_field :title %>
+<%= f.label :content, "Content" %>
+<%= f.text_area :content %>
+<%= f.submit "Create Post" %>
+<% end %>

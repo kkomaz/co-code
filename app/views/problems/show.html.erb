@@ -5,4 +5,5 @@
 
 <%= render :partial => 'posts/post_link', :collection => @posts, :as => :post %>
 
-<%= link_to "Show all posts" %>
+<%= link_to "Show all posts", problem_posts_path(@language.slug, @problem.slug) %>
+<%= link_to "New Post", new_problem_post_path(@language.slug, @problem.slug) %>

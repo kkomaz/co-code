@@ -1,1 +1,3 @@
-<%= render @posts %>
+<%= render :partial => 'post_link', :collection => @posts, :as => :post %>
+
+<%= link_to 'Back', language_problem_path(@language.slug, @current_problem.slug) %>
