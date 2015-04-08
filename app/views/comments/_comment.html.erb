@@ -1,0 +1,5 @@
+<li data-id='<%= comment.id %>'>
+  <p><%= comment.content %></p>
+  <p>Submitted by: <%= comment.user.full_name %></p>
+  <p><%= link_to "Delete", post_comment_path(comment.post, comment), :method => :delete, :remote => true %></p>
+</li>

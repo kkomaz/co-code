@@ -6,6 +6,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @language = @post.language
+    @problem = @post.problem
   end
 
   def edit

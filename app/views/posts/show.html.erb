@@ -1,2 +1,17 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1> <%= @language.name %> | <%= @problem.title %> </h1>
+
+<h2><%= @post.title %></h2>
+<p><%= @post.content %></p>
+
+
+
+<h3>Comments</h3>
+
+<div id="comment-container">
+  <ul id="comment-list">
+    <%= render :partial => 'comments/comment', :collection => @post.comments, :as => 'comment'  %>
+  </ul>
+</div>
+
+
+<%= render 'comments/form' %>
