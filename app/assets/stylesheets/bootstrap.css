@@ -5315,6 +5315,10 @@ a.list-group-item-danger.active:focus {
 .panel-body {
   padding: 15px;
 }
+
+.panel-left-padding {
+  padding-left: 80px;
+}
 .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
