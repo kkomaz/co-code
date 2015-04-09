@@ -1,4 +1,12 @@
-var newLi = '<%= j(render "comments/comment", :comment => @comment) %>'
+var newDiv = '<%= j(render "comments/comment", :comment => @comment) %>'
+var $container = $("div#comment-list")
 $("textarea").val("");
 $("textarea").focus();
-$("div#comment-list").append(newLi);
+$container.append(newDiv);
+
+
+
+  // var $scrollTo = $("div[data-id=" + "<%= @comment.id %>" + "]")
+  // $container.animate({
+  //     scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+  // });​

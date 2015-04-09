@@ -44,13 +44,10 @@
   </div>
 
   <div id="comment-container" class="row top-pad">
-    <div id="comment-list">
+    <div id="comment-list" class="col-md-8">
       <%= render :partial => 'comments/comment', :collection => @post.comments, :as => 'comment'  %>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
       <div class="panel post-body">
         <div class="post-comment-form">
           <%= render 'comments/form' %>

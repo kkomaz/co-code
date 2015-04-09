@@ -1,2 +1,4 @@
 var $removeLI = $("div[data-id=" + "<%= @comment.id %>" + "]");
-$removeLI.remove();
+$removeLI.fadeOut(400, function(){
+  $removeLI.remove();
+});

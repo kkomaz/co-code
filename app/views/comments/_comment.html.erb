@@ -1,12 +1,19 @@
-<div data-id='<%= comment.id %>'>
-  <div class="col-md-4">
-    <div class="panel comment-body">
-      <p><%= comment.content %></p>
-      <div class="user-img">
-        <%= user_img(comment.user) %>
+<div data-id='<%= comment.id %>' class="">
+  <div class="col-md-6">
+    <div class="panel comment-body clearfix">
+      <p class="triangle-border">
+        <%= comment.content %>
+      </p>
+      <div class="user-container clearfix">
+        <div class="user-img user-comment">
+          <%= user_img(comment.user) %>
+          <p class="user-text"><%= comment.user.first_name %></p>
+        </div>
+        <div class="comment-info">
+          <p><%= comment.created_at.strftime("on %m/%d/%Y at %I:%M%p") %></p>
+          <%= delete_comment_link(current_user, comment) %>
+        </div>
       </div>
-      <p><%= comment.user.first_name %></p>
-      <p><%= link_to "Delete", post_comment_path(comment.post, comment), :method => :delete, :remote => true %></p>
     </div>
   </div>
 </div>

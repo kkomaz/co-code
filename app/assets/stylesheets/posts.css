@@ -57,6 +57,25 @@ div.user-img img {
   transform: translateY(-50%);
 }
 
+.user-text, .user-img {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.user-comment {
+  width: 38%;
+  float: left;
+}
+
+.comment-body .triangle-border {
+  margin-bottom: 24px;
+}
+
+.comment-info {
+  width: 62%;
+  float: left;
+}
+
 /* SPEECH BUBBLE */
 .triangle-border {
   position:relative;
