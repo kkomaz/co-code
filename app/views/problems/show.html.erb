@@ -16,6 +16,9 @@
     </div>
   </div>
 
+<h1><%= @language.name %></h1>
+<h1><%= @problem.title %></h1>
+
   <div class="row">
     <div class="col-md-12">
       <div class="panel problem-body">
@@ -28,10 +31,8 @@
       </div>
     </div>
   </div>
-
-
-  <%= render :partial => 'posts/post_link', :collection => @posts, :as => :post %>
-
-  <%= link_to "Show all posts", problem_posts_path(@language.slug, @problem.slug) %>
-  <%= link_to "New Post", new_problem_post_path(@language.slug, @problem.slug) %>
+<br>
+<%= link_to "New Post", new_problem_post_path(@language.slug, @problem.slug) %> <br>
+<%= link_to "Show all posts", problem_posts_path(@language.slug, @problem.slug) %>
+<%= render @posts %>
 </div>
