@@ -1,17 +1,41 @@
 <div class="container">
-  <h1><%= current_user.full_name %></h1>
 
-  <p><%= @language.name %></p>
+  <div class="row top-pad">
+    <div class="panel col-md-12">
+      <div class="col-md-12" id="current-problem-link">
+        <%= link_to language_problem_path(@language.slug, @current_problem.slug), id: "current-problem-link-text" do %>
+          TAKE ME TO MY CURRENT  <i style="color: <%= language_color(@language) %>;" class="icon-<%= language_icon(@language) %>"></i> <l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>  PROBLEM
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <h3>Current Problem</h3>
-  <%= link_to "Go To Current Problem", language_problem_path(@language.slug, @current_problem.slug) %>
+  <div class="row">
+    <div class="panel col-md-6">
+      <div class="col-md-12" id="favorites-heading">
+        <a id="favorites-heading" href="" title="">I LOVE THESE PROBLEMS</a>
+      <hr>
+        <a id="favorites-heading" >Favorite Problem 1</a><br>
+        <a id="favorites-heading" >Favorite Problem 2</a><br>
+        <a id="favorites-heading" >Favorite Problem 3</a><br>
+      </div>
+    </div>
 
-  <h3>Favorites</h3>
+    <div class="panel col-md-6">
+      <div class="col-md-12" id="favorites-heading">
+        <a id="favorites-heading" href="" title="">NEED INSPIRATION?</a>
+      <hr>
+        <a id="favorites-heading" >Suggested Problem 1</a><br>
+        <a id="favorites-heading" >Suggested Problem 2</a><br>
+        <a id="favorites-heading" >Suggested Problem 3</a><br>     
+      </div>
+    </div>
 
+    <div class="panel col-md-12">
+      <div class="col-md-12" id="current-problem-link">
+        <%= link_to "Back to dashboard", root_path %>
+      </div>
+    </div>
+  </div>
 
-  <h3>Suggested Problems</h3>
-
-  <br>
-  <p>TEMP LINK BACK</p>
-  <%= link_to "Back to dashboard", root_path %>
 </div>
