@@ -1,17 +1,61 @@
-<h1> <%= @language.name %> | <%= @problem.title %> </h1>
+<div class="container">
+  <div class="row top-pad">
+    <div class="col-md-12 col-sm-12">
+      <div class="panel bread-crumb">
+        <h6>
+          <%= link_to progress_path(@language.slug) do %>
+            <i class="icon-<%= language_icon(@language) %>"></i> <%= @language.name %>
+          <%- end -%> /
+          <%= link_to language_problem_path(@language.slug, @problem.slug) do %>
+            <%= problem_number(@problem) %>
+          <%- end -%> / <%= @post.title %>
+        </h6>
+      </div>
+    </div>
+  </div>
 
-<h2><%= @post.title %></h2>
-<p><%= @post.content %></p>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel post-body clearfix">
+        <div class="user-info">
+          <%= user_img(@post.user) %> <br>
+          <%= @post.user.first_name %>
+        </div>
+        <div class="triangle-border left post-chat">
+          <div class="post-title">
+            <h5><%= @post.title %></h5>
+          </div>
+          <div class="post-content">
+            <%= @post.content %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="dark-panel">
+        <div class="post-body">
+          <span id="comment-title">Comments</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div id="comment-container">
+    <ul id="comment-list">
+      <%= render :partial => 'comments/comment', :collection => @post.comments, :as => 'comment'  %>
+    </ul>
+  </div>
 
-<h3>Comments</h3>
-
-<div id="comment-container">
-  <ul id="comment-list">
-    <%= render :partial => 'comments/comment', :collection => @post.comments, :as => 'comment'  %>
-  </ul>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel post-body">
+        <div class="post-comment-form">
+          <%= render 'comments/form' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-<%= render 'comments/form' %>

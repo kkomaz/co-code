@@ -1,3 +1,33 @@
 <div class="container">
-<%= render 'form' %>
+  <div class="row top-pad">
+    <div class="col-md-6 col-sm-12">
+      <div class="panel bread-crumb">
+        <h6>
+          <%= link_to progress_path(@language.slug) do %>
+            <i class="icon-<%= language_icon(@language) %>"></i> <%= @language.name %>
+          <%- end -%> /
+          <%= link_to language_problem_path(@language.slug, @problem.slug) do %>
+            <%= problem_number(@problem) %>
+          <%- end -%> / New Question
+        </h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel post-body">
+        <%= form_for [@language, @problem, @post], :url => problem_posts_path do |f| %>
+          <div class="post-title form-group">
+            <%= f.text_field :title, :placeholder => "Title",:class => "full-width", :id => "post-text-field" %>
+          </div>
+
+          <div class="post-content form-group">
+          <%= f.text_area :content, :placeholder => "Content...", :rows => 15, :class => "full-width", :id => "post-text-area" %>
+          </div>
+          <%= f.submit "Create Post", :class => "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

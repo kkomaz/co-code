@@ -1,0 +1,20 @@
+div#current-problem-link {
+  text-align: center;
+  line-height: 56px;
+  font-size: 40px;
+}
+
+a#current-problem-link-text {
+  color: #34495E;
+}
+
+div#favorites-heading {
+  padding-top: 12px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+}
+
+a#favorites-heading {
+  color: #34495E;
+}

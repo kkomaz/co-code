@@ -17,4 +17,12 @@ module UsersHelper
   def total_count(language)
     LanguageProblem.where(:language => language).count
   end
+
+  def user_img(user)
+    if user.image_url
+      render "users/image", :user => user
+    else
+      image_tag "ZptFx.png"
+    end
+  end
 end
