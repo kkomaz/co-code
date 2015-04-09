@@ -33,7 +33,10 @@ class ProblemScraper
   end
 
   def scrape_content (content)
-    content.to_s.gsub("<img src=\"", "<img src=\"https://projecteuler.net/").gsub(/(\r\n|\r|\n)/," ")
+    content.to_s
+    .gsub("<img src=\"", "<img src=\"https://projecteuler.net/")
+    .gsub(/(\r\n|\r|\n)/," ")
+    .gsub("href=", "href=\"https://projecteuler.net/")
   end
 
   def scrape_difficulty(index)

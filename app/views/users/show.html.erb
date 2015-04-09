@@ -1,8 +1,9 @@
 <div class="container">
-  <%= render :partial => 'users/list', :collection => @current_languages, :as => :language %>
+  <div class="panel-top-padding">
+    <%= render :partial => 'users/list', :collection => @current_languages, :as => :language %>
 
-  <%= render :partial => 'users/add_language'%>
-
+    <%= render :partial => 'users/add_language'%>
+  </div>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

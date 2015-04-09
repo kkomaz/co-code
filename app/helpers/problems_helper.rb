@@ -11,4 +11,12 @@ module ProblemsHelper
     end
   end
 
+  def problem_number(problem)
+    problem.title[/Problem \d+/]
+  end
+
+  def problem_title(problem)
+    problem.title.split(/Problem \d+:/).last
+  end
+
 end

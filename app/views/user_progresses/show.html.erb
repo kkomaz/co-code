@@ -1,15 +1,17 @@
-<h1><%= current_user.full_name %></h1>
+<div class="container">
+  <h1><%= current_user.full_name %></h1>
 
-<p><%= @language.name %></p>
+  <p><%= @language.name %></p>
 
-<h3>Current Problem</h3>
-<%= link_to "Go To Current Problem", language_problem_path(@language.slug, @current_problem.slug) %>
+  <h3>Current Problem</h3>
+  <%= link_to "Go To Current Problem", language_problem_path(@language.slug, @current_problem.slug) %>
 
-<h3>Favorites</h3>
+  <h3>Favorites</h3>
 
 
-<h3>Suggested Problems</h3>
+  <h3>Suggested Problems</h3>
 
-<br>
-<p>TEMP LINK BACK</p>
-<%= link_to "Back to dashboard", root_path %>
+  <br>
+  <p>TEMP LINK BACK</p>
+  <%= link_to "Back to dashboard", root_path %>
+</div>

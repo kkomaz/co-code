@@ -1,0 +1,17 @@
+/* POST NEW PAGE */
+div.post-body {
+  padding: 15px 55px;
+}
+
+#post-text-field {
+  padding: 5px 11px;
+}
+
+#post-text-area {
+  border: 2px solid #EEE;
+}
+
+div.post-title {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}

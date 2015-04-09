@@ -1,14 +1,37 @@
-<h1><%= @language.name %></h1>
-<h1><%= @problem.title %></h1>
+<div class="container">
+  <div class="row problem-top-pad">
+    <div class="col-md-6 col-sm-12">
+      <div class="panel bread-crumb">
+        <h6>
+          <%= link_to progress_path(@language.slug) do %>
+            <i class="icon-<%= language_icon(@language) %>"></i> <%= @language.name %>
+          <%- end -%> / <%= problem_number(@problem) %>
+        </h6>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="panel problem-buttons">
+          <%= progress_buttons(@language_problem) %>
+      </div>
+    </div>
+  </div>
 
-<%= raw @problem.content %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel problem-body">
+        <div class="problem-title">
+          <h2><%= problem_title(@problem) %></h2>
+        </div>
+        <div class="problem-content">
+          <%= raw @problem.content %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= progress_buttons(@language_problem) %>
 
-<br>
+  <%= render :partial => 'posts/post_link', :collection => @posts, :as => :post %>
 
-<%= render :partial => 'posts/post_link', :collection => @posts, :as => :post %>
-
-<%= link_to "Show all posts", problem_posts_path(@language.slug, @problem.slug) %>
-<%= link_to "New Post", new_problem_post_path(@language.slug, @problem.slug) %>
-
+  <%= link_to "Show all posts", problem_posts_path(@language.slug, @problem.slug) %>
+  <%= link_to "New Post", new_problem_post_path(@language.slug, @problem.slug) %>
+</div>

@@ -1,7 +1,7 @@
 /* LANGUAGE PANEL CSS */
 div.language-panel {
   height: 350px;
-  background-color: #BDC3C7;
+  background-color: #264348;
   padding: 10px;
   border-radius: 3px;
 }
@@ -31,10 +31,10 @@ div#add-text {
 }
 
 .language-panel button:hover,
-.language-panel button:focus {
+.language-panel button:focus,
+.language-panel button:disabled {
   background-color: transparent;
 }
-
 
 div.language-icon {
   margin-top: 15px;
@@ -53,4 +53,8 @@ div.language-name > h3 {
 div.language-progress {
   color: #fff;
   text-align: center;
+}
+
+div.panel-top-padding {
+  padding-top: 20px;
 }

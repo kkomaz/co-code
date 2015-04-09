@@ -1,0 +1,46 @@
+div.bread-crumb a {
+  color: #34495E;
+}
+
+div.bread-crumb a:hover {
+  color: #17A68A;
+}
+
+div.panel {
+  border-radius: 4px;
+  background-color: #fff;
+  height: 100%;
+  padding: 10px;
+}
+
+div.bread-crumb,
+div.problem-buttons {
+  height: 80px;
+}
+
+.problem-buttons form {
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+div.problem-title {
+  margin-bottom: 35px;
+}
+
+div.top-pad {
+  padding-top: 25px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+div.problem-body{
+  padding: 15px 55px;
+}
+
+body {
+  background-color: #ECECEC;
+}

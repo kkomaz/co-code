@@ -1,1 +1,1 @@
-<%= button_to "Set As Completed", update_user_progress_path, params: { :"language[id]" => @language.id, :id => @problem.id, :"user_progress[status]" => 2 }, :method => "put" %>
+<%= button_to "Mark As Completed", update_user_progress_path, params: { :"language[id]" => @language.id, :id => @problem.id, :"user_progress[status]" => 2 }, :method => "put", :class => "btn btn-success full-width" %>

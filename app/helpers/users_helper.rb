@@ -4,24 +4,6 @@ module UsersHelper
     "disabled" if current_user.available_user_languages.count < 1
   end
 
-  def language_icon(language)
-    case language.name
-    when "Ruby"
-      "ruby"
-    when "JavaScript"
-      "javascript"
-    end
-  end
-
-  def language_color(language)
-    case language.name
-    when "Ruby"
-      "#E74C3C"
-    when "JavaScript"
-      "#F1C40F"
-    end
-  end
-
   def language_completion(language)
     completed = completed_count(language).to_f
     total = total_count(language).to_f
