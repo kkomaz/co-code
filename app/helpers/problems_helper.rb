@@ -11,6 +11,14 @@ module ProblemsHelper
     end
   end
 
+  def favorite_buttons(language_problem)
+    if UserProgress.progress_for_user(current_user, language_problem).favorite
+      render 'problems/unfavorite_button'
+    else
+      render 'problems/favorite_button'
+    end
+  end
+
   def problem_number(problem)
     problem.title[/Problem \d+/]
   end

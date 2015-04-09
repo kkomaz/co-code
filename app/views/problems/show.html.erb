@@ -23,6 +23,7 @@
     <div class="col-md-6 col-sm-12">
       <div class="panel problem-buttons">
           <%= progress_buttons(@language_problem) %>
+          <%= favorite_buttons(@language_problem) %>
       </div>
     </div>
   </div>
@@ -49,7 +50,7 @@
       <h6 class="top-fix"><strong>Stuck?</strong> Just write a post!</h6>
       <p class="question-font">Kale chips Banksy Austin 8-bit Pitchfork, hashtag selfies kitsch paleo trust fund irony taxidermy chillwave. 
       3 wolf moon scenester roof party, 8-bit Brooklyn put a bird on it beard Wes Anderson freegan tilde DIY Marfa 
-      Thundercats Williamsburg. PBR&B XOXO quinoa fixie. XOXO ennui fap lomo.</p>
+      Thundercats Williamsburg. PBR&amp;B XOXO quinoa fixie. XOXO ennui fap lomo.</p>
       <%= render :partial => 'posts/form' %>
     </div>
 </div>
