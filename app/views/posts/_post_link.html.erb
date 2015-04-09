@@ -1,6 +1,6 @@
-<ul>
-  <li>
-    <%= link_to post.title, problem_post_path(@language, @problem, post) %>
-  </li>
-</ul>
-
+<div class="entry">
+  <h8><%= link_to post.title, problem_post_path(@language, @problem, post) %></h8> <br>
+  <fonts>submitted <%= post.created_at.strftime("%B %d, %Y") %> by <%= post.user.full_name %><fonts>
+  <br>
+  <%= comment_count(post) %>
+</div>
