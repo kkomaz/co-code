@@ -17,7 +17,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="panel post-body clearfix">
-        <div class="user-info">
+        <div class="user-info user-img">
           <%= user_img(@post.user) %> <br>
           <%= @post.user.first_name %>
         </div>
@@ -43,10 +43,10 @@
     </div>
   </div>
 
-  <div id="comment-container">
-    <ul id="comment-list">
+  <div id="comment-container" class="row top-pad">
+    <div id="comment-list">
       <%= render :partial => 'comments/comment', :collection => @post.comments, :as => 'comment'  %>
-    </ul>
+    </div>
   </div>
 
   <div class="row">
