@@ -4,6 +4,7 @@ class LanguageProblem < ActiveRecord::Base
   has_many  :user_progresses
   has_many  :users, :through => 'user_progresses'
   has_many  :posts
+  has_many  :rooms
 
   validates :language_id, :problem_id, :presence => true
 

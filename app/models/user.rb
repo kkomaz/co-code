@@ -7,6 +7,11 @@ class User < ActiveRecord::Base
   has_many  :language_problems, :through  => 'user_progresses'
   has_many  :comments
   has_many  :posts
+  has_many  :user_rooms
+  has_many  :rooms, :through => :user_rooms
+  has_many  :messages
+  has_many  :lessons, :foreign_key => 'host_id', :class_name => "Room"
+
 
   validates :first_name, :last_name, :presence => true
 

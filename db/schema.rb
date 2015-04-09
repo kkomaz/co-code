@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407190601) do
+ActiveRecord::Schema.define(version: 20150409215951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 20150407190601) do
 
   add_index "languages", ["slug"], name: "index_languages_on_slug", unique: true, using: :btree
 
+  create_table "messages", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -76,6 +84,13 @@ ActiveRecord::Schema.define(version: 20150407190601) do
 
   add_index "problems", ["slug"], name: "index_problems_on_slug", unique: true, using: :btree
 
+  create_table "rooms", force: :cascade do |t|
+    t.integer  "language_problem_id"
+    t.integer  "host_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
   create_table "user_progresses", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "language_problem_id"
@@ -83,6 +98,13 @@ ActiveRecord::Schema.define(version: 20150407190601) do
     t.boolean  "favorite",            default: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+  end
+
+  create_table "user_rooms", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
