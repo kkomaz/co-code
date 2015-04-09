@@ -57,6 +57,11 @@ class User < ActiveRecord::Base
     self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:status => 2)
   end
 
+  # Returns a users favorited problems for a given language
+  def favorited_problems(language)
+    self.user_progresses.where(:language_problem_id => find_language_problem_ids(language)).where(:favorite => true)
+  end
+
   # Helper method to find lpids for a given language
   def find_language_problem_ids(language)
     self.language_problems.where(:language => language).pluck(:id)
