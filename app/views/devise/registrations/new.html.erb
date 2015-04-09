@@ -1,14 +1,14 @@
 <div class="inner-bg">
   <div class="container">
     <div class="row">
-      <div class="col-md-5 col-md-offset-1">
+      <div class="col-md-5 col-md-offset-1 description-text">
         <h3>Problems Interactive</h3>
         <p>Four loko trust fund Wes Anderson sriracha, skateboard Truffaut cold-pressed XOXO gentrify kogi 
         swag kitsch Blue Bottle. Meh normcore aesthetic paleo kogi, pug Wes Anderson try-hard High Life Etsy. 
         Street art lo-fi drinking vinegar banh mi, YOLO photo booth try-hard.</p>
       </div>
 
-      <div class="col-md-4 col-md-offset-1">
+      <div class="col-md-5 col-md-offset-1">
         <div class="panel panel-default">
           <div class="form-top">
             <div class="form-top-left">
@@ -19,42 +19,49 @@
             </div>
           </div>
           <div class="panel-body">
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
               <%= devise_error_messages! %>
 
-              <div class="field">
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true %>
+              <div class="form-group">
+                <%= f.label :email, :class => "col-sm-4 control-label" %>
+                <div class="col-sm-8">
+                  <%= f.email_field :email, :class => "form-control", autofocus: true %>
+                </div>
               </div>
 
-              <div class="field">
-                <%= f.label :first_name %><br />
-                <%= f.text_field :first_name %>
+              <div class="form-group">
+                <%= f.label :first_name, :class => "col-sm-4 control-label" %>
+                <div class="col-sm-8">
+                  <%= f.text_field :first_name, :class => "form-control" %>
+                </div>
               </div>
 
-              <div class="field">
-                <%= f.label :last_name %><br />
-                <%= f.text_field :last_name %>
+              <div class="form-group">
+                <%= f.label :last_name, :class => "col-sm-4 control-label" %>
+                <div class="col-sm-8">
+                  <%= f.text_field :last_name, :class => "form-control" %>
+                </div>
               </div>
 
-              <div class="field">
-                <%= f.label :password %>
-                <% if @validatable %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                <% end %><br />
-                <%= f.password_field :password, autocomplete: "off" %>
+              <div class="form-group">
+                <%= f.label :password, "Password", :class => "col-sm-4 control-label" %>
+                <div class="col-sm-8">
+                  <%= f.password_field :password, :class => "form-control", autocomplete: "off" %>
+                </div>
               </div>
 
-              <div class="field">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              <div class="form-group">
+                <%= f.label :password_confirmation, "Password confirm", :class => "col-sm-4 control-label" %>
+                <div class="col-sm-8">
+                  <%= f.password_field :password_confirmation, :class => "form-control", autocomplete: "off" %>
+                </div>
               </div>
 
               <br>
             <div class="row">
               <div class="pull-left left-padder">
                 <div class="actions">
-                  <%= f.submit "Sign up" %>
+                  <%= f.submit "Sign up", :class => "btn btn-block btn-primary" %>
                 </div>
               </div>
             <% end %>

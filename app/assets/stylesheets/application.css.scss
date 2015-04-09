@@ -17,6 +17,7 @@
  *= require user_registration
  *= require user_show
  *= require font-mfizz
+ *= require login
 
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
@@ -38,4 +39,33 @@ body {
 
 .theme-showcase > p > .btn {
   margin: 5px 0;
+}
+
+.inner-bg{
+  padding: 120px 0 170px 0;
+}
+
+.form-top {
+  overflow: hidden;
+  padding: 10px 25px 15px 25px;
+  background: #444;
+  background: rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+
+.form-top-left {
+  float: left;
+  width: 75%;
+  padding-top: 25px;
+}
+
+.form-top-right {
+  float: left;
+  width: 25%;
+  padding-top: 5px;
+  font-size: 70px;
+  color: #fff;
+  line-height: 100px;
+  text-align: right;
+  opacity: 0.3;
 }
