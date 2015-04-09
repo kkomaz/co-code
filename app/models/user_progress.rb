@@ -27,9 +27,15 @@ class UserProgress < ActiveRecord::Base
     user_progress.update(:status => 1)
   end
 
-  # def self.current_problem_users(current_language)
-  #   language = LanguageProblem.all.where(:language_id => current_language)
-  #   user_statuses = UserProgress.all.wher
-  # end
+  def self.current_problem_users(language, problem, user)
+    language_problem = LanguageProblem.where(:language_id => language.id, :problem_id => problem.id)
+    current_user_ids = UserProgress.where(:language_problem => language_problem, :status => 1).pluck(:user_id)
+    users = User.where(:id => current_user_ids).where.not(:id => user.id)
+  end
 
+  def self.finished_problem_users(language, problem, user)
+    language_problem = LanguageProblem.where(:language_id => language.id, :problem_id => problem.id)
+    current_user_ids = UserProgress.where(:language_problem => language_problem, :status => 2).pluck(:user_id)
+    users = User.where(:id => current_user_ids).where.not(:id => user.id)
+  end
 end

@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
   def new
     @language = Language.find(params[:language_id])
-    @current_problem = Problem.find(params[:problem_id])
+    @problem = Problem.find(params[:problem_id])
     @post = Post.new
   end
 

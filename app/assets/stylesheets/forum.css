@@ -1,6 +1,6 @@
 .entry  {
-          padding: 15px 32px 14px 0px;
-          border-bottom: 1px solid #f2f2f2;
+          padding: 0px 32px 14px 0px;
+          border-bottom: 1px solid #9E8E67;
           margin-left: 0;
         }
 
@@ -8,3 +8,15 @@ fonts {
   font-size: 15px;
 }
 
+.question-font{
+  font-size: 12px;
+}
+
+#button-padding {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+h6.top-fix{
+  margin-top: 0px;
+}
