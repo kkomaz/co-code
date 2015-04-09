@@ -18,3 +18,13 @@ div#favorites-heading {
 a#favorites-heading {
   color: #34495E;
 }
+
+
+div#current-problem-panel:hover {
+  transition-duration: .3s;
+  background-color: #264348;
+}
+
+#current-problem-panel:hover #current-problem-link-text {
+  color: #1ABC9C;
+}
