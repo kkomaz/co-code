@@ -3,4 +3,7 @@
   <fonts>submitted <%= post.created_at.strftime("%B %d, %Y") %> by <%= post.user.full_name %><fonts>
   <br>
   <%= comment_count(post) %>
+  <div class="user-info">
+     <%= user_img(post.user) %>
+  </div>
 </div>
