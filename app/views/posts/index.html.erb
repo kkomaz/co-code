@@ -1,4 +1,9 @@
-<div class = "col-md-9 col-md-offset-2">
-    <%= render :partial => 'post_link', :collection => @posts, :as => :post %>
-  <%= link_to 'Back', language_problem_path(@language.slug, @problem.slug) %>
+<div class="row user_posts">
+  <div class = "col-md-9 col-md-offset-2">
+      <%= render @posts %>
+    <div id="paginator">
+      <center><%= paginate @posts %></center> <br>
+    </div>
+    <%= link_to 'Back', language_problem_path(@language.slug, @problem.slug) %>
+  </div>
 </div>

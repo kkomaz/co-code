@@ -12,5 +12,5 @@
 <%= link_to "Show all posts", problem_posts_path(@language.slug, @problem.slug) %>
 
 
-<%= render :partial => 'posts/post_link', :collection => @posts, :as => :post %>
+<%= render @posts %>
 </div>
