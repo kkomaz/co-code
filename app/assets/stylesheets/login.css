@@ -1,6 +1,26 @@
-#login {
-  margin-top: 5px;
-  margin-right: 3px;
-  width: 100px;
-  text-align: center;
+#modal-field-name {
+  padding-top: 10px;
+  padding-bottom: 10px 
 }
+
+#modal-field-email {
+  padding-bottom: 10px;
+}
+
+.line-thru {
+  display: block;
+  position: relative;
+  text-align: center;  
+  padding-top: 10px;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+a.nav-link {
+  line-height: 25px;
+  font-size: 20px;
+  color: #CFD4D4;
+}
+

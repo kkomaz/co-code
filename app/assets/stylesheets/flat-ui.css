@@ -4025,8 +4025,8 @@ fieldset[disabled] .input-group-btn .btn-default.active {
   font-size: 20px;
   }
 .navbar {
-  min-height: 53px;
-  margin-bottom: 30px;
+  min-height: 60px;
+  margin-bottom: 20px;
   font-size: 16px;
   border: none;
   border-radius: 6px;
@@ -4401,10 +4401,10 @@ select[multiple].navbar-form .select2-search input[type="text"] {
   -webkit-font-smoothing: subpixel-antialiased;
   }
 .navbar-default {
-  background-color: #ecf0f1;
+  background-color: #34495e;
   }
 .navbar-default .navbar-brand {
-  color: #34495e;
+  color: #CFD4D4;
   }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -4428,7 +4428,10 @@ select[multiple].navbar-form .select2-search input[type="text"] {
   border-width: 2px;
   }
 .navbar-default .navbar-nav > li > a {
-  color: #34495e;
+  color: #CFD4D4;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: normal;
   }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
