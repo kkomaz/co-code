@@ -1,6 +1,56 @@
+/* LANGUAGE PANEL CSS */
 div.language-panel {
   height: 350px;
   background-color: #BDC3C7;
   padding: 10px;
   border-radius: 3px;
+}
+
+div.language-content {
+  margin: 0 auto;
+  display: block;
+}
+
+div#add-icon {
+  font-size: 85px;
+}
+
+div#add-text {
+  font-size: 20px;
+}
+
+.language-panel button {
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+.language-panel button:hover,
+.language-panel button:focus {
+  background-color: transparent;
+}
+
+
+div.language-icon {
+  margin-top: 15px;
+  font-size: 160px;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0px 1px #000;
+}
+
+div.language-name > h3 {
+  margin-top: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+div.language-progress {
+  color: #fff;
+  text-align: center;
 }

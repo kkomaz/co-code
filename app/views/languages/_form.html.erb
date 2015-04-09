@@ -1,8 +1,9 @@
 <%= form_for @language, :url => url_for(controller: 'user_progresses', action: "create") do |f| %>
   <div class="form-group">
     <%= f.label :language %>
-    <%= f.collection_select :id, @languages, :id, :name %>
-    <%= f.submit "Add a track!" %>
+    <%= f.collection_select :id, @languages, :id, :name, {}, :class => "form-control" %>
   </div>
-
+  <div class="form-group">
+    <%= f.submit "Add a track!", :class => "btn btn-primary" %>
+  </div>
 <% end %>
