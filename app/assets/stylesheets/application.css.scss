@@ -13,7 +13,8 @@
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_self
  *= require bootstrap
- *= require flat-ui
+ *= require flat-ui 
+ *= require user_registration
  *= require user_show
  *= require login
 
