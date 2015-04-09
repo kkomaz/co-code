@@ -21,3 +21,7 @@ fonts {
 h6.top-fix{
   margin-top: 0px;
 }
+
+br.small {
+  line-height: 0px;
+}
