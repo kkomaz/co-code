@@ -1,6 +1,8 @@
-<div class="entry">
+<div class="entry clearfix">
   <h8><%= link_to post.title, problem_post_path(@language, @problem, post) %></h8> <br>
-  <fonts>submitted <%= post.created_at.strftime("%B %d, %Y") %> by <%= post.user.full_name %><fonts>
-  <br>
-  <%= comment_count(post) %>
+    <fonts>submitted <%= post.created_at.strftime("%B %d, %Y") %> by <strong><%= post.user.full_name %></strong></fonts>
+    <div class="user-img pull-right">
+      <%= user_img(post.user) %>
+    </div><br class="small">
+    <fonts><%= comment_count(post) %></fonts>
 </div>

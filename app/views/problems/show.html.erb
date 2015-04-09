@@ -42,9 +42,8 @@
 <div class="box-footer">
     <div class="col-md-6">
       <%= render @posts %>
-      <div class="btn btn-block btn-default">
-        <%= link_to "Show all posts!", problem_posts_path(@language.slug, @problem.slug) %>
-      </div>
+      <%= paginate @posts %>
+        <%#= link_to "Show all posts!", problem_posts_path(@language.slug, @problem.slug) %>
     </div>
     <div class="col-md-6">
       <h6 class="top-fix"><strong>Stuck?</strong> Just write a post!</h6>

@@ -1,41 +1,45 @@
 <div class="container">
 
   <div class="row top-pad">
-    <div class="panel col-md-12">
+    <div class="panel col-md-12" id="current-problem-panel">
       <div class="col-md-12" id="current-problem-link">
         <%= link_to language_problem_path(@language.slug, @current_problem.slug), id: "current-problem-link-text" do %>
           TAKE ME TO MY CURRENT  <i style="color: <%= language_color(@language) %>;" class="icon-<%= language_icon(@language) %>"></i> <l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>  PROBLEM
         <% end %>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="panel col-md-6">
-      <div class="col-md-12" id="favorites-heading">
-        <a id="favorites-heading" href="" title="">I LOVE THESE PROBLEMS</a>
-      <hr>
-        <a id="favorites-heading" >Favorite Problem 1</a><br>
-        <a id="favorites-heading" >Favorite Problem 2</a><br>
-        <a id="favorites-heading" >Favorite Problem 3</a><br>
-      </div>
-    </div>
-
-    <div class="panel col-md-6">
-      <div class="col-md-12" id="favorites-heading">
-        <a id="favorites-heading" href="" title="">NEED INSPIRATION?</a>
-      <hr>
-        <a id="favorites-heading" >Suggested Problem 1</a><br>
-        <a id="favorites-heading" >Suggested Problem 2</a><br>
-        <a id="favorites-heading" >Suggested Problem 3</a><br>     
-      </div>
-    </div>
-
-    <div class="panel col-md-12">
-      <div class="col-md-12" id="current-problem-link">
-        <%= link_to "Back to dashboard", root_path %>
-      </div>
+  <div class="col-md-6">
+    <div class="panel col-md-12" id="favorites-heading">
+      <a id="favorites-heading" href="" title="">I LOVE THESE PROBLEMS</a>
+    <hr>
+      <a id="favorites-heading" >Favorite Problem 1</a><br>
+      <a id="favorites-heading" >Favorite Problem 2</a><br>
+      <a id="favorites-heading" >Favorite Problem 3</a><br>
     </div>
   </div>
 
+  <div class="col-md-6">
+    <div class="panel col-md-12" id="favorites-heading">
+      <a id="favorites-heading" href="" title="">NEED INSPIRATION?</a>
+    <hr>
+      <a id="favorites-heading" >Suggested Problem 1</a><br>
+      <a id="favorites-heading" >Suggested Problem 2</a><br>
+      <a id="favorites-heading" >Suggested Problem 3</a><br>     
+    </div>  
+  </div>
+
+    
+  <div class="col-md-12">
+    <div class="panel col-md-12" id="current-problem-panel">
+      <div class="col-md-12" id="current-problem-link" >
+        <%= link_to "Back to dashboard", root_path, id: "current-problem-link-text" %>
+      </div>
+    </div>
+  </div>
+
+  
+  </div>
 </div>
+
+
