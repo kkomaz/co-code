@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @language_problem = LanguageProblem.find_language_problem(params[:language_id], params[:id])
+    @language_problem = LanguageProblem.find_language_problem(params[:language_id], params[:problem_id])
     @language = Language.find(params[:language_id])
     @problem = current_user.current_problem(@language)
     @posts = Kaminari.paginate_array(@language_problem.posts.reverse).page(params[:page]).per(2)
