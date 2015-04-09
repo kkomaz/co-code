@@ -6,10 +6,9 @@
           <%= link_to progress_path(@language.slug) do %>
             <i class="icon-<%= language_icon(@language) %>"></i> <%= @language.name %>
           <%- end -%> /
-          <%= link_to language_problem_path(@language.slug, @current_problem.slug) do %>
-            <%= problem_number(@current_problem) %>
+          <%= link_to language_problem_path(@language.slug, @problem.slug) do %>
+            <%= problem_number(@problem) %>
           <%- end -%> / New Question
-
         </h6>
       </div>
     </div>
@@ -18,7 +17,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="panel post-body">
-        <%= form_for [@language, @current_problem, @post], :url => problem_posts_path do |f| %>
+        <%= form_for [@language, @problem, @post], :url => problem_posts_path do |f| %>
           <div class="post-title form-group">
             <%= f.text_field :title, :placeholder => "Title",:class => "full-width", :id => "post-text-field" %>
           </div>
