@@ -1,5 +1,5 @@
 .inner-bg{
-  padding: 120px 0 170px 0;
+  padding: 80px 0 170px 0;
 }
 
 .form-top {
@@ -28,4 +28,8 @@
 
 .left-padder {
   padding-left: 15px;
+}
+
+.description-text {
+  padding-top: 150px;
 }
