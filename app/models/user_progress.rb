@@ -27,4 +27,8 @@ class UserProgress < ActiveRecord::Base
     user_progress.update(:status => 1)
   end
 
+  def self.current_problem_users(current_language)
+    language = LanguageProblem.all.where(:language_id => current_language)
+  end
+
 end

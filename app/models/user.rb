@@ -76,5 +76,4 @@ class User < ActiveRecord::Base
       UserProgress.progress_for_user(self, next_language_problem).update(:status => 1)
     end
   end
-
 end
