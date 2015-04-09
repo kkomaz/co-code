@@ -19,18 +19,45 @@
     </div>
     <div class="">
       <ul class="nav navbar-nav pull-right">
-        <li><a><button type="button" class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Log In</button></a></li>
+        <li><button id="login" type="button" class="btn btn-block btn-md btn-inverse" data-toggle="modal" data-target=".bs-login-modal-sm">Log In</button></li>
       </ul>
     </div>
   </nav>
 <% end %>
 
 <!-- Small modal -->
-
-<!-- <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
+<div class="modal fade bs-login-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
-      ...
+    <div class="modal-header">
+      <h4 class="modal-title">Log In</h4>
+    </div>
+    <div class="modal-body">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="actions">
+          <%= render "devise/shared/fb" %>
+        </div>
+        <div class="field col-md-12">
+          <%= f.label :email %><br>
+          <%= f.email_field :email, autofocus: true, class: "col-md-12" %>
+        </div>
+
+        <div class="field col-md-12">
+          <%= f.label :password %><br>
+          <%= f.password_field :password, autocomplete: "off", class: "col-md-12" %>
+        </div>
+
+        <div class="field col-md-12">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Log In", class: "btn btn-block btn-md btn-inverse" %>
+        </div>
+      <% end %>
+      
+      </div>
     </div>
   </div>
-</div> -->
+</div>
