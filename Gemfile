@@ -16,6 +16,9 @@ gem 'nokogiri'
 gem 'awesome_print', '~> 1.6.1'
 gem 'friendly_id', '~> 5.1.0'
 gem 'kaminari', '~> 0.16.3'
+gem 'faye'
+gem 'thin'
+gem 'private_pub'
 
 group :test, :development do
   gem 'rspec-rails'
@@ -28,7 +31,6 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'pry'
   gem 'guard-rspec', require: false
-  gem 'thin'
   gem 'spring'
   gem 'faker'
 end
