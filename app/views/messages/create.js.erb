@@ -1,0 +1,5 @@
+<%- publish_to @path do -%>
+  var newEl = "<%= j(render 'messages/message', :message => @message) %>";
+  $('#<%= @message.user.id %>').val("")
+  $('#chatbox').append(newEl);
+<%- end -%>

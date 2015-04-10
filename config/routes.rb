@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'messages/create'
+
   root 'users#show'
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations"} do
   end
@@ -29,5 +31,6 @@ Rails.application.routes.draw do
   get ':language_id/:problem_id/rooms/:id' => 'rooms#show', :as => 'problem/room'
 
   get ':language_id/:problem_id/rooms' => 'rooms#index', :as => 'problem/rooms'
-  
+
+  post 'rooms/:room_id/messages/new' => 'messages#create', :as => 'new/room/message'
 end
