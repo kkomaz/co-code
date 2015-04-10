@@ -49,8 +49,8 @@
       <div class="post-box">
         <%= render @posts %>
       </div>
-      <div id="paginator">
-        <center><%= paginate @posts,:remote => true %></center>
+      <div id="paginator" id="center-paginate">
+        <%= paginate @posts,:remote => true %>
       </div>
         <%#= link_to "Show all posts!", problem_posts_path(@language.slug, @problem.slug) %>
     </div>
