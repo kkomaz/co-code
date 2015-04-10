@@ -1,16 +1,17 @@
-<h2><%= @room.title %></h2>
-<h3><%= @room.language.name %></h3>
-<h4><%= @room.problem.title %></h4>
-<p><%= @room.host.full_name %></p>
+<div class="container">
+  <h2><%= @room.title %></h2>
+  <h3><%= @room.language.name %></h3>
+  <h4><%= @room.problem.title %></h4>
+  <p><%= @room.host.full_name %></p>
 
+  <div id="chatbox">
+    <%= render :partial => 'messages/message', :collection => @room.messages, :as => :message %>
+  </div>
 
-<div id="chatbox">
-  <%= render :partial => 'messages/message', :collection => @room.messages, :as => :message %>
+  <%= form_for [@room, Message.new], :url => new_room_message_path(@room), :remote => true do |f| %>
+    <%= f.text_field :content, :id => current_user.id %>
+    <%= f.submit %>
+  <%- end -%>
+
+  <%= subscribe_to problem_room_path(@room.language, @room.problem, @room) %>
 </div>
-
-<%= form_for [@room, Message.new], :url => new_room_message_path(@room), :remote => true do |f| %>
-  <%= f.text_field :content, :id => current_user.id %>
-  <%= f.submit %>
-<%- end -%>
-
-<%= subscribe_to problem_room_path(@room.language, @room.problem, @room) %>
