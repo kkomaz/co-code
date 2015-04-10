@@ -76,6 +76,15 @@ div.user-img img {
   float: left;
 }
 
+#comment-form-parent {
+  position: static;
+}
+
+.fixed {
+  position: fixed !important;
+  top: 80px;
+}
+
 /* SPEECH BUBBLE */
 .triangle-border {
   position:relative;
