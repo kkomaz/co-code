@@ -1,15 +1,40 @@
 <%= link_to 'CHAT ROOM', new_problem_room_path(@language.slug, @problem.slug)  %>
-<div class="row">
-  <div class="col-md-4 col-xs-4 pull-right">
-    <div class="pull-right">
-    <button class="btn btn-primary dropdown-toggle" id="button-padding">
-      finished users: <%= @users_finished.count %>
-    <button class="btn btn-primary dropdown-toggle" id="button-padding">
-      current users: <%= @users_working.count %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-8 col-xs-3 col-xs-offset-7">
+      <div class="dropdown">
+          <div class="pull-right">
+            <button class="btn btn-primary dropdown-toggle button-padding" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+              finished users: <%= @users_finished.count %>
+                <span class="caret"></span>
+            </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <% if @users_finished.count > 0 %>
+                  <% @users_finished.each do |user| %>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= user.full_name %></a></li>
+                  <% end %>
+                <% end %>
+              </ul>
+          </div>
+      </div>
+      <div class="dropdown">
+        <div class="pull-right">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            finished users: <%= @users_working.count %>
+              <span class="caret"></span>
+          </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              <% if @users_working.count > 0 %>
+                <% @users_working.each do |user| %>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= user.full_name %></a></li>
+                <% end %>
+              <% end %>
+            </ul>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="container">
   <div class="row top-pad">
     <div class="col-md-6 col-sm-12">
       <div class="panel bread-crumb">
@@ -54,13 +79,16 @@
       </div>
         <%#= link_to "Show all posts!", problem_posts_path(@language.slug, @problem.slug) %>
     </div>
-    <div class="col-md-6">
-      <h6 class="top-fix"><strong>Stuck?</strong> Just ask a question!</h6>
-      <p class="question-font">Kale chips Banksy Austin 8-bit Pitchfork, hashtag selfies kitsch paleo trust fund irony taxidermy chillwave. 
-      3 wolf moon scenester roof party, 8-bit Brooklyn put a bird on it beard Wes Anderson freegan tilde DIY Marfa 
-      Thundercats Williamsburg. PBR&amp;B XOXO quinoa fixie. XOXO ennui fap lomo.</p>
+    <div class="col-md-6 post-padding">
+      <div class="panel">
+        <h6 class="top-fix"><strong>Stuck?</strong> Just ask a question!</h6>
+        <p class="question-font">Kale chips Banksy Austin 8-bit Pitchfork, hashtag selfies kitsch paleo trust fund irony taxidermy chillwave. 
+        3 wolf moon scenester roof party, 8-bit Brooklyn put a bird on it beard Wes Anderson freegan tilde DIY Marfa 
+        Thundercats Williamsburg. PBR&amp;B XOXO quinoa fixie. XOXO ennui fap lomo.</p>
+      </div>
       <%= render :partial => 'posts/form' %>
     </div>
 </div>
 
 </div>
+
