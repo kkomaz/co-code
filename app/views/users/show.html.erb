@@ -1,9 +1,20 @@
 <div class="container">
-  <div class="panel-top-padding">
-    <%= render :partial => 'users/list', :collection => @current_languages, :as => :language %>
-
-    <%= render :partial => 'users/add_language'%>
+  <div class="row top-pad">
+    <div class="col-md-12">
+      <div class="dark-panel">
+        <div class="post-body" id="languages-text">
+          <span id="languages-title">LANGUAGE TRACKS</span>
+        </div>
+      </div>
+    </div>
   </div>
+    
+  <div class="row top-pad">
+    <%= render :partial => 'users/list', :collection => @current_languages, :as => :language %>
+    <%= render :partial => 'users/add_language'%>  
+  </div>
+
+</div>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -1,24 +1,39 @@
 <div class="container">
 
   <div class="row top-pad">
+    <div class="col-md-12">
+      <div class="dark-panel">
+        <div class="post-body" id="languages-text">
+          <span id="languages-title"><i style="color: <%= language_color(@language) %>;" class="icon-<%= language_icon(@language) %>"></i> <l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l> DASHBOARD</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="row top-pad">
+      <div class="col-md-6" id="favs">
+        <div class="panel col-md-12" id="favorites-heading">
+          <a id="favorites-heading" title="">FAVORITE PROBLEMS</a>
+        <hr>
+          <%= render partial: 'problems/favorite', :collection => @favorites, as: :favorite %>
+        </div>
+      </div>
+  <div class="col-md-6">
+    
     <div class="panel col-md-12" id="current-problem-panel">
       <div class="col-md-12" id="current-problem-link">
         <%= link_to language_problem_path(@language.slug, @current_problem.slug), id: "current-problem-link-text" do %>
           TAKE ME TO MY CURRENT  <i style="color: <%= language_color(@language) %>;" class="icon-<%= language_icon(@language) %>"></i> <l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>  PROBLEM
+          <span class="link-spanner"></span>
         <% end %>
       </div>
     </div>
+  </div>
 
+<!-- 
     <div class="row">
-
-      <div class="col-md-6">
-        <div class="panel col-md-12" id="favorites-heading">
-          <a id="favorites-heading" title="">FAVORITED PROBLEMS</a>
-        <hr>
-          <%= render partial: 'problems/favorites', :collection => @favorites, as: :favorite %>
-        </div>
-      </div>
+    <div class="col-md-12">
+      
 
       <div class="col-md-6">
         <div class="panel col-md-12" id="favorites-heading">
@@ -31,18 +46,24 @@
       </div>
   
     </div>
+    </div> -->
 
     <div class="row">
-
+    <div class="col-md-12">
+      
       <div class="col-md-12">
         <div class="panel col-md-12" id="current-problem-panel">
           <div class="col-md-12" id="current-problem-link" >
-            <%= link_to "BACK TO DASHBOARD", root_path, id: "current-problem-link-text" %>
+            <%= link_to root_path, id: "current-problem-link-text" do %>
+            BACK TO LANGUAGE TRACKS<span class="link-spanner"></span>
+            <% end %>
           </div>
         </div>
       </div>
       
     </div>
+    </div>
+
 
   </div>
 
