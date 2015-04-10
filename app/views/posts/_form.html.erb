@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="panel post-body">
-      <%= form_for [@language, @problem, @post], :url => problem_posts_path(@language, @problem) do |f| %>
+      <%= form_for [@language, @problem, @post], remote: true, :url => problem_posts_path(@language, @problem) do |f| %>
         <div class="post-title form-group">
           <%= f.text_field :title, :placeholder => "Title",:class => "full-width", :id => "post-text-field" %>
         </div>

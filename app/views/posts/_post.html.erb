@@ -1,5 +1,5 @@
 <div class="entry clearfix">
-  <h8><%= link_to post.title, problem_post_path(@language, @problem, post) %></h8> <br>
+  <h8><%= link_to post.title, problem_post_path(post.language, post.problem, post) %></h8> <br>
     <fonts>submitted <%= post.created_at.strftime("%B %d, %Y") %> by <strong><%= post.user.full_name %></strong></fonts>
     <div class="user-img pull-right">
       <%= user_img(post.user) %>
