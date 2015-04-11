@@ -1,0 +1,27 @@
+/* Main room css*/
+#chatbox {
+  background-color: #fff;
+  border-radius: 4px;
+  height: 400px;
+  overflow: auto;
+}
+
+
+/* Chatbox content*/
+.user-img {
+  width: 15%;
+}
+
+.receive > * {
+  float: left;
+}
+
+.send > * {
+  float: right;
+}
+
+.message-content {
+  width: 60%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

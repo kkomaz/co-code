@@ -1,1 +1,6 @@
-<p><%= message.user.first_name %> says: <%= message.content %></p>
+<div class="message-container clearfix" data-id="<%= message.id %>">
+    <div class="<%= send_or_receive(message) %>">
+      <%= render 'messages/user_image', :message => message %>
+      <%= render 'messages/user_message', :message => message %>
+    </div>
+</div>

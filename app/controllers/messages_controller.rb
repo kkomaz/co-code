@@ -5,7 +5,6 @@ class MessagesController < ApplicationController
     @message.room = @room
     @message.user = current_user
     @message.save
-
     @path = problem_room_path(@room.language, @room.problem, @room)
   end
 
