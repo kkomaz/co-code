@@ -33,6 +33,7 @@ group :test, :development do
   gem 'guard-rspec', require: false
   gem 'spring'
   gem 'faker'
+  gem 'launchy'
 end
 
 group :production do

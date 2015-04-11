@@ -8,6 +8,11 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.include Capybara::DSL
 
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    Warden.test_mode!
+  end
+
   config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
@@ -25,6 +30,7 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    Warden.test_reset!
   end
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
