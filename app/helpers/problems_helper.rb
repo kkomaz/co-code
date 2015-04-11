@@ -7,7 +7,7 @@ module ProblemsHelper
     when 1
       render 'problems/complete_button'
     when 2
-
+      render 'problems/incomplete_button'
     end
   end
 
