@@ -65,3 +65,11 @@ br.small {
         border: none;
     }
 }
+
+.post-padding{
+  padding-right: 0px;
+}
+
+.button-padding{
+  margin-left: 20px;
+}

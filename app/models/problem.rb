@@ -15,4 +15,9 @@ class Problem < ActiveRecord::Base
   def self.first_problem
     self.order(:id).limit(1)[0]
   end
+
+  def problem_digit
+    self.slug.split("-").last
+  end
+
 end

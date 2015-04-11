@@ -1,3 +1,7 @@
+h3#login-page-head {
+  text-align: center;
+}
+
 #modal-field-name {
   padding-top: 10px;
   padding-bottom: 10px 
