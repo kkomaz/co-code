@@ -2,13 +2,9 @@ h3#login-page-head {
   text-align: center;
 }
 
-#modal-field-name {
-  padding-top: 10px;
+#modal-field {
   padding-bottom: 10px 
-}
-
-#modal-field-email {
-  padding-bottom: 10px;
+  border-radius: 5px; 
 }
 
 #login-btn-modal {
