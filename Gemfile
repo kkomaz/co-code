@@ -19,6 +19,7 @@ gem 'kaminari', '~> 0.16.3'
 gem 'faye'
 gem 'thin'
 gem 'private_pub'
+gem 'rails_autolink'
 
 group :test, :development do
   gem 'rspec-rails'
