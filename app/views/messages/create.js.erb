@@ -1,5 +1,17 @@
 <%- publish_to @path do -%>
-  var newEl = "<%= j(render 'messages/message', :message => @message) %>";
+  var $newEl = $("<%= j(render 'messages/message', :message => @message) %>");
+  var receiver_id = $("#meta").data("user-id"), $newEl;
+
+  if(receiver_id !== <%= current_user.id %>){
+    $("div.send", $newEl).removeClass("send").addClass("receive");
+    $("div.right", $newEl).removeClass("right").addClass("left");
+  }
+
   $('#<%= @message.user.id %>').val("")
-  $('#chatbox').append(newEl);
+  $('#chatbox').append($newEl);
+
+  var $targetEl = $("div[data-id=" + "<%= @message.id %>" + "]")
+  $("#chatbox").animate({
+    scrollTop: $("#chatbox").scrollTop() + $targetEl.position().top
+  });
 <%- end -%>

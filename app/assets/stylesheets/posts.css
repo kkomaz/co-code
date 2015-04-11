@@ -62,7 +62,7 @@ div.user-img img {
   padding-top: 10px;
 }
 
-.user-comment {
+.user-comment.user-img {
   width: 38%;
   float: left;
 }
