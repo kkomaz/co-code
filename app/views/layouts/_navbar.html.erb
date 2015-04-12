@@ -31,12 +31,12 @@
           <%= render "devise/shared/fb" %>
         </div>
         <strong class="line-thru">- or -</strong>
-        <div class="field col-md-6 col-md-offset-3" id="modal-field-name">
-          <%= f.email_field :email, autofocus: true, class: "col-md-12", :placeholder => "email" %>
+        <div class="field col-md-6 col-md-offset-3" id="modal-field">
+          <%= f.email_field :email, autofocus: true, class: "col-md-12", :placeholder => "email", id: "modal-field" %>
         </div>
 
-        <div class="field col-md-6 col-md-offset-3" id="modal-field-email">
-          <%= f.password_field :password, autocomplete: "off", class: "col-md-12", :placeholder => "password" %>
+        <div class="field col-md-6 col-md-offset-3" id="modal-field">
+          <%= f.password_field :password, autocomplete: "off", class: "col-md-12", :placeholder => "password", id: "modal-field" %>
         </div>
 
         <div class="field col-md-12 col-md-offset-3">

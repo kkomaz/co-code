@@ -1,3 +1,19 @@
+p#pitch {
+  font-size: 23px;
+}
+
+h4#sign-up-heading {
+  font-size: 40px;
+}
+
+div#oops-field {
+  padding-bottom: 10px;
+}
+
+#oops-field {
+  border-radius: 5px;
+}
+
 .inner-bg{
   padding: 80px 0 170px 0;
 }

@@ -1,17 +1,15 @@
 <div class="container">
-    <div class="row">
+    <div class="row top-pad">
       <div class="col-md-5 description-text">
-        <h3>Problems Interactive</h3>
-        <p>Four loko trust fund Wes Anderson sriracha, skateboard Truffaut cold-pressed XOXO gentrify kogi 
-        swag kitsch Blue Bottle. Meh normcore aesthetic paleo kogi, pug Wes Anderson try-hard High Life Etsy. 
-        Street art lo-fi drinking vinegar banh mi, YOLO photo booth try-hard.</p>
+        <h3>Code Collaboratively.</h3>
+        <p id="pitch">Co-Code is all about working through code challenges together. Learn first, then teach. Sign-up to get started!</p>
       </div>
 
       <div class="col-md-6 col-md-offset-1">
         <div class="panel panel-default">
           <div class="form-top">
             <div class="form-top-left">
-              <h4><center>Sign up now</center></h4>
+              <h4 id="sign-up-heading"><center>Sign Up!</center></h4>
             </div>
             <div class="form-top-right">
               <%= image_tag "retina.svg" %>
@@ -60,7 +58,7 @@
             <div class="row">
               <div class="pull-left left-padder">
                 <div class="actions">
-                  <%= f.submit "Sign up", :class => "btn btn-block btn-primary" %>
+                  <%= f.submit "Register", :class => "btn btn-block btn-primary" %>
                 </div>
               </div>
             <% end %>
@@ -68,7 +66,7 @@
             <%- if devise_mapping.omniauthable? %>
               <%- resource_class.omniauth_providers.each do |provider| %>
                 <%= link_to(omniauth_authorize_path(resource_name, provider), :class=>"button small-button green-button") do %>
-                  or sign up with
+                  Or Log In With
                   <span class="fui-facebook"></span>
                 <% end %>
               <% end -%>
