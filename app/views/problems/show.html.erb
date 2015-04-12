@@ -1,5 +1,3 @@
-<%= link_to 'CHAT ROOM', new_problem_room_path(@language.slug, @problem.slug)  %>
-
 <div class="container">
   <div class="row">
     <div class="col-md-4 col-md-offset-8 col-xs-3 col-xs-offset-7">
@@ -70,7 +68,17 @@
     </div>
   </div>
 <div class="box-footer">
-    <div class="col-md-6">
+    <div class="col-md-6 chat-padding">
+      <div class="panel">
+        <div class="top-fix">
+          <%= link_to 'Create a chatroom!', new_problem_room_path(@language.slug, @problem.slug), :class => 'btn btn-primary'  %> <br> <br>
+        </div>
+        <% if @rooms %>
+          <% @rooms.each.with_index(1) do |room,index| %> 
+            <%= link_to "Room #{index}.", problem_room_path(@language.slug, @problem.slug, room), :class => 'btn btn-block btn-inverse' %>
+          <% end %>
+        <% end %>
+      </div>
       <div class="post-box">
         <%= render @posts %>
       </div>

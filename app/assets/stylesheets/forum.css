@@ -73,3 +73,7 @@ br.small {
 .button-padding{
   margin-left: 20px;
 }
+
+.chat-padding {
+  padding-left: 0px;
+}
