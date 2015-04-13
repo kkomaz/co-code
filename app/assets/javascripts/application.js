@@ -16,5 +16,7 @@
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require private_pub
 //= require comments
+//= require epiceditor
+//= require main
 
 
