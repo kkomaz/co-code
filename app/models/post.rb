@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   delegate :language, to: :language_problem
   delegate :problem, to: :language_problem
   belongs_to  :user
-  has_many  :comments
+  has_many  :comments, dependent: :destroy
 
   validates :title, :content, :language_problem_id, :user_id, :presence => true
 end
