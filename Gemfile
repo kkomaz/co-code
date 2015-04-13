@@ -20,6 +20,8 @@ gem 'faye'
 gem 'thin'
 gem 'private_pub'
 gem 'rails_autolink'
+gem 'redcarpet'
+gem 'coderay'
 
 group :test, :development do
   gem 'rspec-rails'

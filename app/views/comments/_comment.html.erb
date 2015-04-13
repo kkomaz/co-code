@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <div class="panel comment-body clearfix">
       <p class="triangle-border">
-        <%= auto_link(comment.content, :html => { :target => '_blank' }) %>
+        <%= markdown(auto_link(comment.content, :html => { :target => '_blank' })) %>
       </p>
       <div class="user-container clearfix">
         <div class="user-img user-comment">

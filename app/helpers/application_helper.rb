@@ -14,5 +14,13 @@ module ApplicationHelper
   def resource_class
     devise_mapping.to
   end
+
+  def markdown(content)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+      no_intra_emphasis: true,
+      fenced_code_blocks: true,
+      )
+    markdown.render(content).html_safe
+  end
   
 end
