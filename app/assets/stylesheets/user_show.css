@@ -58,3 +58,7 @@ div.language-progress {
 div.panel-top-padding {
   padding-top: 20px;
 }
+
+div#all-languages-added:hover {
+  opacity: 0.8;
+}

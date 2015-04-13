@@ -4,6 +4,10 @@ module UsersHelper
     "disabled" if current_user.available_user_languages.count < 1
   end
 
+  def all_languages_added?
+    "all-languages-added" if current_user.available_user_languages.count < 1
+  end
+
   def language_completion(language)
     completed = completed_count(language).to_f
     total = total_count(language).to_f

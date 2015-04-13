@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require user-show
 //= require bootstrap
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require private_pub
