@@ -4,7 +4,7 @@ class UserProgressesController < ApplicationController
     LanguageProblem.assign_all_problems(current_user, params[:language][:id])
     UserProgress.set_first_problem_as_current(current_user, params[:language][:id])
 
-    redirect_to progress_path(@language)
+    redirect_to user_path(current_user)
   end
 
   def show
