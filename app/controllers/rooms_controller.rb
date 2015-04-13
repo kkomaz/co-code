@@ -20,9 +20,15 @@ class RoomsController < ApplicationController
     end
   end
 
-
   def show
     @room = Room.find(params[:id])
+  end
+
+  def enter
+    binding.pry
+  end
+
+  def leave
   end
 
   private

@@ -1,11 +1,15 @@
 # Run with: rackup private_pub.ru -s thin -E production
 require "bundler/setup"
 require "yaml"
+require "net/http"
+require "uri"
 require "redis"
 require "faye"
 require "private_pub"
 require 'faye/redis'
-load 'faye/client_event.rb'
+
+Dir["faye/*.rb"].each {|file| load file }
+
 load 'config/initializers/redis.rb'
 
 Faye::WebSocket.load_adapter('thin')
@@ -21,28 +25,17 @@ app = PrivatePub.faye_app(options)
 
   app.bind(:subscribe) do |client_id, channel|
     puts "Client SUBSCRIBE: #{client_id}:#{channel}"
-
-    if channel[/\/users\/status\//]
-      channel_key = channel.gsub(/\/users\/status\//,"")
-      ClientEvent.user_subscribe(channel_key)
-    end
+    Subscribe.new(channel, client_id)
   end
 
   app.bind(:unsubscribe) do |client_id, channel|
     puts "Client UNSUBSCRIBE: #{client_id}:#{channel}"
-
-    if channel[/\/users\/status\//]
-      channel_key = channel.gsub(/\/users\/status\//,"")
-      ClientEvent.user_unsubscribe(channel_key)
-    end
+    Unsubscribe.new(channel, client_id)
   end
 
-  app.bind(:handshake) do |client_id|
-    puts "Client HANDSHAKE: #{client_id}"
-  end
-
-  app.bind(:disconnect) do |client_id, channel|
+  app.bind(:disconnect) do |client_id|
     puts "Client DISCONNECT: #{client_id}"
+    Disconnect.new(client_id)
   end
 
 run app

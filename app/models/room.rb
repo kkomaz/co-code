@@ -1,4 +1,6 @@
 class Room < ActiveRecord::Base
+  include Concerns::Rooms::OnlineStatus
+
   belongs_to :language_problem
   belongs_to :host, :class_name => "User"
   has_many :user_rooms

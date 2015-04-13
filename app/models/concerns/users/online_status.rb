@@ -3,19 +3,19 @@ module Concerns
     module OnlineStatus
       extend ActiveSupport::Concern
 
-      HASH_KEY = 'online_users'
+      USER_COUNT = 'online_users'
 
       included do
-        scope :online, -> { where(channel_key: $redis.hgetall(HASH_KEY).keys ) }
+        scope :online, -> { where(channel_key: $redis.hgetall(USER_COUNT).keys ) }
       end
 
       def online?
-        $redis.hget(HASH_KEY, self.channel_key).to_i > 0
+        $redis.hget(USER_COUNT, self.channel_key).to_i > 0
       end
 
       module ClassMethods
         def online_count
-          $redis.hlen HASH_KEY
+          $redis.hlen USER_COUNT
         end
       end
 

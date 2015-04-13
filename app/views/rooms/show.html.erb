@@ -1,8 +1,12 @@
 <div class="container">
   <h2><%= @room.title %></h2>
-  <h3><%= @room.language.name %></h3>
-  <h4><%= @room.problem.title %></h4>
-  <p><%= @room.host.full_name %></p>
+  <h4><%= @room.language.name %> | <%= @room.problem.title %></h4>
+  <p>Room Host: <%= @room.host.full_name %></p>
+
+  <div id="active-users">
+    <%= render partial: 'rooms/users', collection: @room.active_users, as: :user %>
+    <%= render 'rooms/users', user: current_user %>
+  </div>
 
   <div id="meta" data-user-id="<%= current_user.id %>" style="display: none;"></div>
 
