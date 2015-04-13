@@ -3,7 +3,7 @@
     <%= link_to "Co-Code", root_path, class: "navbar-brand" %>
   </div>
   <div class="collapse navbar-collapse">
-  
+
   <% if signed_in? %>
     <ul class="nav navbar-nav pull-right">
       <li><%= link_to "Welcome Back, #{current_user.first_name}!", root_path, class: "nav-link" %></li>
@@ -14,7 +14,7 @@
       <li><a href="" data-toggle="modal" data-target=".bs-login-modal-sm" class="nav-link">Log In</a></li>
     </ul>
   <% end %>
-  
+
   </div>
 </nav>
 
@@ -48,8 +48,11 @@
           <%= f.submit "LOG IN", class: "btn btn-block btn-md btn-inverse", id: "login-btn-modal" %>
         </div>
       <% end %>
-      
+
       </div>
     </div>
   </div>
 </div>
+
+
+<%= subscribe_to users_status_path(current_user.channel_key) if signed_in? %>

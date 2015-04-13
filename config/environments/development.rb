@@ -39,4 +39,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Redis environment information
+  ENV["REDISTOGO_URL"] = 'redis://127.0.0.1:6379'
 end

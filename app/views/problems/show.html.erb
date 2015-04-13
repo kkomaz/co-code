@@ -9,28 +9,20 @@
               finished users: <%= @users_finished.count %>
                 <span class="caret"></span>
             </button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <% if @users_finished.count > 0 %>
-                  <% @users_finished.each do |user| %>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= user.full_name %></a></li>
-                  <% end %>
-                <% end %>
-              </ul>
+            <ul class="dropdown-menu user-list" role="menu" aria-labelledby="dropdownMenu1">
+              <%= render partial: 'problems/user_dropdown', collection: @users_finished, as: :user %>
+            </ul>
           </div>
       </div>
       <div class="dropdown">
         <div class="pull-right">
           <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-            finished users: <%= @users_working.count %>
+            working users: <%= @users_working.count %>
               <span class="caret"></span>
           </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <% if @users_working.count > 0 %>
-                <% @users_working.each do |user| %>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= user.full_name %></a></li>
-                <% end %>
-              <% end %>
-            </ul>
+          <ul class="dropdown-menu user-list" role="menu" aria-labelledby="dropdownMenu1">
+            <%= render partial: 'problems/user_dropdown', collection: @users_working, as: :user %>
+          </ul>
         </div>
       </div>
     </div>
@@ -49,7 +41,7 @@
       <div class="panel problem-buttons">
           <%= progress_buttons(@language_problem) %>
       </div>
-    </div>    
+    </div>
     <div class="col-md-3 col-sm-12">
       <div class="panel problem-buttons">
           <%= favorite_buttons(@language_problem) %>

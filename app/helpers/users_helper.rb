@@ -25,4 +25,12 @@ module UsersHelper
       image_tag "ZptFx.png"
     end
   end
+
+  def user_status_icon(user)
+    if user == current_user || user.online?
+      "glyphicon-ok-sign online"
+    else
+      "glyphicon-remove-sign offline"
+    end
+  end
 end

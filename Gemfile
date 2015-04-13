@@ -20,6 +20,9 @@ gem 'faye'
 gem 'thin'
 gem 'private_pub'
 gem 'rails_autolink'
+gem 'redis'
+gem 'faye-redis'
+
 
 group :test, :development do
   gem 'rspec-rails'

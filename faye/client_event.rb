@@ -1,20 +1,14 @@
 class ClientEvent
-  MONITORED_CHANNELS = [ '/meta/subscribe', '/meta/disconnect' ]
+  HASH_KEY = 'online_users'
 
-  def incoming(message, callback)
-    return callback.call(message) unless MONITORED_CHANNELS.include? message['channel']
-
-    puts "Message is: #{message.inspect}"
-    faye_client.publish(message["subscription"], { 'message' => {'content' => "An event happened!"} } )
-    callback.call(message)
+  def self.user_subscribe(channel_key)
+    $redis.hincrby(HASH_KEY, channel_key, 1)
   end
 
-  def faye_client
-    @faye_client ||= Faye::Client.new('http://localhost:9292/faye')
-  end
-
-  def room_id (message)
-    message["subscription"][/\d+/].gsub("/","")
+  def self.user_unsubscribe(channel_key)
+    user_connections = $redis.hincrby(HASH_KEY, channel_key, -1)
+    $redis.hdel(HASH_KEY, channel_key) if user_connections <= 0
   end
 
 end
+

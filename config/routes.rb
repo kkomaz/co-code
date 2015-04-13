@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   get 'messages/create'
+  get '/users/status/:id' => 'users#status', :as => 'users_status'
+  get '/users/online_user' => 'users#online_user', :as => 'online_users'
 
   root 'users#show'
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations"} do
