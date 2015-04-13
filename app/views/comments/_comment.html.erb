@@ -1,9 +1,11 @@
 <div data-id='<%= comment.id %>' class="">
   <div class="col-md-6">
     <div class="panel comment-body clearfix">
-      <p class="triangle-border">
+      <div class="triangle-border">
+        <p>
         <%= markdown(auto_link(comment.content, :html => { :target => '_blank' })) %>
-      </p>
+        </p>
+      </div>
       <div class="user-container clearfix">
         <div class="user-img user-comment">
           <%= user_img(comment.user) %>
