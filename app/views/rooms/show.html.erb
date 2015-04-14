@@ -1,17 +1,52 @@
-<div class="container">
-  <h2><%= @room.title %></h2>
-  <h4><%= @room.language.name %> | <%= @room.problem.title %></h4>
-  <p>Room Host: <%= @room.host.full_name %></p>
+<div id="meta" data-user-id="<%= current_user.id %>" data-room-id="<%= @room.id %>"style="display: none;"></div>
 
-  <div id="active-users">
-    <%= render partial: 'rooms/users', collection: @room.active_users, as: :user %>
-    <%= render 'rooms/users', user: current_user %>
+<div class="container">
+  <div class="row top-pad">
+    <div class="col-md-6 col-sm-12">
+      <div class="panel bread-crumb">
+        <h6>
+          <%= link_to progress_path(@language.slug) do %>
+            <i class="icon-<%= language_icon(@language) %>"></i> <%= @language.name %>
+          <%- end -%> /
+          <%= link_to language_problem_path(@language.slug, @problem.slug) do %>
+            <%= problem_number(@problem) %>
+          <%- end -%> / Chatroom
+        </h6>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <div class="panel">
+        <h6>
+        Hosted by <%= @room.host.full_name %>
+        </h6>
+      </div>
+    </div>
+  </div>
+  <div class="row top-pad">
+    <div class="col-md-12 col-sm-12">
+      <div class="panel">
+        <h3><%= @room.title %></h3>
+      </div>
+    </div>
   </div>
 
-  <div id="meta" data-user-id="<%= current_user.id %>" data-room-id="<%= @room.id %>"style="display: none;"></div>
 
-  <div id="chatbox">
-    <%= render :partial => 'messages/message', :collection => @room.messages, :as => :message %>
+  <div class="row top-pad">
+    <div class="col-md-9 col-sm-12">
+      <div id="chatbox">
+        <%= render :partial => 'messages/message', :collection => @room.messages, :as => :message %>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-12">
+      <div id="active-users" class="panel">
+        <div class="center-text bold underline">Active Users</div>
+        <div class="user-list">
+          <%= render partial: 'rooms/users', collection: @room.active_users, as: :user %>
+          <%= render 'rooms/users', user: current_user %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <%= form_for [@room, Message.new], :url => new_room_message_path(@room), :remote => true do |f| %>
