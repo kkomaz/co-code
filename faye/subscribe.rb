@@ -50,7 +50,7 @@ class Subscribe
     end
 
     def send_faye_msg
-       # PrivatePub.publish_to(@channel, "alert('hello world')")
+       PrivatePub.publish_to(@channel, "alert('hello world')")
     end
 end
 
