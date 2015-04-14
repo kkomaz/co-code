@@ -1,3 +1,6 @@
+require 'uri'
+require 'net/http'
+
 class Subscribe
   USER_COUNT = 'online_users'
   USER_MAPPING = 'user_client_mapping'
@@ -11,6 +14,8 @@ class Subscribe
     elsif channel[/rooms\/\d+/]
       @channel_info = channel[/rooms\/\d+/].gsub("rooms/","")
       room_subscribe
+      # enter_room
+      # send_faye_msg
     end
   end
 
@@ -21,7 +26,6 @@ class Subscribe
 
   def room_subscribe
     add_client_to_room
-    publish_room_entry
   end
 
   private
@@ -37,26 +41,16 @@ class Subscribe
       $redis.sadd(@channel_info, @client_id)
     end
 
-    def publish_room_entry
-      # # url = "http://co-code.herokuapp.com" + @channel + "/enter"
-      # url = "http://127.0.0.1:3000" + @channel + "/enter"
-      # uri = URI.parse(url)
-      # http = Net::HTTP.new(uri.host, uri.port)
-      # request = Net::HTTP::Post.new(uri.path, {"client_id" => @client_id})
-      # puts request.body
+    def enter_room
+      url = "http://localhost:3000"
+      params = {client_id: @client_id}
+      uri = URI.parse(url + @channel + "/enter")
+      uri.query = URI.encode_www_form(params)
+      response = Net::HTTP.get_response(uri)
+    end
 
-      # response = http.request(request)
-      # puts response
-      url = URI.parse('https://www.google.com/?gws_rd=ssl')
-      req = Net::HTTP::Get.new(url.to_s)
-      res = Net::HTTP.start(url.host, url.port, use_ssl: true) {|http| http.request(req)}
-      puts res.body
+    def send_faye_msg
+       # PrivatePub.publish_to(@channel, "alert('hello world')")
     end
 end
-
-      # url = "http://localhost:3000/ruby/problem-1/rooms/1/enter"
-      # uri = URI.parse(url)
-      # http = Net::HTTP.new(uri.host, uri.port)
-      # request = Net::HTTP::Post.new(uri.path, {"client_id" => "f6i8o9u40yauk4magqxxa1a97ffub5w"})
-      # response = http.request(request)
 

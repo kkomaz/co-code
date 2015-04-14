@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  include Concerns::Users::OnlineStatus
+
+  before_create :generate_channel_key
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
@@ -86,4 +90,12 @@ class User < ActiveRecord::Base
       UserProgress.progress_for_user(self, next_language_problem).update(:status => 1)
     end
   end
+
+  private
+    def generate_channel_key
+      begin
+        key = SecureRandom.urlsafe_base64
+      end while User.where(:channel_key => key).exists?
+      self.channel_key = key
+    end
 end

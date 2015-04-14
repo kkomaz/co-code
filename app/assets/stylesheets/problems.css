@@ -44,3 +44,11 @@ div.problem-body{
 body {
   background-color: #ECECEC;
 }
+
+.online {
+  color: green;
+}
+
+.offline {
+  color: red;
+}

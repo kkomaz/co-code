@@ -22,6 +22,8 @@ gem 'private_pub'
 gem 'rails_autolink'
 gem 'redcarpet'
 gem 'coderay'
+gem 'redis'
+gem 'faye-redis'
 
 group :test, :development do
   gem 'rspec-rails'
