@@ -7,9 +7,6 @@
         </div>
 
         <div class="post-content form-group">
-       <!--  <div id="epiceditor">
-          <textarea rows="4" cols="40"></textarea>
-        </div> -->
         <%= f.text_area :content, :placeholder => "Content...", :rows => 10, :class => "full-width", :id => "post-text-area", data: { :"hidden-buttons" => ["cmdBold", "cmdItalic", "cmdHeading", "cmdUrl", "cmdImage", "cmdList", "cmdList0", "cmdCode", "cmdQuote"], provide: "markdown", :fullscreen => "" } %>
         </div>
         <%= f.submit "Create Post", :class => "btn btn-primary" %>
