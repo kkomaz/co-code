@@ -56,3 +56,7 @@
 
   <%= subscribe_to problem_room_path(@room.language, @room.problem, @room) %>
 </div>
+
+<%- publish_to problem_room_path(@room.language, @room.problem, @room) do -%>
+  alert("hello")
+<% end %>
