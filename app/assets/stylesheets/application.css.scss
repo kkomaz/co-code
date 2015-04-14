@@ -13,7 +13,6 @@
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_self
  *= require bootstrap
- *= require bootstrap-markdown.min
  *= require flat-ui
  *= require user_registration
  *= require user_show
@@ -24,6 +23,7 @@
  *= require forum
  *= require user_progress_show
  *= require messages
+ *= require bootstrap-markdown
 
 
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"

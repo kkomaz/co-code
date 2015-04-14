@@ -22,16 +22,24 @@ module ApplicationHelper
   end
 
   def markdown(content)
-    code_rayified = CodeRayify.new(:filter_html => true,
-                                   :hard_wrap => true)
-    options = {
-      no_intra_emphasis: true,
-      fenced_code_blocks: true,
-      autolink: true,
-      lax_html_blocks: true
-    }
-    markdown_to_html = Redcarpet::Markdown.new(code_rayified, options)
-    markdown_to_html.render(content).html_safe
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+    no_intra_emphasis: true, 
+    fenced_code_blocks: true,   
+    )
+    markdown.render(content).html_safe
   end
+
+  # def markdown(content)
+  #   code_rayified = CodeRayify.new(:filter_html => true,
+  #                                  :hard_wrap => true)
+  #   options = {
+  #     no_intra_emphasis: true,
+  #     fenced_code_blocks: true,
+  #     autolink: true,
+  #     lax_html_blocks: true
+  #   }
+  #   markdown_to_html = Redcarpet::Markdown.new(code_rayified, options)
+  #   markdown_to_html.render(content).html_safe
+  # end
   
 end
