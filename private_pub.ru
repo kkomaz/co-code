@@ -14,7 +14,7 @@ load 'config/initializers/redis.rb'
 
 Faye::WebSocket.load_adapter('thin')
 
-PrivatePub.load_config(File.expand_path("../config/private_pub.yml", __FILE__), "production")
+PrivatePub.load_config(File.expand_path("../config/private_pub.yml", __FILE__), ENV["RAILS_ENV"] || "development")
 
 options = {:mount => "/faye",
            :timeout => 25,
