@@ -1,33 +1,33 @@
 <div class="container">
 
   <div class="row top-pad">
-    <div class="col-md-6" style="padding-right:0px;">
-      <div class="dark-panel">
-        <div class="post-body" id="bread-text">
-          <%= link_to progress_path(@language.slug) do %>
-            <i style="color: <%= language_color(@language) %>;" class="icon-<%= language_icon(@language) %>"> </i><l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>
-          <%- end -%> / <%= problem_number(@problem) %>
+    <div class="col-md-12">
+      <div class="dark-panel panel-height">
+        <div class="post-body clearfix" id="bread-text">
+          <div class="float-left">
+            <%= link_to progress_path(@language.slug) do %>
+              <i style="color: <%= language_color(@language) %>;" class="icon-<%= language_icon(@language) %>"> </i><l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>
+            <%- end -%> / <%= problem_number(@problem) %>
+          </div>
+          <div class="bread-button clearfix" id="bread-button">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle button-padding float-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Users Finished: <%= @users_finished.count %>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu user-list" id="finished" role="menu" id="dropdownMenu1">
+                <%= render partial: 'problems/user_dropdown', collection: @users_finished, as: :user %>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle float-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">Users Working: <%= @users_working.count %>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu user-list" id="working" role="menu" aria-labelledby="dropdownMenu2">
+                <%= render partial: 'problems/user_dropdown', collection: @users_working, as: :user %>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-6" style="padding-left:0px;">
-        <div class="col-md-12 bread-button" id="bread-button">
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle button-padding pull-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Users Finished: <%= @users_finished.count %>
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu user-list" role="menu" id="dropdownMenu1">
-              <%= render partial: 'problems/user_dropdown', collection: @users_finished, as: :user %>
-            </ul>
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">Users Working: <%= @users_working.count %>
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu user-list" role="menu" aria-labelledby="dropdownMenu2">
-              <%= render partial: 'problems/user_dropdown', collection: @users_working, as: :user %>
-            </ul>
-          </div>
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@
               <% end %>
             </ul>
             <%= link_to 'Start A New Chat', new_problem_room_path(@language.slug, @problem.slug), :class => 'btn btn-primary pull-right' %>
-          </div>          
+          </div>
         </div>
       </div>
     </div>
