@@ -4,6 +4,9 @@ Problem.create(problems)
 
 Language.create(:name => "Ruby")
 Language.create(:name => "JavaScript")
+Language.create(:name => "Python")
+Language.create(:name => "Perl")
+
 
 # Create language_problems
 Language.all.each do |language|

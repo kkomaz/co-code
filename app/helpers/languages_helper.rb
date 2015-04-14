@@ -6,6 +6,10 @@ module LanguagesHelper
       "ruby"
     when "JavaScript"
       "javascript"
+    when "Perl"
+      "perl"
+    when "Python"
+      "python"
     end
   end
 
@@ -15,6 +19,10 @@ module LanguagesHelper
       "#E74C3C"
     when "JavaScript"
       "#F1C40F"
+    when "Perl"
+      "#99CCCC"
+    when "Python"
+      "#4281B3"
     end
   end
 
