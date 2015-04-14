@@ -1,7 +1,3 @@
-$(function(){
-  chatboxScroll();
-});
-
 function commentScroll(){
   var commentParent = $("#comment-form-parent"), pos = commentParent.offset();
   $(window).scroll(function() {
@@ -11,13 +7,4 @@ function commentScroll(){
       commentParent.removeClass('fixed');
     }
   });
-}
-
-function chatboxScroll(){
-  var height = 0;
-  $('#chatbox div.message-container').each(function(i, value){
-      height += parseInt($(this).height());
-  });
-  height += '';
-  $('#chatbox').animate({scrollTop: height});
 }
