@@ -24,6 +24,8 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @language = @room.language
+    @problem = @room.problem
   end
 
   def enter
