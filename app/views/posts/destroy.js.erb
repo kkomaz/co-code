@@ -1,0 +1,4 @@
+var $removeLI = $("div[data-id=" + "<%= @post.id %>" + "]");
+$removeLI.fadeOut(400, function(){
+  $removeLI.remove();
+});
