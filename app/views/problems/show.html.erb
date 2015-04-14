@@ -12,39 +12,92 @@
     </div>
     <div class="col-md-6" style="padding-left:0px;">
         <div class="col-md-12 bread-button" id="bread-button">
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle button-padding pull-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">finished users: <%= @users_finished.count %>
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu" id="dropdownMenu1">
-            <% if @users_finished.count > 0 %>
-              <% @users_finished.each do |user| %>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= user.full_name %></a></li>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle button-padding pull-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Users Finished: <%= @users_finished.count %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="dropdownMenu1">
+              <% if @users_finished.count > 0 %>
+                <% @users_finished.each do |user| %>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= user.full_name %></a></li>
+                <% end %>
               <% end %>
-            <% end %>
-          </ul>
+            </ul>
           </div>
           <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">working users: <%= @users_working.count %>
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
-            <% if @users_working.count > 0 %>
-              <% @users_working.each do |user| %>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= user.full_name %></a></li>
+            <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">Users Working: <%= @users_working.count %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+              <% if @users_working.count > 0 %>
+                <% @users_working.each do |user| %>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= user.full_name %></a></li>
+                <% end %>
               <% end %>
-            <% end %>
-          </ul>
+            </ul>
           </div>
       </div>
     </div>
   </div>
 
   <div class="row top-pad">
-    <div class="col-md-12">
+    <div class="col-md-4">
       <div class="panel">
-        Hello
+        <div class="dropdown">
+          <div class="panel-buttons">
+            <button class="btn btn-inverse dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">Existing Rooms
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+              <% if @rooms %>
+                <% @rooms.each.with_index(1) do |room, index| %>
+                  <li role="presentation">
+                    <%= link_to "Room #{index}", problem_room_path(@language.slug, @problem.slug, room), role: "menuitem", tabindex: "-1" %></li>
+                <% end %>
+              <% end %>
+            </ul>
+            <%= link_to 'Start A New Chat', new_problem_room_path(@language.slug, @problem.slug), :class => 'btn btn-primary pull-right' %>
+          </div>          
+        </div>
       </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel">
+        <%= progress_buttons(@language_problem) %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel">
+        <%= favorite_buttons(@language_problem) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel problem-body">
+        <div class="problem-title">
+          <h2><%= problem_title(@problem) %></h2>
+        </div>
+        <div class="problem-content">
+          <%= raw @problem.content %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel" id="post-box">
+        <%= render @posts %>
+      </div>
+      <div id="paginator">
+        <%= paginate @posts,:remote => true %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel">
+        <h6 style="text-align: center;"><strong>Stuck?</strong> Just ask a question!</h6>
+      </div>
+        <%= render :partial => 'posts/form' %>
     </div>
   </div>
 

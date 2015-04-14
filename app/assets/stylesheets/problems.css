@@ -1,9 +1,18 @@
+div#post-box {
+  height: 565px;
+}
+
+#dropdownMenu3 {
+  margin-right: 16px;
+  margin-left: 6px;
+}
+
 div#bread-text {
   font-size: 28px;
 }
 
 div#bread-button {
-  padding-top: 20px;
+  padding-top: 19px;
   padding-bottom: 19px;
   padding-right: 20px;
   background-color: #264348;
