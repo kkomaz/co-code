@@ -14,10 +14,10 @@
 //= require jquery_ujs
 //= require user-show
 //= require bootstrap
+//= require bootstrap-markdown.js
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require private_pub
 //= require comments
-//= require epiceditor
-//= require main
+
 
 
