@@ -18,19 +18,23 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6" id="textview">
       <div class="panel post-body"> 
         <%= form_for [@language, @problem, @post], :url => problem_posts_path do |f| %>
           <div class="post-title form-group">
             <%= f.text_field :title, :placeholder => "Title",:class => "full-width", :id => "post-text-field" %>
           </div>
           <div class="post-content form-group">
-          <div id="epiceditor"></div>
-          <%= f.text_area :content, :placeholder => "Content...", :rows => 15, :class => "full-width", :id => "post-text-area" %>
+          <!-- <div id="epiceditor"></div> -->
+          <%= f.text_area :content, :placeholder => "Content...", :rows => 15, :class => "full-width", :id => "editor", data: { iconlibrary: "fa", provide: "markdown" } %>
           </div>
           <%= f.submit "Create Post", :class => "btn btn-primary" %>
         <% end %>
       </div>
     </div>
-  </div>
+
 </div>
+
+<!-- id="preview"
+<div id="md-preview" data-provider="markdown-preview">
+</div> -->
