@@ -1,3 +1,7 @@
+<script type="text/javascript">
+    var editor = new EpicEditor().load();
+</script>
+
 <div class="row">
   <div class="col-md-12">
     <div class="panel post-body">
@@ -7,7 +11,10 @@
         </div>
 
         <div class="post-content form-group">
-        <%= f.text_area :content, :placeholder => "Content...", :rows => 15, :class => "full-width", :id => "post-text-area" %>
+       <!--  <div id="epiceditor">
+          <textarea rows="4" cols="40"></textarea>
+        </div> -->
+        <%= f.text_area :content, :placeholder => "Content...", :rows => 10, :class => "full-width", :id => "post-text-area", data: { :"hidden-buttons" => ["cmdBold", "cmdItalic", "cmdHeading", "cmdUrl", "cmdImage", "cmdList", "cmdList0", "cmdCode", "cmdQuote"], provide: "markdown", :fullscreen => "" } %>
         </div>
         <%= f.submit "Create Post", :class => "btn btn-primary" %>
       <% end %>
