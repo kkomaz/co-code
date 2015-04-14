@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   post ':language_id/:problem_id/posts' => 'posts#create'
   get ':language_id/:problem_id/posts/:id' => 'posts#show', :as => 'problem/post'
   get ':language_id/:problem_id/posts' => 'posts#index', :as => 'problem/posts'
+  delete 'posts/:post_id' => 'posts#destroy', :as => 'destroy/problem/post'
 
   get ':language_id/:problem_id/rooms/new' => 'rooms#new', :as=> 'new/problem/room'
   post ':language_id/:problem_id/rooms' => 'rooms#create'
