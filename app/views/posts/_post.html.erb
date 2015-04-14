@@ -1,5 +1,5 @@
-<div class="entry clearfix">
-  <h8><%= link_to post.title, problem_post_path(post.language, post.problem, post) %></h8> <br>
+<div class="entry clearfix" data-id='<%= post.id %>'>
+  <h8><%= link_to post.title, problem_post_path(post.language, post.problem, post) %></h8> <span style="font-size: 15px; padding-left: 10px;" class="pull-right"><%= delete_post_link(current_user, post) %></span><br>
     <fonts>submitted <%= post.created_at.strftime("%B %d, %Y") %> by <strong><%= post.user.full_name %></strong></fonts>
     <div class="user-img pull-right">
       <%= user_img(post.user) %>
