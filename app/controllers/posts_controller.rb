@@ -32,6 +32,8 @@ class PostsController < ApplicationController
     @post.language_problem = LanguageProblem.find_language_problem(params[:language_id],params[:problem_id])
     @post.user = current_user
     @post.save
+    @language_problem = @post.language_problem
+    @posts = Kaminari.paginate_array(@language_problem.posts.reverse).page(params[:page]).per(3)
     #   redirect_to language_problem_path(params[:language_id],params[:problem_id])
     # else
     #   render 'new'

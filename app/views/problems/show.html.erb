@@ -78,14 +78,7 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <div class="post-box panel" id="post-box">
-        <%= render @posts %>
-      </div>
-      <center>
-        <div id="paginator">
-          <%= paginate @posts,:remote => true %>
-        </div>
-      </center>
+      <%= render 'problems/post_paginator' %>
     </div>
     <div class="col-md-6">
       <div class="panel">

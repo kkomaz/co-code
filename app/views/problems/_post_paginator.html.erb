@@ -1,0 +1,10 @@
+<div class="post-paginator">
+  <div class="post-box panel margin-bottom" id="post-box">
+    <%= render @posts %>
+  </div>
+  <center>
+    <div id="paginator">
+      <%= paginate @posts,:remote => true %>
+    </div>
+  </center>
+</div>

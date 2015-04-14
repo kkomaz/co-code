@@ -1,5 +1,5 @@
 div#post-box {
-  height: 475px;
+  height: 500px;
 }
 
 #dropdownMenu3 {
@@ -31,6 +31,10 @@ div.panel {
   background-color: #fff;
   height: 100%;
   padding: 10px;
+}
+
+div.panel.margin-bottom{
+  margin-bottom: 0px;
 }
 
 div.bread-crumb,

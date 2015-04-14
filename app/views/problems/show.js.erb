@@ -1,2 +1,3 @@
 $('.post-box').html("<%= j(render :partial => 'posts/post', :collection => @posts, :as => 'post') %>");
 $('#paginator').html('<%= j(paginate(@posts, :remote => true).to_s) %>');
+
