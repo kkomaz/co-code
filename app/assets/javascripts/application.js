@@ -12,10 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require user-show
 //= require bootstrap
-//= require bootstrap-markdown.js
+//= require bootstrap-markdown.min
+//= require to-markdown
+//= require markdown
+//= require user-show
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require private_pub
 //= require comments
 //= require chatroom
+
