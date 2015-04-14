@@ -24,7 +24,6 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'redis'
 gem 'faye-redis'
-gem 'pygments.rb'
 
 group :test, :development do
   gem 'rspec-rails'
