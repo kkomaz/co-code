@@ -2549,7 +2549,6 @@ fieldset[disabled] .input-group-btn .btn-default.active {
   }
 .pagination {
   position: relative;
-  padding-left: 200px;
   display: block;
   }
 @media (min-width: 768px) {

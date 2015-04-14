@@ -37,7 +37,6 @@ br.small {
 }
 
 .pagination {
-    padding-left: 140px;
     border-left: 1px solid #ddd;
     .first{
         padding : 0;
@@ -76,5 +75,13 @@ br.small {
 
 .chat-padding {
   padding-left: 0px;
+}
+
+.last {
+  display:none;
+}
+
+.first{
+  display:none;
 }
 
