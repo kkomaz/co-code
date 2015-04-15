@@ -22,4 +22,4 @@
 .DS_Store
 
 # Ignore redis db
-dump.rdb
+/dump.rdb
