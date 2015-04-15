@@ -6,8 +6,6 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  config.include Capybara::DSL
-
   config.include Warden::Test::Helpers
   config.before :suite do
     Warden.test_mode!
@@ -21,17 +19,14 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.start
-  end
-
-  config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
+    # DatabaseCleaner.start -- screwed us hard
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
     Warden.test_reset!
   end
+
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
 end

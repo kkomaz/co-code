@@ -91,3 +91,12 @@ div#current-problem-panel:hover {
 #current-problem-panel:hover #current-problem-link-text {
   color: #1ABC9C;
 }
+
+
+a#back-dashboard-link-text {
+  color: #34495E;
+}
+
+#current-problem-panel:hover #back-dashboard-link-text {
+  color: #1ABC9C;
+}

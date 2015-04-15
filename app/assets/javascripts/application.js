@@ -13,8 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrap-markdown.min
-//= require to-markdown
+//= require bootstrap-markdown
 //= require markdown
 //= require user-show
 //= require_tree ../../../vendor/assets/javascripts/.
