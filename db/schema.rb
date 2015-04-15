@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413010729) do
+ActiveRecord::Schema.define(version: 20150415203531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 20150413010729) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  create_table "invitations", force: :cascade do |t|
+    t.integer  "lesson_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "language_problems", force: :cascade do |t|
     t.integer  "language_id"
     t.integer  "problem_id"
@@ -55,6 +62,15 @@ ActiveRecord::Schema.define(version: 20150413010729) do
   end
 
   add_index "languages", ["slug"], name: "index_languages_on_slug", unique: true, using: :btree
+
+  create_table "lessons", force: :cascade do |t|
+    t.text     "description"
+    t.integer  "room_id"
+    t.integer  "host_id"
+    t.datetime "schedule"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.string   "content"
@@ -86,7 +102,6 @@ ActiveRecord::Schema.define(version: 20150413010729) do
 
   create_table "rooms", force: :cascade do |t|
     t.integer  "language_problem_id"
-    t.integer  "host_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "title"
@@ -99,13 +114,6 @@ ActiveRecord::Schema.define(version: 20150413010729) do
     t.boolean  "favorite",            default: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-  end
-
-  create_table "user_rooms", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

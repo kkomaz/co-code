@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many  :posts
   has_many  :messages
   has_many  :invitations
-  has_many  :courses, :through => :invitations, :class_name => "Lesson"
+  has_many  :courses, :through => :invitations, :source => :lesson
   has_many  :lessons, :foreign_key => "host_id"
 
 
