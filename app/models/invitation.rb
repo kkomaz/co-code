@@ -4,8 +4,9 @@ class Invitation < ActiveRecord::Base
 
   def self.create_invitations(lesson, invitees)
     invitees.each do |invitee|
-      Invitation.create(:lesson => lesson, :user => invitee)
+      @user = User.find(invitee) if invitee != ""
+      Invitation.create(:lesson => lesson, :user => @user)
     end
   end
-  
+
 end
