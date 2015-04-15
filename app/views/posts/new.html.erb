@@ -25,8 +25,7 @@
             <%= f.text_field :title, :placeholder => "Title",:class => "full-width", :id => "post-text-field" %>
           </div>
           <div class="post-content form-group">
-          <!-- <div id="epiceditor"></div> -->
-          <%= f.text_area :content, :placeholder => "Content...", :rows => 15, :class => "full-width", :id => "editor", data: { iconlibrary: "fa", provide: "markdown" } %>
+          <%= f.text_area :content, :placeholder => "Content...", :rows => 15, :class => "full-width", :id => "editor", data: { provide: "markdown" } %>
           </div>
           <%= f.submit "Create Post", :class => "btn btn-primary" %>
         <% end %>

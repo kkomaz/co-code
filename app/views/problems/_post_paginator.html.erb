@@ -4,7 +4,9 @@
   </div>
   <center>
     <div id="paginator">
-      <%= paginate @posts,:remote => true %>
+      <%= paginate @posts, remote: true %>
     </div>
   </center>
 </div>
+
+<!-- paginate (render :partial => 'posts/post', :collection => @posts, :as => 'post') -->
