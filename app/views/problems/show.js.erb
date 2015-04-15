@@ -1,3 +1,4 @@
+$('#post-box').html('<%= j(render @posts) %>')
 $('#paginator').html('<%= j(paginate(@posts, :remote => true).to_s) %>');
 $('#post-text-area').val("");
 $('#post-text-field').val("");
