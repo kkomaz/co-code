@@ -342,7 +342,6 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
-  faye
   faye-redis
   figaro
   friendly_id (~> 5.1.0)
