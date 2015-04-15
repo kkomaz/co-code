@@ -1,5 +1,9 @@
 <h1>MAKE A LESSON - YOU HOST!</h1>
 
-<% form_for [@language, @lesson] do |f| -%>
-  
-<% end -%>
+<%= form_for [@language, @lesson] do |f| %>
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %>
+  <%= f.datetime_select :schedule, :ampm => true %>
+
+  <%= f.submit "Create Lesson" %>
+<% end %>
