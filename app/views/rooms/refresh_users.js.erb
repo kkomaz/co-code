@@ -1,0 +1,9 @@
+var activeUsers = "<%= j(render 'rooms/users', room: @room) %>"
+$("div#active-users").replaceWith(activeUsers)
+
+var status = "<%= j(@status) %>"
+var userName = "<%= j(@user.first_name) %>"
+var statusString = "<p class='center-text status-update'>---- " + userName + " has " + status + " the room. ----</p>"
+
+$('#chatbox').append(statusString);
+newMessageScroll();

@@ -11,12 +11,19 @@ function chatboxScroll(){
   $('#chatbox').animate({scrollTop: height});
 }
 
-function getUsers(channel, clientId){
-  if(!!$("div#chatbox")[0]) {
-    // make ajax call to get user element and call addUsers function
-  }
+function newMessageScroll(){
+  var $targetEl = $("#chatbox").children().last()
+  $("#chatbox").animate({
+    scrollTop: $("#chatbox").scrollTop() + $targetEl.position().top
+  });
 }
 
-function addUsers(element){
-  $("div#active-users").append(element)
+function refreshUsers(channel, channelKey, status){
+  var url = channel + '/refresh'
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: {channel: channel, channel_key: channelKey, status: status},
+    dataType: "script"
+  })
 }

@@ -10,8 +10,6 @@
   $('#textfield-<%= @message.user.id %>').val("")
   $('#chatbox').append($newEl);
 
-  var $targetEl = $("div[data-id=" + "<%= @message.id %>" + "]")
-  $("#chatbox").animate({
-    scrollTop: $("#chatbox").scrollTop() + $targetEl.position().top
-  });
+  newMessageScroll();
+
 <%- end -%>

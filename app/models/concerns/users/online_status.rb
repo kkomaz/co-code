@@ -20,7 +20,7 @@ module Concerns
         end
 
         def find_by_client_id(client_id)
-          where(channel_key: $redis.hmget(USER_MAPPING, client_id))
+          where(channel_key: $redis.hmget(USER_MAPPING, client_id)).first
         end
       end
 

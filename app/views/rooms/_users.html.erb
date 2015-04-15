@@ -1,1 +1,6 @@
-<p id="<%= user.id %>" class="center-text"><%= user.full_name %></p>
+<div id="active-users" class="panel">
+  <div class="center-text bold underline">Active Users</div>
+  <div class="user-list">
+    <%= render partial: 'rooms/user', collection: room.active_users, as: :user %>
+  </div>
+</div>

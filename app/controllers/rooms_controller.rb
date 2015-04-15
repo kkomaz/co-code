@@ -28,16 +28,11 @@ class RoomsController < ApplicationController
     @problem = @room.problem
   end
 
-  def enter
+  def refresh_users
     @room = Room.find(params[:id])
-    @user = User.find_by_client_id(params[:client_id])
-    @path = problem_room_path(@room.language, @room.problem, @room)
-    respond_to do |f|
-      f.js
-    end
-  end
-
-  def leave
+    @status = params[:status]
+    @user = User.find_by(channel_key: params[:channel_key])
+    @path = params[:channel]
   end
 
   private

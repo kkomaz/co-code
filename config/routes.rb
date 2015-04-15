@@ -2,10 +2,8 @@ Rails.application.routes.draw do
 
   get 'messages/create'
   get '/users/status/:id' => 'users#status', :as => 'users_status'
-  get '/users/online_user' => 'users#online_user', :as => 'online_users'
 
-  get '/:language_id/:problem_id/rooms/:id/enter' => 'rooms#enter', :as => 'enter_room'
-  get '/:language_id/:problem_id/rooms/:id/leave' => 'rooms#leave', :as => 'leave_room'
+  post '/:language_id/:problem_id/rooms/:id/refresh' => 'rooms#refresh_users', :as => 'refresh_room_users'
 
   root 'users#show'
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations"} do

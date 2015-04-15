@@ -8,4 +8,6 @@ class Room < ActiveRecord::Base
   has_many :messages
   delegate :language, :to => :language_problem
   delegate :problem, :to => :language_problem
+
+  validates :title, :presence => true
 end
