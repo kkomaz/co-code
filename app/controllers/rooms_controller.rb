@@ -14,7 +14,6 @@ class RoomsController < ApplicationController
     @problem = Problem.find(params[:problem_id])
     @language_problem = LanguageProblem.find_language_problem(params[:language_id], params[:problem_id])
     @room.language_problem = @language_problem
-    @room.host = current_user
     if @room.save
       redirect_to problem_room_path(@language, @problem, @room)
     else

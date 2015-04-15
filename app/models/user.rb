@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
   has_many  :language_problems, :through  => 'user_progresses'
   has_many  :comments
   has_many  :posts
-  has_many  :user_rooms
-  has_many  :rooms, :through => :user_rooms
   has_many  :messages
-  has_many  :lessons, :foreign_key => 'host_id', :class_name => "Room"
+  has_many  :invitations
+  has_many  :courses, :through => :invitations, :class_name => "Lesson"
+  has_many  :lessons, :foreign_key => "host_id"
 
 
   validates :first_name, :last_name, :presence => true
