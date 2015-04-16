@@ -26,4 +26,8 @@ module LanguagesHelper
     end
   end
 
+  def language_symbol(language)
+    raw("<i style='color: #{language_color(language)};' class='icon-#{language_icon(language)}'></i>")
+  end
+
 end

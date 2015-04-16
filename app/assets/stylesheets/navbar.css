@@ -13,8 +13,8 @@
 
 .invite-messages,
 .lesson-messages {
-  width: 400px;
-  left: -317px;
+  width: 500px;
+  left: -400px;
 }
 
 .notification-count {
@@ -34,4 +34,8 @@ div[id*="count-"] {
   position: absolute;
   right: 4px;
   font-size: 15px;
+}
+
+.invite-content {
+  padding: 10px 0 5px 20px;
 }

@@ -91,6 +91,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  # active invitations
+  def upcoming_courses
+    self.courses.where("schedule >= ?", Time.now.utc).order(:schedule).limit(5)
+  end
+
   private
     def generate_channel_key
       begin

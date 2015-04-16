@@ -12,16 +12,13 @@
             <span class="glyphicon glyphicon-exclamation-sign nav-icon" aria-hidden="true">
               <div class="notification-count">
               <!-- change this to be dynamic -->
-                <div id="count-lesson">4</div>
+                <div id="count-lesson">0</div>
               </div>
             </span>
           </button>
           <ul class="dropdown-menu lesson-messages" role="menu" aria-labelledby="invitations">
           <!-- change this to be dynamic -->
             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
           </ul>
         </div>
       </li>
@@ -30,17 +27,12 @@
           <button class="dropdown-toggle invitations-button" type="button" id="invitations" data-toggle="dropdown" aria-expanded="true">
             <span class="glyphicon glyphicon-envelope nav-icon" aria-hidden="true">
               <div class="notification-count">
-              <!-- change this to be dynamic -->
-                <div id="count-invitation">4</div>
+                <div id="count-invitation"><%= current_user.upcoming_courses.count %></div>
               </div>
             </span>
           </button>
           <ul class="dropdown-menu invite-messages" role="menu" aria-labelledby="invitations">
-          <!-- change this to be dynamic -->
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+            <%= render partial: 'layouts/invitations', collection: current_user.upcoming_courses, as: :lesson %>
           </ul>
         </div>
       </li>

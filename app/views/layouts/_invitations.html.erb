@@ -1,0 +1,11 @@
+<li role="presentation" class="clearfix">
+  <%= lesson_link(lesson) do %>
+    <div class="user-img float-left">
+      <%= user_img(lesson.host) %>
+    </div>
+    <div class="invite-content float-left">
+      <p><strong><%= lesson.description %></strong></br>
+      <%= lesson.schedule.strftime('%F %R') %> | <%= language_symbol(lesson.language) %> <%= lesson.language.name %> | <%= problem_number(lesson.problem) %></p>
+    </div>
+  <%- end -%>
+</li>
