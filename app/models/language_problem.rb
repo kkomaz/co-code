@@ -8,10 +8,17 @@ class LanguageProblem < ActiveRecord::Base
 
   validates :language_id, :problem_id, :presence => true
 
-  def self.assign_all_problems(user, language_id)
-    language = Language.find(language_id)
+  def self.assign_all_problems(user, language)
+    language = Language.find(language)
     self.where(:language => language).each do |language_problem|
       UserProgress.find_or_create_by(:user => user, :language_problem => language_problem)
+    end
+  end
+
+  def self.assign_first_fifty_problems(user, language)
+    @language_problems = self.where(:language => language).order(:id).limit(50)
+    @language_problems.each do |language_problem|
+      UserProgress.create(:user => user, :language_problem => language_problem)
     end
   end
 
