@@ -12,6 +12,10 @@ class Problem < ActiveRecord::Base
     self.title[/Problem \d+/]
   end
 
+  def shortened_name
+    self.title[/Problem \d+.{1,30}/] + (self.title.length > 39 ? '...' : '')
+  end
+
   def self.first_problem
     self.order(:id).limit(1)[0]
   end
