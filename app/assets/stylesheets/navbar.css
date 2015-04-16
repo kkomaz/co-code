@@ -1,0 +1,37 @@
+.nav-icon {
+  color: #CFD4D4;
+  font-size: 20px;
+  line-height: 30px;
+  padding: 14px 28px;
+}
+
+.invitations-button,
+.lessons-button {
+  background-color: transparent;
+  border: none;
+}
+
+.invite-messages,
+.lesson-messages {
+  width: 400px;
+  left: -317px;
+}
+
+.notification-count {
+  position: absolute;
+  top: 31px;
+  right: 16px;
+  background: green;
+  padding: 2px;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 17px;
+  width: 17px;
+}
+
+div[id*="count-"] {
+  top: -8px;
+  position: absolute;
+  right: 4px;
+  font-size: 15px;
+}

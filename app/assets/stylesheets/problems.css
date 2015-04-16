@@ -100,3 +100,7 @@ ul#finished {
   right: -56px;
   left: inherit;
 }
+
+.chat-form-title {
+  font-size: 20px;
+}
