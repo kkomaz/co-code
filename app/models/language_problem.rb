@@ -5,8 +5,15 @@ class LanguageProblem < ActiveRecord::Base
   has_many  :users, :through => 'user_progresses'
   has_many  :posts
   has_many  :rooms
+  has_many  :lessons, :through => :rooms
 
   validates :language_id, :problem_id, :presence => true
+
+  def self.upcoming_lessons(language, problem)
+    LanguageProblem.find_language_problem(language, problem).
+    lessons.
+    where("schedule >= ?", Time.now.utc).order(:schedule)
+  end
 
   def self.assign_all_problems(user, language_id)
     language = Language.find(language_id)
