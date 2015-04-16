@@ -6,7 +6,7 @@
         <div class="post-body clearfix" id="bread-text">
           <div class="float-left">
             <%= link_to progress_path(@language.slug) do %>
-              <i style="color: <%= language_color(@language) %>;" class="icon-<%= language_icon(@language) %>"> </i><l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>
+              <%= language_symbol(@language) %><l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>
             <%- end -%> / <%= problem_number(@problem) %>
           </div>
           <div class="bread-button clearfix" id="bread-button">
