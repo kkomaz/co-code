@@ -1,1 +1,1 @@
-<%= button_to "Unfavorite Problem", update_user_progress_path, params: { :"language[id]" => @language.id, :id => @problem.id, :"user_progress[favorite]" => false }, :method => "put", :class => "btn btn-info full-width" %>
+<%= button_to "Unfavorite", update_user_progress_path, params: { :"language[id]" => @language.id, :id => @problem.id, :"user_progress[favorite]" => false }, :method => "put", :class => "btn btn-info full-width" %>

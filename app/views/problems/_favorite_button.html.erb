@@ -1,1 +1,1 @@
-<%= button_to "Snag Problem As Favorite", update_user_progress_path, params: { :"language[id]" => @language.id, :id => @problem.id, :"user_progress[favorite]" => true }, :method => "put", :class => "btn btn-info full-width" %>
+<%= button_to "Favorite", update_user_progress_path, params: { :"language[id]" => @language.id, :id => @problem.id, :"user_progress[favorite]" => true }, :method => "put", :class => "btn btn-info full-width" %>
