@@ -2,12 +2,6 @@ class RoomsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:enter, :leave]
 
-  def new
-    @language = Language.find(params[:language_id])
-    @problem = current_user.current_problem(@language)
-    @room = Room.new
-  end
-
   def create
     @room = Room.new(room_params)
     @language = Language.find(params[:language_id])

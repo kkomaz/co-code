@@ -6,6 +6,44 @@
 
   <% if signed_in? %>
     <ul class="nav navbar-nav pull-right">
+      <li>
+        <div class="dropdown">
+          <button class="dropdown-toggle lessons-button" type="button" id="invitations" data-toggle="dropdown" aria-expanded="true">
+            <span class="glyphicon glyphicon-exclamation-sign nav-icon" aria-hidden="true">
+              <div class="notification-count">
+              <!-- change this to be dynamic -->
+                <div id="count-lesson">4</div>
+              </div>
+            </span>
+          </button>
+          <ul class="dropdown-menu lesson-messages" role="menu" aria-labelledby="invitations">
+          <!-- change this to be dynamic -->
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="dropdown">
+          <button class="dropdown-toggle invitations-button" type="button" id="invitations" data-toggle="dropdown" aria-expanded="true">
+            <span class="glyphicon glyphicon-envelope nav-icon" aria-hidden="true">
+              <div class="notification-count">
+              <!-- change this to be dynamic -->
+                <div id="count-invitation">4</div>
+              </div>
+            </span>
+          </button>
+          <ul class="dropdown-menu invite-messages" role="menu" aria-labelledby="invitations">
+          <!-- change this to be dynamic -->
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </li>
       <li><%= link_to "Welcome Back, #{current_user.first_name}!", root_path, class: "nav-link" %></li>
       <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
     </ul>

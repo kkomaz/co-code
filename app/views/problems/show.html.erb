@@ -48,7 +48,10 @@
                 <% end %>
               <% end %>
             </ul>
-            <%= link_to 'Start A New Chat', new_problem_room_path(@language.slug, @problem.slug), :class => 'btn btn-primary pull-right' %>
+              <button type="button" class="btn btn-primary pull-rigth" data-toggle="modal" data-target="#newChat">
+                Start A New Chat
+            </button>
+            <%= render 'rooms/new_modal' %>
           </div>
         </div>
       </div>
