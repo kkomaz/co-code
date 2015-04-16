@@ -11,6 +11,11 @@ div.language-panel:hover h3#language-name-text {
   color: #1ABC9C;
 }
 
+button#add-lang-button:hover div {
+  transition: .2s;
+  color: #1ABC9C;
+}
+
 div.language-content {
   margin: 0 auto;
   display: block;
