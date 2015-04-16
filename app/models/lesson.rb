@@ -6,9 +6,4 @@ class Lesson < ActiveRecord::Base
   delegate :language, to: :room
   delegate :problem, to: :room
 
-
-  def upcoming_lessons(user)
-
-  end
-
 end

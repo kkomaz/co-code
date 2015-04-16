@@ -96,6 +96,13 @@ class User < ActiveRecord::Base
     self.courses.where("schedule >= ?", Time.now.utc).order(:schedule).limit(5)
   end
 
+  # Get upcoming lessons where user is the host for a given language
+  def upcoming_lessons(language)
+    Lesson.joins(:room => {:language_problem => :language}).
+    where(:languages => {:id => language}).
+    where("host_id = ? AND schedule >= ?", self, Time.now.utc)
+  end
+
   private
     def generate_channel_key
       begin
