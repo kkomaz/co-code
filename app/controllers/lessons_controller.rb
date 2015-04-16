@@ -11,6 +11,7 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = Lesson.new(lesson_params)
+    @lesson.host = current_user
     @invitees = params[:user][:id]
     @language_problem = LanguageProblem.find_language_problem(params[:language_id], params[:problem_id])
     @lesson.build_room(:title => params[:lesson][:description], :language_problem => @language_problem)
