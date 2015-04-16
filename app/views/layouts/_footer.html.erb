@@ -25,11 +25,15 @@
     </ul>
     </div>
   </div>
+  <% if signed_in? %>
   <div class="col-md-3 question">
     <ul class="icon">
-        <li><a class="fui-question-circle big" href="#"></a></li>
+        <%= link_to new_contact_form_path, class: "fui-question-circle big" do %>
+            <span class="fui-question-circle-big"></span>
+        <% end %>
     </ul>
   </div>
+  <% end %>
 </div>
 
   

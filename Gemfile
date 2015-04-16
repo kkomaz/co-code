@@ -23,6 +23,7 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'redis'
 gem 'faye-redis'
+gem 'mail_form'
 
 group :test, :development do
   gem 'rspec-rails'

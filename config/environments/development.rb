@@ -42,4 +42,17 @@ Rails.application.configure do
 
   # Redis environment information
   ENV["REDISTOGO_URL"] = 'redis://127.0.0.1:6379'
+
+  #mail_form
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: ENV["EMAIL"],
+    password: ENV["EMAIL_PASSWORD"],
+    authenthication: 'plain',
+    enable_starttls_auto: true
+  }
 end
