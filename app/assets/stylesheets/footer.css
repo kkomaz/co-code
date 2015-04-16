@@ -1,4 +1,4 @@
-.footer {
+#page-footer {
   margin-top: 20em;
   min-height: 9em;
   background:#333333;
@@ -6,6 +6,23 @@
   color: #666666;
 }
 
+#made-by {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#question-mark-circle {
+  font-size: 30px;
+}
+
+p#creator-name {
+  font-size: 15px;
+}
+
+#center-sage {
+  border-left: 2px solid #666666;
+  border-right: 2px solid #666666;
+}
 
 .icon {
     list-style: outside none none;

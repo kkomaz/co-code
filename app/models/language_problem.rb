@@ -22,6 +22,13 @@ class LanguageProblem < ActiveRecord::Base
     end
   end
 
+  def self.assign_first_fifty_problems(user, language)
+    @language_problems = self.where(:language => language).order(:id).limit(50)
+    @language_problems.each do |language_problem|
+      UserProgress.create(:user => user, :language_problem => language_problem)
+    end
+  end
+
   def self.find_language_problem(language, problem)
     language = Language.find(language)
     problem = problem ? Problem.find(problem) : Problem.find(1)

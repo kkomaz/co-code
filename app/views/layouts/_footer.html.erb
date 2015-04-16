@@ -1,39 +1,41 @@
 <%= subscribe_to users_status_path(current_user.channel_key) if signed_in? %>
 
-<div class="footer">
-  <div class="col-md-6 col-md-offset-3">
-    <p id="footer-title">Made by</p>
-    <div class="col-md-4">
-    <p>Alex Goldvarg</p>
-    <ul class="icon">
-        <li><a class="fui-github" href="https://github.com/agoldvarg"></a></li>
-        <li><a class="fui-linkedin" href="https://www.linkedin.com/in/alexgoldvarg"></a></li>
-    </ul>
+<footer id="page-footer">
+    <div class="col-md-12">
+        <div class="row" id="made-by">
+            <center>Created By</center>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-4 col-sm-4">
+                    <p id="creator-name">Alex Goldvarg</p>
+                    <ul class="icon">
+                        <li><a class="fui-github" href="https://github.com/agoldvarg"></a></li>
+                        <li><a class="fui-linkedin" href="https://www.linkedin.com/in/alexgoldvarg"></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-4" id="center-sage">
+                    <p id="creator-name">Seiji Naganuma</p>
+                    <ul class="icon">
+                        <li><a class="fui-github" href="https://github.com/kkomaz"></a></li>
+                        <li><a class="fui-linkedin" href="https://www.linkedin.com/in/alexanderlee2"></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <p id="creator-name">Alex Lee</p>
+                    <ul class="icon">
+                        <li><a class="fui-github" href="https://github.com/kkomaz"></a></li>
+                        <li><a class="fui-linkedin" href="https://www.linkedin.com/in/alexanderlee2"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <% if signed_in? %>
+                    <%= link_to new_contact_form_path do %>
+                        <span class="fui-question-circle" id="question-mark-circle"></span>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4 banner-both">
-    <p>Seiji Naganuma</p>
-    <ul class="icon">
-        <li><a class="fui-github" href="https://github.com/snags88"></a></li>
-        <li><a class="fui-linkedin" href="https://www.linkedin.com/in/snaganuma"></a></li>
-    </ul>
-    </div>
-    <div class="col-md-4">
-    <p>Alex Lee</p>
-    <ul class="icon">
-        <li><a class="fui-github" href="https://github.com/kkomaz"></a></li>
-        <li><a class="fui-linkedin" href="https://www.linkedin.com/in/alexanderlee2"></a></li>
-    </ul>
-    </div>
-  </div>
-  <% if signed_in? %>
-  <div class="col-md-3 question">
-    <ul class="icon">
-        <%= link_to new_contact_form_path, class: "fui-question-circle big" do %>
-            <span class="fui-question-circle-big"></span>
-        <% end %>
-    </ul>
-  </div>
-  <% end %>
-</div>
-
-
+</footer>
