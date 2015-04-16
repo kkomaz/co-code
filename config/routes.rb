@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
 
+  get '/:language_id/lessons/new' => 'lessons#new', :as => 'new_lesson'
+
+  post '/:language_id/lessons' => 'lessons#create', :as => 'language/lessons'
+
+  # get 'lessons/index'
+
+  # get 'lessons/delete'
+
+  # get 'lessons/edit'
+
+  # get 'lessons/update'
+
+
   get 'messages/create'
   get '/users/status/:id' => 'users#status', :as => 'users_status'
 

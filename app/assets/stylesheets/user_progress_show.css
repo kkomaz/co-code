@@ -4,8 +4,12 @@ hr {
   margin-bottom: 6px;
 }
 
-div#current-problem-link {
-/*  position: relative;*/
+#instructor-dashboard-title {
+  text-align: center;
+}
+
+a#new-lesson-button {
+  margin-top: 5px;
 }
 
 div#favs {

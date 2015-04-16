@@ -18,55 +18,43 @@
           <%= render partial: 'problems/favorite', :collection => @favorites, as: :favorite %>
         </div>
       </div>
-  <div class="col-md-6">
-    
-    <div class="panel col-md-12" id="current-problem-panel">
-      <div class="col-md-12" id="current-problem-link">
-        <%= link_to language_problem_path(@language.slug, @current_problem.slug), id: "current-problem-link-text" do %>
-          TAKE ME TO MY CURRENT  <i style="color: <%= language_color(@language) %>;" class="icon-<%= language_icon(@language) %>"></i> <l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>  PROBLEM
-          <span class="link-spanner"></span>
-        <% end %>
-      </div>
-    </div>
-  </div>
 
-<!-- 
-    <div class="row">
-    <div class="col-md-12">
-      
-
-      <div class="col-md-6">
-        <div class="panel col-md-12" id="favorites-heading">
-          <a id="favorites-heading" title="">DIFFICULTY CRUSH - DO WORK!</a>
-        <hr>
-          <a id="favorites-heading" >Suggested Problem 1</a><br>
-          <a id="favorites-heading" >Suggested Problem 2</a><br>
-          <a id="favorites-heading" >Suggested Problem 3</a><br>     
-        </div>  
-      </div>
-  
-    </div>
-    </div> -->
-
-    <div class="row">
-    <div class="col-md-12">
-      
-      <div class="col-md-12">
+      <div class="col-md-6">  
         <div class="panel col-md-12" id="current-problem-panel">
-          <div class="col-md-12" id="current-problem-link" >
-            <%= link_to root_path, id: "back-dashboard-link-text " do %>
-            BACK TO LANGUAGE TRACKS<span class="link-spanner"></span>
+          <div class="col-md-12" id="current-problem-link">
+            <%= link_to language_problem_path(@language.slug, @current_problem.slug), id: "current-problem-link-text" do %>
+              TAKE ME TO MY CURRENT  <i style="color: <%= language_color(@language) %>;" class="icon-<%= language_icon(@language) %>"></i> <l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>  PROBLEM
+              <span class="link-spanner"></span>
             <% end %>
           </div>
         </div>
       </div>
-      
-    </div>
     </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="text-align: center;">LESSONS</h3>
+        </div>
+        <div class="panel-body">
+          <%= link_to "Schedule A New Lesson", new_lesson_path(@language), class: "btn btn-primary pull-right", id: "new-lesson-button" %>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel col-md-12" id="current-problem-panel">
+        <div class="col-md-12" id="current-problem-link" >
+          <%= link_to root_path, id: "back-dashboard-link-text " do %>
+          BACK TO LANGUAGE TRACKS<span class="link-spanner"></span>
+          <% end %>
+        </div>
+      </div>
+    </div>  
   </div>
 
 </div>
-
 
