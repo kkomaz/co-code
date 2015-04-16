@@ -35,8 +35,8 @@ module LanguagesHelper
       "#CC6699"
     when "PHP"
       "#99CC66"
-    when "Haskel"
-      "#B3B3B3"
+    when "Haskell"
+      "#16A085"
     when "Java"
       "#FA954D"
     end
