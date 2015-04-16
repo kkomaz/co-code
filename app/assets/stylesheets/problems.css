@@ -91,13 +91,13 @@ body {
 
 ul#working {
   top: 37px;
-  right: 131px;
+  right: -52px;
   left: inherit;
 }
 
 ul#finished {
   top: 41px;
-  right: -56px;
+  right: -52px;
   left: inherit;
 }
 
@@ -112,3 +112,23 @@ margin-top: 10px;
 .problem-selector {
   margin-top: 25px;
 }
+
+div.center{
+  text-align: center;
+  min-height: 65px;
+}
+
+.col-md-3.collaborate-buttons{
+  padding: 0 5px 2px;
+}
+
+#status-buttons{
+  padding-right: 5px;
+  padding-left: 0px;
+}
+
+#problem-buttons{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+

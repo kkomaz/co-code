@@ -10,22 +10,6 @@
             <%- end -%> / <%= problem_number(@problem) %>
           </div>
           <div class="bread-button clearfix" id="bread-button">
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle button-padding float-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Users Finished: <%= @users_finished.count %>
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu user-list" id="finished" role="menu" id="dropdownMenu1">
-                <%= render partial: 'problems/user_dropdown', collection: @users_finished, as: :user %>
-              </ul>
-            </div>
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle float-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">Users Working: <%= @users_working.count %>
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu user-list" id="working" role="menu" aria-labelledby="dropdownMenu2">
-                <%= render partial: 'problems/user_dropdown', collection: @users_working, as: :user %>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -33,37 +17,12 @@
   </div>
 
   <div class="row top-pad">
-    <div class="col-md-8">
-      <div class="col-md-4">
-        
-      </div>
-      <div class="col-md-4">
-        
-      </div>
-
-      <div class="col-md-4">
-        
-      </div>
-
-      <div class="col-md-4">
-        
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel">
-        <div class="col-md-6">
-          <%= progress_buttons(@language_problem) %>
-        </div>
-        <div class="col-md-6">
-          <%= favorite_buttons(@language_problem) %>
-        </div>
-      </div>   
-    </div>
-    <div class="col-md-4">
-      <div class="panel">
-        <div class="dropdown">
+    <div class="col-xs-12 col-md-8">
+      <div class="panel center">
+        <div class="col-md-3 col-xs-12">
+          <div class="dropdown">
           <div class="panel-buttons">
-            <button class="btn btn-inverse dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">Existing Rooms
+            <button class="btn btn-inverse dropdown-toggle full-width" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">Existing Rooms
             <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
@@ -74,35 +33,46 @@
                 <% end %>
               <% end %>
             </ul>
-              <button type="button" class="btn btn-primary pull-rigth" data-toggle="modal" data-target="#newChat">
-                Start A New Chat
+          </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-12 collaborate-buttons">
+          <button type="button" class="btn btn-primary pull-right full-width" data-toggle="modal" data-target="#newChat">
+            Start A New Chat
+          </button>
+          <%= render 'rooms/new_modal' %>
+        </div>
+        <div class="col-md-3 col-xs-12 collaborate-buttons">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle float-right full-width" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">Users Working: <%= @users_working.count %>
+              <span class="caret"></span>
             </button>
-            <%= render 'rooms/new_modal' %>
+            <ul class="dropdown-menu user-list" id="working" role="menu" aria-labelledby="dropdownMenu2">
+              <%= render partial: 'problems/user_dropdown', collection: @users_working, as: :user %>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-12 collaborate-buttons">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle button-padding float-right full-width" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Users Finished: <%= @users_finished.count %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu user-list" id="finished" role="menu" id="dropdownMenu1">
+              <%= render partial: 'problems/user_dropdown', collection: @users_finished, as: :user %>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="panel">
-        <%= progress_buttons(@language_problem) %>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel">
-        <%= favorite_buttons(@language_problem) %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="panel problem-body">
-        <div class="problem-title">
-          <h2><%= problem_title(@problem) %></h2>
+    <div class=" col-xs-12 col-md-4">
+      <div class="panel center">
+        <div class="col-md-6" id="status-buttons">
+          <%= progress_buttons(@language_problem) %>
         </div>
-        <div class="problem-content">
-          <%= raw @problem.content %>
+        <div class="col-md-6" id="problem-buttons">
+          <%= favorite_buttons(@language_problem) %>
         </div>
-      </div>
+      </div>   
     </div>
   </div>
   
