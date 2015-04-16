@@ -5,6 +5,8 @@ class Invitation < ActiveRecord::Base
 
   def self.active_invitations(user)
 
+  end
+
   def self.create_invitations(lesson, invitees)
     invitees.each do |invitee|
       if invitee != ""
