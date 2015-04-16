@@ -12,8 +12,8 @@ class Problem < ActiveRecord::Base
     self.title[/Problem \d+/]
   end
 
-  def shortened_name
-    self.title[/Problem \d+.{1,30}/] + (self.title.length > 39 ? '...' : '')
+  def shortened_name(len=30, elip=39)
+    self.title[/Problem \d+.{1,#{len}}/] + (self.title.length > elip ? '...' : '')
   end
 
   def self.first_problem

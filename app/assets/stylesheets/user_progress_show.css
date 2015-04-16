@@ -8,8 +8,13 @@ hr {
   text-align: center;
 }
 
-a#new-lesson-button {
-  margin-top: 5px;
+div#new-lesson-div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+div#new-lesson-div > button {
+  width: 100%;
 }
 
 div#favs {
@@ -19,6 +24,7 @@ div#favs {
 div#favorite-column {
   padding-left: 2px;
   padding-right: 2px;
+  padding-top: 9px;
 }
 
 div#fav-problem-box:hover {
