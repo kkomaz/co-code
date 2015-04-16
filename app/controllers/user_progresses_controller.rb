@@ -9,7 +9,7 @@ class UserProgressesController < ApplicationController
   def show
     @language = Language.find(params[:id])
     @current_problem = current_user.current_problem(@language)
-    @favorites = current_user.favorited_problems(@language).limit(12)
+    @favorites = current_user.favorited_problems(@language).limit(12).order(:id)
     @scheduled_lessons = current_user.upcoming_lessons(@language)
   end
 
