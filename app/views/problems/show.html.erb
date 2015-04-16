@@ -79,16 +79,8 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <%= render 'problems/post_paginator' %>
-    </div>
-    <div class="col-md-6">
-      <div class="panel">
-        <h6 style="text-align: center;"><strong>Stuck?</strong> Just ask a question!</h6>
-      </div>
-        <%= render :partial => 'posts/form' %>
-    </div>
+  
+  <div id="post-group">
+    <%= render 'posts/problem_post' %>
   </div>
-
 </div>

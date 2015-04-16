@@ -1,0 +1,22 @@
+<% if @posts.count == 0 %>
+  <div class="col-md-12">
+    <div class="row no-questions">
+      <div class="panel">
+          <h6 style="text-align: center;"><strong>Stuck?</strong> Just ask a question!</h6>
+      </div>
+      <%= render :partial => 'posts/form' %>
+    </div>
+  </div>
+<% else %>
+  <div class="yes-questions row">
+    <div class="col-md-6">
+      <%= render 'problems/post_paginator' %>
+    </div>
+    <div class="col-md-6">
+      <div class="panel">
+        <h6 style="text-align: center;"><strong>Stuck?</strong> Just ask a question!</h6>
+      </div>
+        <%= render :partial => 'posts/form' %>
+    </div>
+  </div>
+<% end %>
