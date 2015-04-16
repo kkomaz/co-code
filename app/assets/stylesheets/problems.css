@@ -112,3 +112,8 @@ margin-top: 10px;
 .problem-selector {
   margin-top: 25px;
 }
+
+.inactive-link {
+  pointer-events: none;
+  cursor: default;
+}
