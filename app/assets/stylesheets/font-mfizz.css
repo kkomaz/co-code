@@ -131,6 +131,7 @@
 }
 
 .icon-microscope:before { content: "\f100"; }
+/*.icon-cplusplus:before { content:url("cplusplus.ico"); }*/
 .icon-cplusplus:before { content: "\f101"; }
 .icon-wireless:before { content: "\f102"; }
 .icon-fire-alt:before { content: "\f103"; }
