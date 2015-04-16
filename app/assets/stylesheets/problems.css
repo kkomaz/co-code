@@ -115,7 +115,7 @@ margin-top: 10px;
 
 div.center{
   text-align: center;
-  min-height: 65px;
+  min-height: 120px;
 }
 
 .col-md-3.collaborate-buttons{
@@ -130,5 +130,13 @@ div.center{
 #problem-buttons{
   padding-left: 0px;
   padding-right: 0px;
+}
+
+p#collab-text{
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 2.0rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-align: center;
 }
 
