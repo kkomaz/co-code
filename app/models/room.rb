@@ -1,8 +1,8 @@
 class Room < ActiveRecord::Base
   include Concerns::Rooms::OnlineStatus
-
   belongs_to :language_problem
   has_many :messages
+  has_many :lessons
   delegate :language, :to => :language_problem
   delegate :problem, :to => :language_problem
 

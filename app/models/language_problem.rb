@@ -5,13 +5,27 @@ class LanguageProblem < ActiveRecord::Base
   has_many  :users, :through => 'user_progresses'
   has_many  :posts
   has_many  :rooms
+  has_many  :lessons, :through => :rooms
 
   validates :language_id, :problem_id, :presence => true
+
+  def self.upcoming_lessons(language, problem)
+    LanguageProblem.find_language_problem(language, problem).
+    lessons.
+    where("schedule >= ?", Time.now.utc).order(:schedule)
+  end
 
   def self.assign_all_problems(user, language_id)
     language = Language.find(language_id)
     self.where(:language => language).each do |language_problem|
       UserProgress.find_or_create_by(:user => user, :language_problem => language_problem)
+    end
+  end
+
+  def self.assign_first_fifty_problems(user, language)
+    @language_problems = self.where(:language => language).order(:id).limit(50)
+    @language_problems.each do |language_problem|
+      UserProgress.create(:user => user, :language_problem => language_problem)
     end
   end
 

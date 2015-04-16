@@ -7,34 +7,10 @@
   <% if signed_in? %>
     <ul class="nav navbar-nav pull-right">
       <li>
-        <div class="dropdown">
-          <button class="dropdown-toggle lessons-button" type="button" id="invitations" data-toggle="dropdown" aria-expanded="true">
-            <span class="glyphicon glyphicon-exclamation-sign nav-icon" aria-hidden="true">
-              <div class="notification-count">
-              <!-- change this to be dynamic -->
-                <div id="count-lesson">0</div>
-              </div>
-            </span>
-          </button>
-          <ul class="dropdown-menu lesson-messages" role="menu" aria-labelledby="invitations">
-          <!-- change this to be dynamic -->
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-          </ul>
-        </div>
+        <%= render 'layouts/problem_lessons' if @language && @problem %>
       </li>
       <li>
-        <div class="dropdown">
-          <button class="dropdown-toggle invitations-button" type="button" id="invitations" data-toggle="dropdown" aria-expanded="true">
-            <span class="glyphicon glyphicon-envelope nav-icon" aria-hidden="true">
-              <div class="notification-count">
-                <div id="count-invitation"><%= current_user.upcoming_courses.count %></div>
-              </div>
-            </span>
-          </button>
-          <ul class="dropdown-menu invite-messages" role="menu" aria-labelledby="invitations">
-            <%= render partial: 'layouts/invitations', collection: current_user.upcoming_courses, as: :lesson %>
-          </ul>
-        </div>
+        <%= render 'layouts/lesson_invites' %>
       </li>
       <li><%= link_to "Welcome Back, #{current_user.first_name}!", root_path, class: "nav-link" %></li>
       <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>

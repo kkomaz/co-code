@@ -6,6 +6,16 @@ div.language-panel {
   border-radius: 3px;
 }
 
+div.language-panel:hover h3#language-name-text {
+  transition: .2s;
+  color: #1ABC9C;
+}
+
+button#add-lang-button:hover div {
+  transition: .2s;
+  color: #1ABC9C;
+}
+
 div.language-content {
   margin: 0 auto;
   display: block;
@@ -61,4 +71,9 @@ div.panel-top-padding {
 
 div#all-languages-added:hover {
   opacity: 0.8;
+}
+
+div.invite-section {
+  margin-top: 30px;
+  border-top: 1px #DFDFDF solid;
 }

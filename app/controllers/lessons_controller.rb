@@ -1,14 +1,5 @@
 class LessonsController < ApplicationController
 
-  def index
-  end
-
-  def new
-    @lesson = Lesson.new
-    @language = Language.find(params[:language_id])
-    @problems = Problem.all
-  end
-
   def create
     @lesson = Lesson.create_with_datetime(lesson_params, current_user)
     @invitees = params[:user][:id]
@@ -18,7 +9,7 @@ class LessonsController < ApplicationController
       Invitation.create_invitations(@lesson, @invitees)
       redirect_to progress_path(@lesson.language.slug)
     else
-      render 'new'
+      redirect_to :back
     end
   end
 

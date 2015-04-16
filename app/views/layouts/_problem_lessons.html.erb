@@ -1,0 +1,13 @@
+<div class="dropdown">
+  <button class="dropdown-toggle lessons-button" type="button" id="invitations" data-toggle="dropdown" aria-expanded="true">
+    <span class="glyphicon glyphicon-exclamation-sign nav-icon" aria-hidden="true">
+      <%= show_count(next_language_problem_lessons(@language, @problem)) %>
+    </span>
+  </button>
+  <ul class="dropdown-menu lesson-messages" role="menu" aria-labelledby="invitations">
+    <%- if !(next_language_problem_lessons(@language, @problem)).empty? -%>
+    <li class="notification-header">Upcoming courses for this problem!</li>
+  <%- end -%>
+  <%= display_language_problem_lessons(@language, @problem) %>
+  </ul>
+</div>

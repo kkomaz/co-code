@@ -1,0 +1,37 @@
+<!-- Modal -->
+<div class="modal fade" id="newLesson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title center-text" id="myModalLabel">MAKE A LESSON - YOU HOST!</h4>
+      </div>
+      <%= form_for [@language, Lesson.new], :class => "form-horizontal" do |f| %>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+            <%= f.text_area :description, :class => "form-control", :rows => 4, :placeholder => "Short description of your lesson!" %>
+          </div>
+          <div class="col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+            <%= f.datetime_select :schedule, :ampm => true %>
+            <%= collection_select(:problem, :id, Problem.all, :id, :shortened_name, {}, {:class => "form-control problem-selector"}) %>
+          </div>
+        </div>
+        <input type="hidden" id="timezone" name="lesson[time_zone]" value="">
+        <div class="invite-section">
+          <h5 class="center-text">YOU GOT FRIENDS?! INVITE EM'!</h5>
+          <div class="form-group checkbox">
+            <%= collection_check_boxes(:user, :id, User.all_others(current_user), :id, :full_name) do |b| %>
+              <%= b.label { b.check_box + b.text } %>
+            <%- end -%>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Schedule it!", :class => "btn btn-primary"  %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

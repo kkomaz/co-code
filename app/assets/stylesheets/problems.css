@@ -19,7 +19,7 @@ div#bread-button {
 }
 
 div.bread-crumb a {
-  color: #34495E;
+  color: #fff;
 }
 
 div.bread-crumb a:hover {
@@ -111,4 +111,9 @@ margin-top: 10px;
 
 .problem-selector {
   margin-top: 25px;
+}
+
+.inactive-link {
+  pointer-events: none;
+  cursor: default;
 }

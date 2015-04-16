@@ -1,0 +1,13 @@
+<div class="dropdown">
+  <button class="dropdown-toggle invitations-button" type="button" id="invitations" data-toggle="dropdown" aria-expanded="true">
+    <span class="glyphicon glyphicon-envelope nav-icon" aria-hidden="true">
+      <%= show_count(users_courses) %>
+    </span>
+  </button>
+  <ul class="dropdown-menu invite-messages" role="menu" aria-labelledby="invitations">
+    <%- if !users_courses.empty?-%>
+      <li class="notification-header">Upcoming invitations!</li>
+    <%- end -%>
+    <%= display_upcoming_lessons(users_courses) %>
+  </ul>
+</div>

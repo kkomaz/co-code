@@ -39,3 +39,10 @@ div[id*="count-"] {
 .invite-content {
   padding: 10px 0 5px 20px;
 }
+
+.notification-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: 2px white solid;
+}

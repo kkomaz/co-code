@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
 
   # active invitations
   def upcoming_courses
-    self.courses.where("schedule >= ?", Time.now.utc).order(:schedule).limit(5)
+    self.courses.where("schedule >= ?", Time.now.utc).order(:schedule)
   end
 
   # Get upcoming lessons where user is the host for a given language
@@ -101,6 +101,11 @@ class User < ActiveRecord::Base
     Lesson.joins(:room => {:language_problem => :language}).
     where(:languages => {:id => language}).
     where("host_id = ? AND schedule >= ?", self, Time.now)
+  end
+
+  # all other users except for the one provided
+  def self.all_others(user)
+    self.where.not(:id => user.id)
   end
 
   private
