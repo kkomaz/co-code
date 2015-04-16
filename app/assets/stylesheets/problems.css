@@ -104,3 +104,11 @@ ul#finished {
 .chat-form-title {
   font-size: 20px;
 }
+
+.checkbox input[type="checkbox"] {
+margin-top: 10px;
+}
+
+.problem-selector {
+  margin-top: 25px;
+}

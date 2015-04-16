@@ -10,12 +10,10 @@ class LessonsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @lesson = Lesson.new(lesson_params)
-    @lesson.host = current_user
+    @lesson = Lesson.create_with_datetime(lesson_params, current_user)
     @invitees = params[:user][:id]
-    @language_problem = LanguageProblem.find_language_problem(params[:language_id], params[:problem_id])
-    @lesson.build_room(:title => params[:lesson][:description], :language_problem => @language_problem)
+    @language_problem = LanguageProblem.find_language_problem(params[:language_id], params[:problem][:id])
+    @lesson.build_room(:title => @lesson.description, :language_problem => @language_problem)
     if @lesson.save
       Invitation.create_invitations(@lesson, @invitees)
       redirect_to progress_path(@lesson.language.slug)
@@ -35,7 +33,7 @@ class LessonsController < ApplicationController
 
   private
     def lesson_params
-      params.require(:lesson).permit(:description, :schedule)
+      params.require(:lesson).permit(:description, :schedule, :time_zone)
     end
 
 end

@@ -20,4 +20,7 @@
 //= require private_pub
 //= require comments
 //= require chatroom
+//= require moment
+//= require bootstrap-datetimepicker
+//= require date_picker
 
