@@ -5,5 +5,5 @@ $("textarea").focus();
 $container.append(newDiv);
 
 $("body").animate({
-    scrollTop: $("div[data-id=" + "<%= @comment.id %>" + "] > div").offset().top
+    scrollTop: $("div[data-id=" + "<%= @comment.id %>" + "] > div").offset().top - 85
 });

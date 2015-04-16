@@ -4,15 +4,6 @@ Rails.application.routes.draw do
 
   post '/:language_id/lessons' => 'lessons#create', :as => 'language/lessons'
 
-  # get 'lessons/index'
-
-  # get 'lessons/delete'
-
-  # get 'lessons/edit'
-
-  # get 'lessons/update'
-
-
   get 'messages/create'
   get '/users/status/:id' => 'users#status', :as => 'users_status'
 
@@ -21,7 +12,7 @@ Rails.application.routes.draw do
   root 'users#show'
 
   resources :contact_forms, :only => [:new, :create]
-  
+
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations"} do
   end
 
@@ -54,5 +45,5 @@ Rails.application.routes.draw do
 
   post 'rooms/:room_id/messages/new' => 'messages#create', :as => 'new/room/message'
 
-  
+
 end

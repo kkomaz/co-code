@@ -1,20 +1,22 @@
 <div class="container">
   <div class="row top-pad">
-    <div class="col-md-12 col-sm-12">
-      <div class="panel bread-crumb">
-        <h6>
-          <%= link_to progress_path(@language.slug) do %>
-            <i class="icon-<%= language_icon(@language) %>"></i> <%= @language.name %>
-          <%- end -%> /
-          <%= link_to language_problem_path(@language.slug, @problem.slug) do %>
-            <%= problem_number(@problem) %>
-          <%- end -%> / <%= @post.title %>
-        </h6>
+    <div class="col-md-12">
+      <div class="dark-panel panel-height bread-crumb">
+        <div class="post-body" id="languages-text">
+          <span id="languages-title">
+            <%= link_to progress_path(@language.slug) do %>
+              <%= language_symbol(@language) %><l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>
+            <%- end -%> /
+            <%= link_to language_problem_path(@language.slug, @problem.slug) do %>
+              <%= problem_number(@problem) %>
+            <%- end -%> / <%= @post.title %>
+          </span>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row top-pad">
     <div class="col-md-12">
       <div class="panel post-body clearfix">
         <div class="user-info user-img">

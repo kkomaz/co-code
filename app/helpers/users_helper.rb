@@ -32,9 +32,9 @@ module UsersHelper
 
   def user_status_icon(user)
     if user == current_user || user.online?
-      "glyphicon-ok-sign online"
+      "online"
     else
-      "glyphicon-remove-sign offline"
+      "offline"
     end
   end
 end
