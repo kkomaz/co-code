@@ -69,12 +69,29 @@ body {
   background-color: #ECECEC;
 }
 
+#working > li > a {
+  padding-top: 4px;
+  padding-bottom: 0;
+}
+
+#working > li:last-child > a {
+  padding-bottom: 8px;
+}
+
 .online {
   color: green;
+  font-size: 27px;
 }
 
 .offline {
-  color: red;
+  color: gray;
+  font-size: 27px;
+}
+
+.user-name {
+  position: relative;
+  top: -3px;
+  left: 3px;
 }
 
 .float-right {
@@ -91,13 +108,13 @@ body {
 
 ul#working {
   top: 37px;
-  right: 131px;
+  right: -52px;
   left: inherit;
 }
 
 ul#finished {
   top: 41px;
-  right: -56px;
+  right: -52px;
   left: inherit;
 }
 
@@ -116,4 +133,31 @@ margin-top: 10px;
 .inactive-link {
   pointer-events: none;
   cursor: default;
+}
+
+div.center{
+  text-align: center;
+  min-height: 120px;
+}
+
+.col-md-3.collaborate-buttons{
+  padding: 0 5px 2px;
+}
+
+#status-buttons{
+  padding-right: 5px;
+  padding-left: 0px;
+}
+
+#problem-buttons{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+p#collab-text{
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 2.0rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-align: center;
 }
