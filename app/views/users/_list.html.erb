@@ -1,12 +1,12 @@
-<%= link_to progress_path(language.slug) do %>
-  <div class="col-md-3 col-sm-6" style="padding-top: 20px;">
+<div class="col-md-3 col-sm-6" style="padding-top: 20px;">
+  <%= link_to progress_path(language.slug) do %>
     <div class="language-panel">
       <div class="language-content">
         <div class="language-icon" style="color: <%= language_color(language) %>;">
           <i class="icon-<%= language_icon(language) %>"></i>
         </div>
         <div class="language-name">
-          <h3><%= language.name %></h3>
+          <h3 id="language-name-text"><%= language.name %></h3>
         </div>
         <div class="language-progress">
           <p><%= completed_count(language) %>/<%= total_count(language) %></p>
@@ -17,5 +17,5 @@
         </div>
       </div>
     </div>
-  </div>
-<%- end -%>
+  <%- end -%>
+</div>
