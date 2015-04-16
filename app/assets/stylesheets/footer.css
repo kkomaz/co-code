@@ -1,6 +1,6 @@
-.footer{
+.footer {
   margin-top: 20em;
-  min-height: 8em;
+  min-height: 9em;
   background:#333333;
   text-align: center;
   color: #666666;
@@ -19,9 +19,8 @@
     margin-right: 4px;
 }
 
-p.footer-p{
-  padding-top: 5px;
-  line-height: 0.7px;
+p#footer-title {
+  margin-top: 15px;
 }
 
 .col-md-4.banner-right {
