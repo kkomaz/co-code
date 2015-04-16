@@ -10,6 +10,7 @@ class LessonsController < ApplicationController
   end
 
   def create
+    binding.pry
     @lesson = Lesson.new(lesson_params)
     @lesson.host = current_user
     @invitees = params[:user][:id]

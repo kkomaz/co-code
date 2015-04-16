@@ -1,29 +1,46 @@
 .footer{
   margin-top: 20em;
-  height: 8em;
+  min-height: 8em;
   background:#333333;
   text-align: center;
   color: #666666;
 }
 
 
-.social {
+.icon {
     list-style: outside none none;
     margin: 0px;
     padding: 0px;
     padding-bottom: 10px;
 }
 
-.social li {
+.icon li {
     display: inline;
     margin-right: 4px;
-}
-
-.social-emoji li {
-    display: inline;
 }
 
 p.footer-p{
   padding-top: 5px;
   line-height: 0.7px;
+}
+
+.col-md-4.banner-right {
+  border-right: solid;
+  border-right-width: 1.5px;
+}
+
+.col-md-4.banner-both {
+  border-right: solid;
+  border-left: solid;
+  border-left-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+.fui-question-circle.big{
+  font-size: 50px;
+}
+
+.col-md-3.question{
+  display: block;
+  margin: 30px auto;
 }

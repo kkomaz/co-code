@@ -82,7 +82,7 @@ feature "user functionality" do
       click_link("#{language_ruby.name}")
     end
 
-    scenario "clicking on current problem as a new user will direct user to problem 1", js: true do 
+    scenario "clicking on current problem as a new user will direct user to problem 1" do 
       find('#current-problem-link-text').click
       expect(page).to have_content("#{problem1.title}")
     end
@@ -98,7 +98,7 @@ feature "user functionality" do
       expect(page).to have_content("#{problem1.title}")
     end
 
-    xscenario "can open a link to create a new chatroom" do 
+    xscenario "can open a modal to create a new chatroom" do 
     end
   end
 end
