@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-markdown
+//= require flash
 //= require markdown
 //= require user-show
 //= require_tree ../../../vendor/assets/javascripts/.

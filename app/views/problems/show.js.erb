@@ -1,3 +1,4 @@
+$('#post-group').html("<%= j(render 'posts/problem_post') %>");
 $('#post-box').html('<%= j(render @posts) %>')
 $('#paginator').html('<%= j(paginate(@posts, :remote => true).to_s) %>');
 $('#post-text-area').val("");
