@@ -10,6 +10,14 @@ module LanguagesHelper
       "perl"
     when "Python"
       "python"
+    when "C++"
+      "cplusplus"
+    when "PHP"
+      "php"
+    when "Haskell"
+      "haskell"
+    when "Java"
+      "java"
     end
   end
 
@@ -23,6 +31,14 @@ module LanguagesHelper
       "#99CCCC"
     when "Python"
       "#4281B3"
+    when "C++"
+      "#CC6699"
+    when "PHP"
+      "#99CC66"
+    when "Haskel"
+      "#B3B3B3"
+    when "Java"
+      "#FA954D"
     end
   end
 
