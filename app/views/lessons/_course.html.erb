@@ -1,5 +1,6 @@
 <tr>
-  <td><%= course.schedule.to_date %></td>
-  <td><%= course.problem.shortened_name(10,10) %></td>
+  <td><%= course.schedule.strftime(" %a, %m/%d at %l:%M%P") %></td>
+  <td><%= link_to course.problem.shortened_name(40,40), language_problem_path(course.language, course.problem) %></td>
   <td><%= course.description %></td>
+  <td><%= link_to "Room", problem_room_path(course.language, course.problem, course.room) %></td>
 </tr>
