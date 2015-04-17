@@ -25,6 +25,7 @@ div.post-title {
 div.dark-panel {
   color: #fff;
   background-color: #264348;
+  height: 80px;
 }
 
 #comment-title {

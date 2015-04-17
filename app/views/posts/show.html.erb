@@ -46,7 +46,7 @@
   </div>
 
   <div id="comment-container" class="row top-pad">
-    <div id="comment-list" class="col-md-8 row">
+    <div id="comment-list" class="col-md-8">
       <%= render :partial => 'comments/comment', :collection => @post.comments, :as => 'comment'  %>
     </div>
     <div class="col-md-4" id="comment-form-parent">
