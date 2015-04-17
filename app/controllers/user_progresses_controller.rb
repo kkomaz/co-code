@@ -11,6 +11,7 @@ class UserProgressesController < ApplicationController
     @current_problem = current_user.current_problem(@language)
     @favorites = current_user.favorited_problems(@language).limit(12).order(:id)
     @lessons = current_user.upcoming_lessons(@language)
+    @courses = current_user.upcoming_courses_for_current_language(@language)
   end
 
   def update
