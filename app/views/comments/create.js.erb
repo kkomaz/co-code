@@ -1,6 +1,7 @@
 var newDiv = '<%= j(render "comments/comment", :comment => @comment) %>'
 var $container = $("div#comment-list")
 $("textarea").val("");
+$(".md-preview").children().remove();
 $("textarea").focus();
 $container.append(newDiv);
 

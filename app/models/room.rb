@@ -7,4 +7,8 @@ class Room < ActiveRecord::Base
   delegate :problem, :to => :language_problem
 
   validates :title, :presence => true
+
+  def shortened_title
+    self.title.length >50 ? self.title[0..50] + "..." : self.title
+  end
 end
