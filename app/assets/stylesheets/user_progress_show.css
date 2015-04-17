@@ -94,12 +94,16 @@ div#current-problem-panel {
 }
 
 div#current-problem-panel:hover {
-  transition-duration: .3s;
+  transition-duration: .2s;
   background-color: #264348;
 }
 
-#current-problem-panel:hover #current-problem-link-text {
-  color: #1ABC9C;
+#current-problem-link-text:hover {
+  color: white;
+}
+
+#back-dashboard-link-text:hover {
+  color: white;
 }
 
 
