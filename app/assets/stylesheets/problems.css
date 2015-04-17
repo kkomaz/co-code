@@ -112,6 +112,12 @@ ul#working {
   left: inherit;
 }
 
+ul#rooms{
+  top: 37px;
+  right: -52px;
+  left: inherit;
+}
+
 ul#finished {
   top: 41px;
   right: -52px;
@@ -144,13 +150,17 @@ div.center{
   padding: 0 5px 2px;
 }
 
+.col-md-3.chatroom-button{
+  padding: 0 13px 5px 0px;
+}
+
 #status-buttons{
-  padding-right: 5px;
+  padding-right: 1px;
   padding-left: 0px;
 }
 
 #problem-buttons{
-  padding-left: 0px;
+  padding-left: 1px;
   padding-right: 0px;
 }
 
@@ -161,3 +171,4 @@ p#collab-text{
   letter-spacing: 3px;
   text-align: center;
 }
+

@@ -18,65 +18,67 @@
 
   <div class="row top-pad">
     <div class="col-xs-12 col-md-8">
-      <div class="panel center">
-        <div class="col-md-12">
-          <p id="collab-text">Start Collbaborating!</p>
+      <div class="panel panel-default center">
+        <div class="panel-heading" style="margin: auto 21px">
+          <h3 class="panel-title" style="text-align: center">Start Collbaborating!</h3>
         </div>
-        <div class="col-md-3 col-xs-12">
-          <div class="dropdown">
-          <div class="panel-buttons">
-            <button class="btn btn-inverse dropdown-toggle full-width" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">Existing Rooms
-            <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
-              <% if @rooms %>
-                <% @rooms.each.with_index(1) do |room, index| %>
-                  <li role="presentation">
-                    <%= link_to "Room #{index}", problem_room_path(@language.slug, @problem.slug, room), role: "menuitem", tabindex: "-1" %></li>
-                <% end %>
-              <% end %>
-            </ul>
+        <div class="panel-body">
+          <div class="col-md-3 col-xs-12 collaborate-buttons">
+            <div class="dropdown">
+              <button class="btn btn-inverse dropdown-toggle float-right full-width" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">Existing Rooms
+                <span class="caret"></span>
+              </button>
+                <ul class="dropdown-menu" id="rooms" role="menu" aria-labelledby="dropdownMenu3">
+                  <% if @rooms %>
+                    <% @rooms.each.with_index(1) do |room, index| %>
+                      <li role="presentation">
+                        <%= link_to "Room #{index}", problem_room_path(@language.slug, @problem.slug, room), role: "menuitem", tabindex: "-1" %></li>
+                    <% end %>
+                  <% end %>
+                </ul>
+            </div>
           </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-xs-12 collaborate-buttons">
-          <button type="button" class="btn btn-primary pull-right full-width" data-toggle="modal" data-target="#newChat">
-            Start A New Chat
-          </button>
-          <%= render 'rooms/new_modal' %>
-        </div>
-        <div class="col-md-3 col-xs-12 collaborate-buttons">
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle float-right full-width" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">Users Working: <%= @users_working.count %>
-              <span class="caret"></span>
+          <div class="col-md-3 col-xs-12 collaborate-buttons">
+            <button type="button" class="btn btn-primary pull-right full-width" data-toggle="modal" data-target="#newChat">
+              Start A New Chat
             </button>
-            <ul class="dropdown-menu user-list" id="working" role="menu" aria-labelledby="dropdownMenu2">
-              <%= render partial: 'problems/user_dropdown', collection: @users_working, as: :user %>
-            </ul>
+            <%= render 'rooms/new_modal' %>
           </div>
-        </div>
-        <div class="col-md-3 col-xs-12 collaborate-buttons">
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle button-padding float-right full-width" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Users Finished: <%= @users_finished.count %>
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu user-list" id="finished" role="menu" id="dropdownMenu1">
-              <%= render partial: 'problems/user_dropdown', collection: @users_finished, as: :user %>
-            </ul>
+          <div class="col-md-3 col-xs-12 collaborate-buttons">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle float-right full-width" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">Users Working: <%= @users_working.count %>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu user-list" id="working" role="menu" aria-labelledby="dropdownMenu2">
+                <%= render partial: 'problems/user_dropdown', collection: @users_working, as: :user %>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3 col-xs-12 collaborate-buttons">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle button-padding float-right full-width" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Users Finished: <%= @users_finished.count %>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu user-list" id="finished" role="menu" id="dropdownMenu1">
+                <%= render partial: 'problems/user_dropdown', collection: @users_finished, as: :user %>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class=" col-xs-12 col-md-4">
-      <div class="panel center">
-        <div class="col-md-12">
-          <p id="collab-text">Tag your problems!</p>
+      <div class="panel panel-default center">
+        <div class="panel-heading" style="margin: auto 16px">
+          <h3 class="panel-title" style="text-align: center">Tag your problems!</h3>
         </div>
-        <div class="col-md-6" id="status-buttons">
-          <%= progress_buttons(@language_problem) %>
-        </div>
-        <div class="col-md-6" id="problem-buttons">
-          <%= favorite_buttons(@language_problem) %>
+        <div class="panel-body">
+          <div class="col-md-6 col-xs-12" id="status-buttons" style="margin-bottom: 5px;">
+            <%= progress_buttons(@language_problem) %>
+          </div>
+          <div class="col-md-6 col-xs-12" id="problem-buttons">
+            <%= favorite_buttons(@language_problem) %>
+          </div>  
         </div>
       </div>   
     </div>
