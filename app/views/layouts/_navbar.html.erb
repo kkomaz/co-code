@@ -29,33 +29,32 @@
   <div class="modal fade bs-login-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">NICE TO SEE YOU</h4>
-      </div>
-      <div class="modal-body">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="actions">
-            <%= render "devise/shared/fb" %>
-          </div>
-          <strong class="line-thru">- or -</strong>
-          <div class="field col-md-6 col-md-offset-3" id="modal-field">
-            <%= f.email_field :email, autofocus: true, class: "col-md-12", :placeholder => "email", id: "modal-field" %>
-          </div>
+        <div class="modal-header">
+          <h4 class="modal-title">NICE TO SEE YOU</h4>
+        </div>
 
-          <div class="field col-md-6 col-md-offset-3" id="modal-field">
-            <%= f.password_field :password, autocomplete: "off", class: "col-md-12", :placeholder => "password", id: "modal-field" %>
-          </div>
+        <div class="modal-body">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="actions">
+              <%= render "devise/shared/fb" %>
+            </div>
 
-          <div class="field col-md-12 col-md-offset-3">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
+            <strong class="line-thru">- or -</strong>
+            <div class="field col-md-6 col-md-offset-3" id="modal-field">
+              <%= f.email_field :email, autofocus: true, class: "col-md-12", :placeholder => "email", id: "modal-field" %>
+            </div>
 
-          <div class="actions">
+            <div class="field col-md-6 col-md-offset-3" id="modal-field">
+              <%= f.password_field :password, autocomplete: "off", class: "col-md-12", :placeholder => "password", id: "modal-field" %>
+            </div>
+
+            <div class="field col-md-12 col-md-offset-3">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+
             <%= f.submit "LOG IN", class: "btn btn-block btn-md btn-inverse", id: "login-btn-modal" %>
-          </div>
-        <% end %>
-
+          <% end %>
         </div>
       </div>
     </div>
