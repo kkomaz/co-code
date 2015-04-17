@@ -4,7 +4,7 @@
       <%= user_img(lesson.host) %>
     </div>
     <div class="invite-content float-left">
-      <p><strong><%= lesson.description %></strong></br>
+      <p><strong><%= lesson.shortened_description %></strong></br>
       <%= lesson.schedule.strftime('%F %R') %> | <%= language_symbol(lesson.language) %> <%= lesson.language.name %> | <%= problem_number(lesson.problem) %></p>
     </div>
   <%- end -%>

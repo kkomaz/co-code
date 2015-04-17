@@ -9,6 +9,10 @@ class Lesson < ActiveRecord::Base
   validates :description, :schedule, :room, :host, :presence => true
 
 
+  def shortened_description
+    self.description.length > 37 ? self.description[0..37] + " ..." : self.description
+  end
+
   def self.create_with_datetime(lesson_params, user)
     lesson = {:schedule => DateTime.strptime(lesson_params[:schedule], "%m/%d/%Y %I:%M %p") + lesson_params[:time_zone].to_i.hours,
               :description => lesson_params[:description],
