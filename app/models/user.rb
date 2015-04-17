@@ -97,8 +97,10 @@ class User < ActiveRecord::Base
   end
 
   # upcoming invitations by language
-  def upcoming_courses_for_current_lang(language)
-    # pending
+  def upcoming_courses_for_current_language(language)
+    self.courses.joins(:room => {:language_problem => :language}).
+    where(:languages => {:id => language}).
+    where("schedule >= ?", Time.now)
   end
 
   # Get upcoming lessons where user is the host for a given language
