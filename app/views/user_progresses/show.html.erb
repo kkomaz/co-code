@@ -66,8 +66,12 @@
         <div class="panel-heading">
           <h3 class="panel-title" style="text-align: center;">Favorite Problems</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" style="min-height: 76px; text-align: center;">
+          <% if @favorites.empty? %>
+            <%= render 'problems/no_favorites' %>
+          <% else %>
             <%= render partial: 'problems/favorite', :collection => @favorites, as: :favorite %>
+          <% end %>
         </div>
       </div>
     </div>
