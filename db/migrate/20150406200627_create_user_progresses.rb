@@ -8,5 +8,8 @@ class CreateUserProgresses < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :user_progresses, :user_id
+    add_index :user_progresses, :language_problem_id
   end
 end

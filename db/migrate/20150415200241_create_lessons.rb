@@ -8,5 +8,8 @@ class CreateLessons < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :lessons, :room_id
+    add_index :lessons, :host_id
   end
 end

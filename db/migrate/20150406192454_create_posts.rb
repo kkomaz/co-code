@@ -8,5 +8,8 @@ class CreatePosts < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :posts, :user_id
+    add_index :posts, :language_problem_id
   end
 end

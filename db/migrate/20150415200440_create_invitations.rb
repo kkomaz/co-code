@@ -6,5 +6,8 @@ class CreateInvitations < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :invitations, :lesson_id
+    add_index :invitations, :user_id
   end
 end
