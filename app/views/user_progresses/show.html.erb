@@ -14,57 +14,6 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title" style="text-align: center;">Upcoming Lessons You're Teaching</h3>
-        </div>
-        <div class="panel-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Problem</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody id="lesson-group">
-                <%= render partial: 'lessons/lesson', collection: @lessons, as: :lesson %>
-            </tbody>
-          </table>
-          <div class="col-md-6 col-md-offset-3" id="new-lesson-div">
-            <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#newLesson">Schedule New Lesson</button>
-            <%= render 'lessons/create_modal' %>
-          </div>
-        </div>
-      </div>
-    </div>    
-    <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title" style="text-align: center;">Upcoming Courses To Attend</h3>
-        </div>
-        <div class="panel-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Problem</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody id="course-group">
-                <%= render partial: 'lessons/course', collection: @courses, as: :course %>
-            </tbody>
-
-          </table>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
           <h3 class="panel-title" style="text-align: center;">Favorite Problems</h3>
         </div>
         <div class="panel-body" style="min-height: 76px; text-align: center;">
@@ -88,7 +37,71 @@
     <% end %>
   </div>
 
-
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default" id="schedule-panel">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="text-align: center;">Upcoming Lessons You're Teaching</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <colgroup>
+              <col style="width:25%">
+              <col style="width:35%">
+              <col style="width:35%">
+              <col style="width:5%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Problem</th>
+                <th>Lesson Description</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody id="lesson-group">
+                <%= render partial: 'lessons/lesson', collection: @lessons, as: :lesson %>
+            </tbody>
+          </table>
+          <div class="col-md-6 col-md-offset-3" id="new-lesson-div">
+            <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#newLesson">Schedule New Lesson</button>
+            <%= render 'lessons/create_modal' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+    
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default" id="schedule-panel">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="text-align: center;">Upcoming Courses To Attend</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <colgroup>
+              <col style="width:25%">
+              <col style="width:35%">
+              <col style="width:35%">
+              <col style="width:5%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Problem</th>
+                <th>Course Description</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody id="course-group">
+                <%= render partial: 'lessons/course', collection: @courses, as: :course %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <%= link_to root_path, id: "back-dashboard-link-text" do %>
