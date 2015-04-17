@@ -7,9 +7,11 @@ class ContactFormsController < ApplicationController
     @contact_form = ContactForm.new(contact_form_params)
     @contact_form.request = request
     if @contact_form.deliver
-      redirect_to root_path, notice: "Message sent!"
+      redirect_to root_path
+      flash[:success] = "Message sent!"
     else
-      render :new, notice: "Message failed! :("
+      render :new
+      flash.now[:alert] = "Message failed :("
     end
   end
 

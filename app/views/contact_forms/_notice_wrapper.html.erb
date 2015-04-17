@@ -1,9 +1,9 @@
-<% if notice %>
+<% if flash[:success] %>
   <div id ="notice_wrapper">
-    <p class="notice"><%= notice %></p>
+    <p class="notice"><%= flash[:success] %></p>
   </div>
-<% elsif alert %>
+<% elsif flash[:alert] %>
   <div id="notice_wrapper">
-    <p class="alert"><%= alert %></p>
+    <p class="alert"><%= flash[:alert] %></p>
   </div>
 <% end %>
