@@ -1,3 +1,15 @@
+div#colab-buttons {
+  padding: 5px;
+}
+
+div#status-buttons {
+  padding: 5px;
+}
+
+div#problem-buttons {
+  padding: 5px;
+}
+
 div#post-box {
   height: 500px;
 }
