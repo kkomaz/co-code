@@ -1,5 +1,9 @@
 <div id="active-users" class="panel">
-  <div class="center-text bold underline">Active Users</div>
+  <div class="panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title" style="text-align: center;">Active Users</h3>
+    </div>
+  </div>
   <div class="user-list">
     <%= render partial: 'rooms/user', collection: room.active_users, as: :user %>
   </div>
