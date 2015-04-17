@@ -32,7 +32,7 @@
                   <% if @rooms %>
                     <% @rooms.each.with_index(1) do |room, index| %>
                       <li role="presentation">
-                        <%= link_to "Room #{index}", problem_room_path(@language.slug, @problem.slug, room), role: "menuitem", tabindex: "-1" %></li>
+                        <%= link_to room.title, problem_room_path(@language.slug, @problem.slug, room), role: "menuitem", tabindex: "-1" %></li>
                     <% end %>
                   <% end %>
                 </ul>
@@ -77,7 +77,7 @@
             <%= progress_buttons(@language_problem) %>
           </div>
           <div class="col-md-6 col-xs-12" id="problem-buttons">
-            <%= favorite_buttons(@language_problem) %>
+            <%= render '/problems/favorite_display' %>
           </div>  
         </div>
       </div>   

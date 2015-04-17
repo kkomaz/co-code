@@ -71,7 +71,7 @@
           <% if @favorites.empty? %>
             <%= render 'problems/no_favorites' %>
           <% else %>
-            <%= render partial: 'problems/favorite', :collection => @favorites, as: :favorite %>
+              <%= render partial: 'problems/favorite', :collection => @favorites, as: :favorite %>
           <% end %>
         </div>
       </div>
