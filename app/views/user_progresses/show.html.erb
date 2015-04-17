@@ -70,8 +70,8 @@
         </div>
       </div>
     </div>
-  </div> 
-    
+  </div>
+
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default" id="schedule-panel">
@@ -94,10 +94,15 @@
                 <th>Link</th>
               </tr>
             </thead>
-            <tbody id="course-group">
+            <%- if @courses.empty? -%>
+              </table>
+              <%= render 'problems/no_courses' %>
+            <%- else -%>
+              <tbody id="course-group">
                 <%= render partial: 'lessons/course', collection: @courses, as: :course %>
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+            <%- end -%>
         </div>
       </div>
     </div>
