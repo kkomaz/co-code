@@ -5,6 +5,7 @@ div.post-body {
 
 #post-text-field {
   padding: 5px 11px;
+  border-radius: 5px;
 }
 
 #post-text-area {
@@ -17,10 +18,6 @@ div.post-title {
 }
 
 /* POST SHOW PAGE */
-
-div.post-title {
-  border-bottom: 1px solid #999;
-}
 
 div.dark-panel {
   color: #fff;
