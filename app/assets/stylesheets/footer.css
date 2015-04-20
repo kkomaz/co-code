@@ -40,18 +40,6 @@ p#footer-title {
   margin-top: 15px;
 }
 
-.col-md-4.banner-right {
-  border-right: solid;
-  border-right-width: 1.5px;
-}
-
-.col-md-4.banner-both {
-  border-right: solid;
-  border-left: solid;
-  border-left-width: 1.5px;
-  border-right-width: 1.5px;
-}
-
 .fui-question-circle.big{
   font-size: 50px;
 }
@@ -59,4 +47,10 @@ p#footer-title {
 .col-md-3.question{
   display: block;
   margin: 60px auto;
+}
+
+@media only screen and (max-width: 768px) {
+  #center-sage {
+    border: none;
+  }
 }
