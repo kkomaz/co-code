@@ -81,35 +81,26 @@ RSpec.describe User, type: :model do
       end
     end
 
-    describe "#find_language_problem_ids" do
-      it "returns language_problem_ids belonging to a user" do
-        user = create(:user, :id => 1)
-        language_problem = create(:user_progress, :user_id => 1, :status => 1).language_problem
-        language = language_problem.language
-        expect(user.find_language_problem_ids(language)).to eq([language_problem.id])
-      end
-    end
-
     describe "#completed_problems" do
       it "returns completed user_progresses (problems) for a given language" do
         user = create(:user, :id => 2)
         completed_problem = create(:user_progress, :user_id => 2, :status => 2)
         language = completed_problem.language_problem.language
-        expect(user.completed_problems(language)).to eq([completed_problem])
+        expect(user.completed_user_progresses(language)).to eq([completed_problem])
       end
 
       it "does not return user_progresses for incomplete problems" do
         user = create(:user, :id => 2)
         incomplete_problem = create(:user_progress, :user_id => 2, :status => 1)
         language = incomplete_problem.language_problem.language
-        expect(user.completed_problems(language)).to eq([])
+        expect(user.completed_user_progresses(language)).to eq([])
       end
 
       it "does not return user_progresses for viewed problems" do
         user = create(:user, :id => 2)
         viewed_problem = create(:user_progress, :user_id => 2, :status => 0)
         language = viewed_problem.language_problem.language
-        expect(user.completed_problems(language)).to eq([])
+        expect(user.completed_user_progresses(language)).to eq([])
       end
     end
 
@@ -118,21 +109,21 @@ RSpec.describe User, type: :model do
         user = create(:user, :id => 2)
         viewed_problem = create(:user_progress, :user_id => 2, :status => 0)
         language = viewed_problem.language_problem.language
-        expect(user.problems_viewed_but_not_started(language)).to eq([viewed_problem])
+        expect(user.incomplete_user_progresses(language)).to eq([viewed_problem])
       end
 
       it "does not return the current problem" do
         user = create(:user, :id => 2)
         current_problem = create(:user_progress, :user_id => 2, :status => 1)
         language = current_problem.language_problem.language
-        expect(user.problems_viewed_but_not_started(language)).to eq([])
+        expect(user.incomplete_user_progresses(language)).to eq([])
       end
 
       it "does not return completed problems" do
         user = create(:user, :id => 2)
         completed_problem = create(:user_progress, :user_id => 2, :status => 2)
         language = completed_problem.language_problem.language
-        expect(user.problems_viewed_but_not_started(language)).to eq([])
+        expect(user.incomplete_user_progresses(language)).to eq([])
       end
     end
 

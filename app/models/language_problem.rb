@@ -15,23 +15,18 @@ class LanguageProblem < ActiveRecord::Base
     where("schedule >= ?", Time.now.utc).order(:schedule)
   end
 
-  def self.assign_all_problems(user, language_id)
-    language = Language.find(language_id)
-    self.where(:language => language).each do |language_problem|
-      UserProgress.find_or_create_by(:user => user, :language_problem => language_problem)
-    end
-  end
+  def self.assign_problems(user, language, limit=nil)
+    language_problems = self.where(:language => language)
+    language_problems.order(:id).limit(limit) if limit
 
-  def self.assign_first_fifty_problems(user, language)
-    @language_problems = self.where(:language => language).order(:id).limit(50)
-    @language_problems.each do |language_problem|
-      UserProgress.create(:user => user, :language_problem => language_problem)
+    language_problems.each do |language_problem|
+      UserProgress.find_or_create_by(:user => user, :language_problem => language_problem)
     end
   end
 
   def self.find_language_problem(language, problem)
     language = Language.find(language)
-    problem = problem ? Problem.find(problem) : Problem.find(1)
+    problem = Problem.find(problem)
     self.where({:language => language, :problem => problem}).first
   end
 end

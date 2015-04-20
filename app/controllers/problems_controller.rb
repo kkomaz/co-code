@@ -6,8 +6,8 @@ class ProblemsController < ApplicationController
     @language_problem = LanguageProblem.find_language_problem(params[:language_id], params[:id])
     @language = @language_problem.language
     @problem = @language_problem.problem
-    @users_working = UserProgress.current_problem_users(@language, @problem, current_user)
-    @users_finished = UserProgress.finished_problem_users(@language, @problem, current_user)
+    @users_working = UserProgress.problem_users(@language, @problem, current_user, 1)
+    @users_finished = UserProgress.problem_users(@language, @problem, current_user, 2)
     @posts = Kaminari.paginate_array(@language_problem.posts.reverse).page(params[:page]).per(4)
     @post = Post.new
     @rooms = @language_problem.rooms.limit(3)
