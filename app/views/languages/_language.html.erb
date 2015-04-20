@@ -2,7 +2,7 @@
 <ol>
   <li>
   <%= language.name %>
-  <p> Completed Problems: <%= current_user.completed_problems(language).count %></p>
+  <p> Completed Problems: <%= current_user.completed_user_progresses(language).count %></p>
   <%= link_to "#{language.name} Path", progress_path(language.slug) %>
   </li>
 </ol>

@@ -15,7 +15,7 @@ module UsersHelper
   end
 
   def completed_count(language)
-    current_user.completed_problems(language).count
+    current_user.completed_user_progresses(language).count
   end
 
   def total_count(language)

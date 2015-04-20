@@ -20,7 +20,7 @@ module InvitationsHelper
 
   #create method to get collection for users invite
   def users_courses
-    current_user.upcoming_courses.limit(5)
+    current_user.all_upcoming_courses.limit(5)
   end
 
   #create method to get collection for language problem lessons
