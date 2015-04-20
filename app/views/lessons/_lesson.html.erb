@@ -1,6 +1,0 @@
-<tr>
-  <td><%= lesson.schedule.strftime(" %a, %m/%d at %l:%M%P") %></td>
-  <td><%= link_to lesson.problem.shortened_name(40,40), language_problem_path(lesson.language, lesson.problem) %></td>
-  <td><%= lesson.description %></td>
-  <td><%= link_to "Room", problem_room_path(lesson.language, lesson.problem, lesson.room) %></td>
-</tr>
