@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
 
   # change user's current problem based on the user_progress status
   def change_current_problem(user_progress)
-    if user_progress.status == 0
+    if user_progress.status == 0 || user_progress.status == 2
       self.replace_current_problem(user_progress.language)
     elsif user_progress.status == 1
       next_language_problem = self.next_problem(user_progress.language)[0].language_problem
