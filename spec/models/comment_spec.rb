@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  describe "Comment validations" do 
+  describe "Comment validations" do
     it "has a valid factory" do
       expect(create(:comment)).to be_valid
+    end
+
+    it "is valid with a user_id, post_id, and content" do
+      comment = Comment.new(user_id: 1, post_id: 1, content: "Comment content")
+      expect(comment).to be_valid
     end
 
     it "is invalid without content" do
