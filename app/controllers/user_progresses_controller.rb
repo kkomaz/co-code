@@ -1,7 +1,7 @@
 class UserProgressesController < ApplicationController
   def create
     @language = Language.find(params[:language][:id])
-    LanguageProblem.assign_first_fifty_problems(current_user, @language)
+    LanguageProblem.assign_problems(current_user, @language, 50)
     UserProgress.set_first_problem_as_current(current_user, @language)
     redirect_to user_path(current_user)
   end
