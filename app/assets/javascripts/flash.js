@@ -3,5 +3,5 @@ $(function(){
     $('#notice_wrapper').fadeOut("slow", function(){
       $(this).remove();
     });
-  }, 600);
-}); 
+  }, 1000);
+});

@@ -20,9 +20,13 @@ class UserProgressesController < ApplicationController
     @problem = @language_problem.problem
     @user_progress = UserProgress.progress_for_user(current_user, @language_problem)
     if params[:user_progress][:status]
-      current_user.change_current_problem(@user_progress) # => change user's current problem
+      current_user.change_current_problem(@user_progress)
     end
     @user_progress.update(user_progress_params)
+
+    if params[:user_progress][:status] == "2"
+      flash[:success] = "Nice job! Here's the next problem."
+    end
     respond_to do |f|
       f.js {}
       f.html{redirect_to language_problem_path(@language, current_user.current_problem(@language))}
