@@ -10,8 +10,8 @@ class UserProgressesController < ApplicationController
     @language = Language.find(params[:id])
     @current_problem = current_user.current_problem(@language)
     @favorites = current_user.favorited_problems(@language).limit(12).order(:id)
-    @lessons = current_user.upcoming_lessons(@language)
-    @courses = current_user.upcoming_courses(@language)
+    @lessons = current_user.upcoming_lessons(@language).order(:schedule)
+    @courses = current_user.upcoming_courses(@language).order(:schedule)
   end
 
   def update
