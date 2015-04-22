@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_filter :set_cache_buster
 
+  rescue_from ActionController::RoutingError, :with => :error_404_render_method
+  rescue_from Exception, :with => :error_404_render_method
+
+  def error_404_render_method
+    render :template => "public/404", :status => 404, :layout => false
+    true
+  end
+
+
   def set_cache_buster
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
