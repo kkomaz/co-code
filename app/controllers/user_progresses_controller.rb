@@ -17,7 +17,12 @@ class UserProgressesController < ApplicationController
   def search
     @language = Language.find(params[:language_id])
     @problem = Problem.where("title LIKE ?", "%#{params[:query]}%").limit(1).first
-    redirect_to language_problem_path(@language.slug, @problem.slug)
+    if @problem
+      redirect_to language_problem_path(@language.slug, @problem.slug)
+    else
+      flash[:alert] = "Sorry, couldn't find anything - here's your current problem"
+      redirect_to language_problem_path(@language.slug, current_user.current_problem(@language))
+    end
   end
 
   def update
