@@ -15,7 +15,6 @@ class UserProgressesController < ApplicationController
   end
 
   def search
-    # binding.pry
     @language = Language.find(params[:language_id])
     @problem = Problem.where("title LIKE ?", "%#{params[:query]}%").limit(1).first
     redirect_to language_problem_path(@language.slug, @problem.slug)
