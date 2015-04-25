@@ -5,12 +5,15 @@
   <div class="row top-pad">
     <div class="col-md-12">
       <div class="dark-panel panel-height">
-        <div class="post-body clearfix" id="bread-text">
+        <div class="post-body-search clearfix" id="bread-text">
           <div class="float-left">
             <%= link_to progress_path(@language.slug) do %>
               <%= language_symbol(@language) %><l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l>
             <%- end -%> / <%= problem_number(@problem) %>
           </div>
+          <%= form_tag problem_search_path(@language), class: "post-body-search pull-right", role: "search" do %>
+              <input name="query" type="text" class="form-control" id="problem-search" placeholder="Search all problems...">
+          <% end %>
           <div class="bread-button clearfix" id="bread-button">
           </div>
         </div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post '/:language_id/search' => 'user_progresses#search', :as => 'problem_search'
+
   get '/:language_id/lessons/new' => 'lessons#new', :as => 'new_lesson'
 
   post '/:language_id/lessons' => 'lessons#create', :as => 'language/lessons'
