@@ -10,8 +10,19 @@ class UserProgressesController < ApplicationController
     @language = Language.find(params[:id])
     @current_problem = current_user.current_problem(@language)
     @favorites = current_user.favorited_problems(@language).limit(12).order(:id)
-    @lessons = current_user.upcoming_lessons(@language)
-    @courses = current_user.upcoming_courses(@language)
+    @lessons = current_user.upcoming_lessons(@language).order(:schedule)
+    @courses = current_user.upcoming_courses(@language).order(:schedule)
+  end
+
+  def search
+    @language = Language.find(params[:language_id])
+    @problem = Problem.where("title LIKE ?", "%#{params[:query]}%").limit(1).first
+    if @problem
+      redirect_to language_problem_path(@language.slug, @problem.slug)
+    else
+      flash[:alert] = "Sorry, couldn't find anything - here's your current problem"
+      redirect_to language_problem_path(@language.slug, current_user.current_problem(@language))
+    end
   end
 
   def update

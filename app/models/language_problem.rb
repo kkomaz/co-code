@@ -16,8 +16,10 @@ class LanguageProblem < ActiveRecord::Base
   end
 
   def self.assign_problems(user, language, limit=nil)
-    language_problems = self.where(:language => language)
-    language_problems.order(:id).limit(limit) if limit
+    if limit
+      language_problems = self.where(:language => language).order(:id).limit(limit)
+    end
+    language_problems ||= self.where(:language => language)
 
     language_problems.each do |language_problem|
       UserProgress.find_or_create_by(:user => user, :language_problem => language_problem)
