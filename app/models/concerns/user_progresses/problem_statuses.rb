@@ -9,7 +9,7 @@ module Concerns
           problem = Problem.first_problem
           language = Language.find(language_id)
           user_progress = progresses(language,problem).where(:user => user).first
-          user_progress.update(:status => 1)
+            user_progress.update(:status => 1)
         end
 
         def problem_users(language, problem, user, status)
@@ -19,7 +19,7 @@ module Concerns
 
         def progresses(language, problem)
           UserProgress.joins(:language_problem).
-          where(:language_problems => {:language_id => language, :problem_id => problem})
+            where(:language_problems => {:language_id => language, :problem_id => problem})
         end
 
       end
