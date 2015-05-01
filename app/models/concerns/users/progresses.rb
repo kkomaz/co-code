@@ -13,8 +13,8 @@ module Concerns
 
       def get_user_progresses(language)
         self.user_progresses.
-        joins(:language_problem).
-        where(:language_problems => {:language_id => language})
+          joins(:language_problem).
+          where(:language_problems => {:language_id => language})
       end
 
       def incomplete_user_progresses(language)
@@ -31,8 +31,8 @@ module Concerns
 
       def next_user_progress(language)
         incomplete_user_progresses(language).
-        order(:language_problem_id).
-        limit(1).first
+          order(:language_problem_id).
+          limit(1).first
       end
 
       def favorited_problems(language)
