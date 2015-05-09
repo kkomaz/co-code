@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require autocomplete-rails
 //= require bootstrap
 //= require bootstrap-markdown
 //= require flash

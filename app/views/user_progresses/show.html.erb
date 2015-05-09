@@ -6,7 +6,7 @@
         <div class="post-body-search" id="languages-text">
           <span id="languages-title"><%= language_symbol(@language) %> <l style="color: <%= language_color(@language) %>;"><%= @language.name.upcase %></l> DASHBOARD</span>
           <%= form_tag problem_search_path(@language), class: "post-body-search pull-right", role: "search" do %>
-              <input name="query" type="text" class="form-control" id="problem-search" placeholder="Search all problems...">
+              <input name="query" type="text" class="form-control" id="problem-search" placeholder="Search all problems..." data-autocomplete="problems/autocomplete_problem_title">
           <% end %>
         </div>
       </div>
