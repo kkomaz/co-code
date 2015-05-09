@@ -27,7 +27,6 @@ gem 'faye-redis'
 gem 'mail_form'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
-gem 'rails4-autocomplete'
 
 group :test, :development do
   gem 'rspec-rails'

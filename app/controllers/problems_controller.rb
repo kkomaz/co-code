@@ -1,5 +1,4 @@
 class ProblemsController < ApplicationController
-  autocomplete  :problem, :title
 
   def show
     @language_problem = LanguageProblem.find_language_problem(params[:language_id], params[:id])
