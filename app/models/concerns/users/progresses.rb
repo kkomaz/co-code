@@ -14,7 +14,8 @@ module Concerns
       def get_user_progresses(language)
         self.user_progresses.
           joins(:language_problem).
-          where(:language_problems => {:language_id => language})
+          where(:language_problems => {:language_id => language}).
+          includes([{:language_problem => [:language, :problem]}])
       end
 
       def incomplete_user_progresses(language)
