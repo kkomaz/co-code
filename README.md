@@ -2,38 +2,11 @@
 
 ## Description
 
-Add a short description of your app.
+Co-code is a platform for programmers to work on technical practice problems in a collaborative way - users get the support they need while working on a problem and then gain a deeper understanding of the concept through teaching it to others.
 
-## Screenshots
+The app allows users to select a track based on their preferred language and begin working collaboratively in chatrooms and forums to solve coding challenges together. Problems are based on the Project Euler question and users can host lessons to lead discussions or be invited to join live discussions.
 
-Add some spiffy screenshots of your app here.
-
-## Background
-
-Why did you want to make this app? What was your development process
-like?
-
-## Features
-
-Bullet point some of the key features of your app here.
-
-## Usage
-
-How do users use your app?
-
-## Development/Contribution
-
-Explain how people can contribute to your app. How should they write tests?
-Any things in particular you'd like to see in pull requests?
-
-## Future
-
-What features are you currently working on? Only mention things that you
-actually are implementing. No pie-in-the-sky-never-gonna-happen stuff.
-
-## Author
-
-Link to your blog, twitter, etc!
+The core application is built on rails. To support live chatrooms and reflect our user's 'online' status we are using a Faye Rack application  to administer the websocket connections along with a Redis server for handling pub/sub. After logging into the application through email or Facebook, each interaction is customized to the specific user and their progress through each programming challenge.
 
 ## License
 
