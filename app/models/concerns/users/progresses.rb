@@ -21,7 +21,7 @@ module Concerns
         get_user_progresses(language).where(:status => 0)
       end
 
-      def current_user_progress(language)
+      def current_user_progress(language)     
         get_user_progresses(language).where(:status => 1).first
       end
 
