@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  post '/:language_id/search' => 'user_progresses#search', :as => 'problem_search'
+  post '/:language_id/search' => 'problems#search', :as => 'problem_search'
+
+  resources :problems do
+    get :autocomplete_problem_title, :on => :collection
+  end
 
   get '/:language_id/lessons/new' => 'lessons#new', :as => 'new_lesson'
 
