@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :lesson do
-    association :room
-    association :host, factory: :user
+    room
+    host
     schedule { Faker::Date.forward }
     description { Faker::Hacker.say_something_smart }
   end

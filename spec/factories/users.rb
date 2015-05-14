@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :user do
+  factory :user, aliases: [:host] do
     email {Faker::Internet.email}
     password {Faker::Internet.password}
     password_confirmation { |u| u.password }
