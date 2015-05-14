@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :room do
-    languge_problem_id 1
-host_id 1
+    association :language_problem
+    title { Faker::Hacker.phrases }
   end
 
 end
