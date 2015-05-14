@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Comment do
+describe Comment, type: :model do
 
   describe "Comment validations" do
     it "has a valid factory" do
