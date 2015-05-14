@@ -19,4 +19,9 @@ describe Invitation, type: :model do
 
     expect(invitation.errors[:user]).to include("can't be blank")
   end
+
+  describe '::create_invitations' do
+    it "creates invitations for users"
+    it "doesn't create invitations for all users"
+  end
 end
