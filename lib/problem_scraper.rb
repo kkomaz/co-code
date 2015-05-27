@@ -21,15 +21,21 @@ class ProblemScraper
   end
 
   def create_import_hash
-    @content_doc.search("h3").collect.with_index do |title, index|
+    result = @content_doc.search("h3").collect.with_index do |title, index|
       {:title => scrape_title(title),
-      :content => scrape_content(title.next_sibling),
       :difficulty => scrape_difficulty(index)}
     end
+
+    @content_doc.search('.problem_content').each_with_index do |description, index|
+      result[index][:content] = (description.children.text.to_s.strip.gsub(/\r/," ").gsub(/\n/," "))
+    end
+    result
   end
 
   def scrape_title (title)
-    title.children.text
+    title_filtered = title.children.text
+    final_title = title_filtered.slice(0..(title_filtered.index('Published'))).slice(0..-2)
+    final_title
   end
 
   def scrape_content (content)
